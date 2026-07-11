@@ -1,0 +1,5 @@
+{
+  "descriptionBudgetMax": 1500,
+  "tokenSoftWarn": 80000,
+  "tokenHardStop": 120000
+}

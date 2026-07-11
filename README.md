@@ -11,4 +11,4 @@ Windows-first skills harness for VS Code Copilot and Claude Code.
 | [Implementation plan](docs/plan/IMPLEMENTATION_PLAN.md) | Phases 0–3 MVP |
 | [SETUP](SETUP.md) | Setup pointer |
 
-MVP status: Phase 0 bootstrap.
+MVP status: Phase 1 control plane (install/sync/hooks/context/ledger).

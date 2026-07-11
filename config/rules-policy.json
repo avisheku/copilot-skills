@@ -1,0 +1,4 @@
+{
+  "injectOrder": ["rules/global", "rules/skill", "memory/team", "env/shared.md"],
+  "neverAlwaysOn": ["rules/user", "memory/user", "secrets"]
+}

@@ -1,0 +1,19 @@
+{
+  "defaultProfile": "minimal",
+  "profiles": [
+    {
+      "id": "minimal",
+      "label": "No extra MCP servers",
+      "config": {
+        "mcpServers": {}
+      }
+    },
+    {
+      "id": "dev",
+      "label": "Development helpers (placeholder)",
+      "config": {
+        "mcpServers": {}
+      }
+    }
+  ]
+}

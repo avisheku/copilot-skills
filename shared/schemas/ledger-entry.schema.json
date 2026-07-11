@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LedgerEntry",
+  "type": "object",
+  "required": ["ts", "session", "skill", "outcome"],
+  "properties": {
+    "ts": { "type": "string" },
+    "session": { "type": "string" },
+    "skill": { "type": "string" },
+    "tool": { "type": "string" },
+    "outcome": { "enum": ["ok", "warn", "deny", "error"] },
+    "tokens_est": { "type": "integer" }
+  }
+}

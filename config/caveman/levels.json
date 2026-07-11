@@ -1,0 +1,8 @@
+{
+  "default": "lite",
+  "levels": {
+    "lite": { "maxWords": 80 },
+    "full": { "maxWords": 200 },
+    "ultra": { "maxWords": 40 }
+  }
+}

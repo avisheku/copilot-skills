@@ -1,0 +1,4 @@
+{
+  "dangerPatterns": ["rm -rf", "format c:", "Remove-Item -Recurse -Force C:\\", "DROP DATABASE", "git push --force"],
+  "secretPatterns": ["(?i)(api[_-]?key|password|secret|token)\\s*[:=]\\s*['\"]?[a-zA-Z0-9]{8,}"]
+}

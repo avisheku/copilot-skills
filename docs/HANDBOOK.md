@@ -31,26 +31,18 @@ Architecture: [plan/ADR.md](plan/ADR.md)
 
 ```powershell
 cd C:\Users\avish\Documents\KnowledgeVault\projects\copilot-skills
-.\scripts\Install-CopilotSkills.ps1 -Target Copilot -Layer Plugin
-```
-
-VERIFY:
-  command: Test-Path "$env:USERPROFILE\.copilot\skills\do\SKILL.md"
-  expect: True
-ON_FAIL:
-  goto: Troubleshoot#install-layer-a
-
-### Layer B (folders)
-
-```powershell
 .\scripts\Install-CopilotSkills.ps1 -Target Copilot -Layer Folders
 ```
 
 VERIFY:
-  command: Get-ChildItem "$env:USERPROFILE\.copilot\skills" -ErrorAction SilentlyContinue
-  expect: skill folders listed
+  command: .\scripts\Sync-CopilotSkills.ps1 -Check
+  expect: exit 0 (all in sync)
 ON_FAIL:
   goto: Troubleshoot#install-layer-b
+
+Smoke (full):
+  command: .\scripts\Test-InstallSmoke.ps1
+  expect: Smoke: all passed.
 
 ## Configure
 

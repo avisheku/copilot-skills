@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "hooks": [
+    {
+      "event": "PreToolUse",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${HOOK_ROOT}/run-secrets-deny.ps1\"",
+      "description": "Block likely secret leaks in tool input"
+    },
+    {
+      "event": "PreToolUse",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${HOOK_ROOT}/run-danger-deny.ps1\"",
+      "description": "Block dangerous command patterns"
+    },
+    {
+      "event": "SessionStart",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${HOOK_ROOT}/run-session-stamp.ps1\"",
+      "description": "Stamp session id for ledger"
+    },
+    {
+      "event": "PostToolUse",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${HOOK_ROOT}/run-ledger.ps1\"",
+      "description": "Append JSONL ledger entry"
+    }
+  ]
+}
