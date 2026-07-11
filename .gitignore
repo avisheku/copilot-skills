@@ -1,0 +1,11 @@
+secrets/
+env/user.md
+memory/user/
+rules/user/
+logs/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp

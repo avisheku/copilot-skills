@@ -1,0 +1,4 @@
+{
+  "roles": ["end-user", "approver", "architect", "implementer"],
+  "maxRecommendations": 5
+}

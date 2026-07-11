@@ -1,0 +1,6 @@
+# Shared env (example)
+
+COPILOT_SKILLS_HOME=
+OBSIDIAN_VAULT=C:\Users\avish\Documents\KnowledgeVault
+
+Copy to env/user.md and fill local values.

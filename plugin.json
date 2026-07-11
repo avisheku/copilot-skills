@@ -1,0 +1,6 @@
+{
+  "name": "copilot-skills",
+  "version": "0.1.0",
+  "description": "Windows-first Copilot/Claude skills harness",
+  "skills": "./skills"
+}
