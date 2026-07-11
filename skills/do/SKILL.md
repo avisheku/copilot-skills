@@ -1,32 +1,30 @@
 ---
 name: do
-description: Clarify intent, research, confirm ShortPlan, implement to completion, then 2080.
+description: Clarify, research, confirm ShortPlan, model-aware implement, 2080, handoff.
 ---
 
 # /do
 
-Orchestrate work end-to-end. Follow `shared/instructions/gate-flow.md`.
+Orchestrate end-to-end. Follow `shared/instructions/gate-flow.md`.
 
 ## Procedure
 
-1. **Gate 1 — Clarify** — ask before research (goal, scope, done, constraints).
-2. **Gate 2 — Research** — delegate `/research` or inline; depth one.
-3. **Re-clarify** if research changes scope.
-4. **Gate 3 — ShortPlan** — user must confirm yes. Use `New-ShortPlan` helper if scripting.
-5. **Gate 4 — Implement** — FullPlan for workers only. Native parallel after confirm.
-6. **Gate 5 — `/2080`** — ≤ five recommendations.
+1. **Prep (deterministic)** — `scripts/Invoke-DoPrep.ps1` (MCP snapshot, minimal, context pack, model tips).
+2. **Gate 1 — Clarify** — goal, scope, done, constraints.
+3. **Gate 2 — Research** — delegate `/research` (`shared/fixtures/delegatesTo-research.json`); depth one; native fork if parallel.
+4. **Re-clarify** if scope changed.
+5. **Gate 3 — ShortPlan** — user confirm yes. `New-ShortPlan` / `Confirm-Plan`.
+6. **Gate 4 — Implement** — FullPlan for `agents/do.agent.md` workers only. Model tips at worker boundary via `Invoke-ModelTipInject`.
+7. **Gate 5 — `/2080`** — ≤ five recommendations.
+8. **Finish** — `scripts/Invoke-DoFinish.ps1` (restore context, model, MCP; handoff if `Test-SessionTokenThreshold` warns).
 
-## Helpers
+## Native parallel
 
-- Gate: `scripts/modules/Gate.psm1`
-- Context: `Invoke-ContextPack` then `Restore-ContextDefault`
-- Ledger: `Write-LedgerEntry -Skill do`
+After confirm only. Independent steps → native fork / `context: fork`. Sequential for gates, secrets, promote.
 
-## Rules
+## Session tokens
 
-- Never implement before ShortPlan confirm.
-- Never dump pack rules into global Copilot instructions.
-- Restore MCP `minimal` after work.
+`Test-SessionTokenThreshold` — soft warn → offer handoff; hard stop → `New-HandoffPack` + new chat.
 
 ## delegatesTo
 

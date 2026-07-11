@@ -9,8 +9,11 @@
 - [ ] `Test-Phase2.ps1` passes
 - [ ] Install Layer B + sync -Check green
 
-## Phase 3 (next)
+## Phase 3 (MVP STOP)
 
-- [ ] Golden path with `/do` tiny task
-- [ ] HANDBOOK complete
-- [ ] Model tips on `/do`
+- [x] Model tips + Invoke-DoPrep/Finish
+- [x] Handoff pack + session thresholds
+- [x] delegatesTo research fixture
+- [x] HANDBOOK complete with VERIFY
+- [x] Test-GoldenPath.ps1 + evidence/golden-path.json
+- [ ] User: real `/do` task in Copilot Chat

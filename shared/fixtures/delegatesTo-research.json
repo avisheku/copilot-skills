@@ -1,0 +1,11 @@
+{
+  "fixture": "delegatesTo-research",
+  "parent": "do",
+  "delegate": "research",
+  "description": "Phase 3 MUST: /do delegates research at Gate 2",
+  "expected": {
+    "gate": "research",
+    "depth": 1,
+    "output": "synth for ShortPlan"
+  }
+}

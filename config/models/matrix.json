@@ -1,0 +1,16 @@
+{
+  "defaultTier": "universal",
+  "taskTiers": {
+    "orchestrate": "universal",
+    "implement": "universal",
+    "research": "universal"
+  },
+  "families": {
+    "anthropic": { "tipCard": "tips/anthropic.md", "catalogUrl": "https://docs.anthropic.com" },
+    "openai": { "tipCard": "tips/openai.md", "catalogUrl": "https://platform.openai.com/docs" },
+    "google": { "tipCard": "tips/google.md", "catalogUrl": "https://ai.google.dev/docs" },
+    "universal": { "tipCard": "tips/universal.md", "catalogUrl": "" }
+  },
+  "injectAt": "worker_boundary",
+  "restoreAfterDo": true
+}

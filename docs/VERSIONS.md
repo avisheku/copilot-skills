@@ -2,5 +2,5 @@
 
 | Component | Version |
 |-----------|---------|
-| Pack | 0.3.0-phase2 |
+| Pack | 1.0.0-mvp |
 | Schema | 1 |

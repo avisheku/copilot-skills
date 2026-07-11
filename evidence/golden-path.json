@@ -1,0 +1,49 @@
+﻿{
+    "goldenPath":  "install -\u003e mcp minimal -\u003e do prep -\u003e 2080 -\u003e finish -\u003e ledger",
+    "timestamp":  "2026-07-11T17:26:54.1210015Z",
+    "pass":  true,
+    "steps":  [
+                  {
+                      "step":  1,
+                      "command":  "Install-CopilotSkills",
+                      "pass":  true,
+                      "detail":  "installed"
+                  },
+                  {
+                      "step":  2,
+                      "command":  "Sync -Check",
+                      "pass":  true,
+                      "detail":  "in sync"
+                  },
+                  {
+                      "step":  3,
+                      "command":  "/mcp minimal",
+                      "pass":  true,
+                      "detail":  "minimal profile"
+                  },
+                  {
+                      "step":  4,
+                      "command":  "/do prep",
+                      "pass":  true,
+                      "detail":  "list repo top-level folders"
+                  },
+                  {
+                      "step":  5,
+                      "command":  "/2080 roles",
+                      "pass":  true,
+                      "detail":  "end-user,approver,architect,implementer"
+                  },
+                  {
+                      "step":  6,
+                      "command":  "handoff/restore",
+                      "pass":  true,
+                      "detail":  "restored"
+                  },
+                  {
+                      "step":  7,
+                      "command":  "ledger",
+                      "pass":  true,
+                      "detail":  "exists"
+                  }
+              ]
+}

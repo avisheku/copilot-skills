@@ -3,6 +3,9 @@ env/user.md
 memory/user/
 memory/.context-state.json
 memory/.mcp-state.json
+memory/.model-state.json
+memory/.handoff-pack.json
+memory/.mcp-snapshot.json
 rules/user/
 logs/
 *.log
