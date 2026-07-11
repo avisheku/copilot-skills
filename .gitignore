@@ -1,6 +1,8 @@
 secrets/
 env/user.md
 memory/user/
+memory/.context-state.json
+memory/.mcp-state.json
 rules/user/
 logs/
 *.log
