@@ -1,1 +1,1 @@
-{"id":"create","version":"0.1.0","phase":"mvp"}
+{"id":"create","version":"0.2.0","phase":"mvp","delegatesTo":["research"]}

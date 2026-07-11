@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FullPlan",
+  "type": "object",
+  "required": ["id", "goal", "confirmed", "steps"],
+  "properties": {
+    "id": { "type": "string" },
+    "goal": { "type": "string" },
+    "confirmed": { "type": "boolean" },
+    "skillId": { "type": "string" },
+    "delegatesTo": { "type": "array", "items": { "type": "string" } },
+    "parallelGroup": { "type": "string" },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "action"],
+        "properties": {
+          "id": { "type": "string" },
+          "action": { "type": "string" },
+          "skillId": { "type": "string" },
+          "parallelGroup": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,10 @@ if (-not (Get-Module -ListAvailable Pester)) {
 }
 
 $config = New-PesterConfiguration
-$config.Run.Path = Join-Path $PSScriptRoot 'L1'
+$config.Run.Path = @(
+    (Join-Path $PSScriptRoot 'L1\ControlPlane.Tests.ps1'),
+    (Join-Path $PSScriptRoot 'L1\Phase2.Tests.ps1')
+)
 $config.Run.PassThru = $true
 $config.Output.Verbosity = 'Detailed'
 $result = Invoke-Pester -Configuration $config
