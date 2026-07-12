@@ -18,6 +18,8 @@ function Set-McpProfile {
     $dest = Join-Path $Root '.mcp.json'
     $match.config | ConvertTo-Json -Depth 10 | Set-Content $dest -Encoding utf8
     $statePath = Join-Path $Root 'memory\.mcp-state.json'
+    $stateDir = Split-Path $statePath -Parent
+    if (-not (Test-Path $stateDir)) { New-Item -ItemType Directory -Force -Path $stateDir | Out-Null }
     @{ active = $ProfileId; switchedAt = (Get-Date).ToUniversalTime().ToString('o') } |
         ConvertTo-Json | Set-Content $statePath -Encoding utf8
     return $match
