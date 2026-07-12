@@ -40,3 +40,4 @@ Assert $ab.Pass ("moa abidance" + $(if ($ab.Issues.Count) { ": $($ab.Issues -joi
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 6: all passed."
+exit 0

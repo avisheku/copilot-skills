@@ -35,3 +35,4 @@ Assert (($ops | Where-Object { -not $_.Pass }).Count -eq 0) 'learn/stats/audit a
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 4: all passed."
+exit 0

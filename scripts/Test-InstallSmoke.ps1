@@ -23,3 +23,4 @@ Assert (-not (Test-Path (Get-StatePath -Root $Root))) 'context restore'
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Smoke: all passed."
+exit 0

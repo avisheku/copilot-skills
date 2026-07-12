@@ -24,3 +24,4 @@ Assert (Test-Path (Join-Path $Root 'docs\DEFER.md')) "DEFER doc"
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 5: all passed."
+exit 0

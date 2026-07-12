@@ -25,3 +25,4 @@ Assert (($sync | Where-Object { -not $_.InSync }).Count -eq 0) 'install + sync'
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 2: all passed."
+exit 0

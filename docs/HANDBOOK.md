@@ -233,6 +233,14 @@ Fix: shorten skill `description` in frontmatter; max 1500 total.
 
 See [COMPAT.md](COMPAT.md) and [VERSIONS.md](VERSIONS.md).
 
+## CI / merge control
+
+PRs must pass GitHub Actions **PowerShell gates**. See [CI.md](CI.md).
+
+```powershell
+.\scripts\Test-CI.ps1
+```
+
 ## Uninstall
 
 ```powershell

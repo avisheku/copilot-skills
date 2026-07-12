@@ -67,3 +67,4 @@ if (-not $allPass) {
     exit 1
 }
 Write-Host "Golden path PASSED. Evidence: $out"
+exit 0

@@ -1,6 +1,6 @@
 ﻿{
     "goldenPath":  "install -\u003e mcp minimal -\u003e do prep -\u003e 2080 -\u003e finish -\u003e ledger",
-    "timestamp":  "2026-07-12T09:35:30.7217324Z",
+    "timestamp":  "2026-07-12T09:40:16.2325866Z",
     "pass":  true,
     "steps":  [
                   {
