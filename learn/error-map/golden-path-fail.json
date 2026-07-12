@@ -1,0 +1,6 @@
+{
+  "id": "golden-path-fail",
+  "symptom": "Test-GoldenPath.ps1 fails",
+  "rootCause": "Prior phase regression or paths wrong",
+  "fix": "Run Test-InstallSmoke.ps1 and Test-Phase2.ps1; read evidence/golden-path.json failing step"
+}

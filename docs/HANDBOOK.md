@@ -110,6 +110,9 @@ Evidence written to `evidence/golden-path.json`.
 | Drift / upgrade | `/sync -Check` then sync |
 | Heavy MCP | `/mcp` then restore minimal |
 | New skill block | `/create` |
+| Fix recurring issue | `/learn` |
+| Metrics | `/stats` |
+| Session review | `/audit` |
 
 ## Skill catalog
 
@@ -121,8 +124,22 @@ Evidence written to `evidence/golden-path.json`.
 | `/sync` | Repo ↔ global |
 | `/mcp` | MCP profiles |
 | `/create` | Scaffold + abidance |
+| `/learn` | Upgrade-only promote; error-map; handbook |
+| `/stats` | Ledger rollup |
+| `/audit` | Search + report → learn candidates |
 
-## Troubleshoot
+## Learn workflow (Phase 4)
+
+1. Messy session → `/audit -Report`
+2. Classify → `learn/error-map/` or `New-ErrorMapEntry`
+3. Stage → `.\scripts\Invoke-Learn.ps1 -Kind <kind> -Title "..." -Body "..."`
+4. Tests pass → promote with `-Promote -DualSync`
+5. PR to share improvements
+
+VERIFY:
+  command: `.\scripts\Test-Phase4.ps1`
+  expect: `Phase 4: all passed.`
+
 
 ### install-layer-a
 

@@ -1,0 +1,6 @@
+{
+  "id": "sync-drift",
+  "symptom": "Sync -Check exits 1",
+  "rootCause": "Global skill folder out of date vs repo",
+  "fix": "Run scripts/Repair-Drift.ps1 or Sync-CopilotSkills.ps1 without -Check"
+}

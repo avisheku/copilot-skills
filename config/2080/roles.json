@@ -1,4 +1,4 @@
 {
-  "roles": ["end-user", "approver", "architect", "implementer"],
+  "roles": ["end-user", "approver", "architect", "implementer", "security", "operator"],
   "maxRecommendations": 5
 }

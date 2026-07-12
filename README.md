@@ -11,4 +11,4 @@ Windows-first skills harness for VS Code Copilot and Claude Code.
 | [Implementation plan](docs/plan/IMPLEMENTATION_PLAN.md) | Phases 0–3 MVP |
 | [SETUP](SETUP.md) | Setup pointer |
 
-MVP status: **Phase 3 complete** — golden path ready. Use for real work.
+MVP + Phase 4: full learn/stats/audit, error-map, 2080 security/operator roles.

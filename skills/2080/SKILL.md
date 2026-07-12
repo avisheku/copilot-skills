@@ -15,6 +15,10 @@ Read each lens from `config/2080/roles/*.md`:
 2. approver
 3. architect — apply `config/essentials/ladder.md`
 4. implementer
+5. security (Phase 4)
+6. operator (Phase 4)
+
+Optional: `component:{id}` for component-specific reviews.
 
 ## Output format
 

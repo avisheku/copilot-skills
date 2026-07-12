@@ -1,9 +1,15 @@
 ---
 name: stats
-description: Ledger rollup and metrics. Phase 4.
-disable-model-invocation: true
+description: Ledger rollup — totals by skill, outcome, token estimates.
 ---
 
 # /stats
 
-Stub until Phase 4.
+Searchable JSONL ledger stats.
+
+```powershell
+.\scripts\Invoke-Stats.ps1
+.\scripts\Invoke-Stats.ps1 -Tail 2000
+```
+
+Output: `Get-LedgerStats` — total, by skill, by outcome, token sum.

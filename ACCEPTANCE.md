@@ -17,3 +17,11 @@
 - [x] HANDBOOK complete with VERIFY
 - [x] Test-GoldenPath.ps1 + evidence/golden-path.json
 - [ ] User: real `/do` task in Copilot Chat
+
+## Phase 4
+
+- [x] Full `/learn` upgrade-only + handbook kinds
+- [x] `/stats` `/audit` over ledger
+- [x] error-map shards + docs
+- [x] 2080 security + operator roles
+- [x] Test-Phase4.ps1 passes
