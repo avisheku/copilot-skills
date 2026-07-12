@@ -42,7 +42,8 @@ function Invoke-LoopRun {
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $cfg = Get-LoopConfig -Root $Root
-    if (-not $cfg.enabled) {
+    $explicit = $PSBoundParameters.ContainsKey('MaxIterations') -and $MaxIterations -gt 0
+    if (-not $cfg.enabled -and -not $explicit) {
         Write-Warning "loop.json enabled=false. One-shot iteration only."
     }
     $max = if ($MaxIterations -gt 0) { $MaxIterations } else { [int]$cfg.maxIterations }

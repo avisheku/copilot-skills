@@ -1,6 +1,7 @@
 ---
 name: moa
 description: Mixture of Agents — parallel cheaper proposers + aggregator synth for better quality/cost.
+disable-model-invocation: true
 ---
 
 # /moa

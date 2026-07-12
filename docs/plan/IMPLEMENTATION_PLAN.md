@@ -4,26 +4,34 @@ overview: "Professional Solution Architecture + ADRs + Implementation Plan for W
 todos:
   - id: phase-0-bootstrap
     content: "Phase 0 MUST: Repo, constitution, HANDBOOK skeleton, COMPAT, plugin stubs"
-    status: pending
+    status: completed
   - id: phase-1-control-plane
     content: "Phase 1 MUST: Install/Sync/hooks/ContextPack/Obs/Repair + L1 smoke"
-    status: pending
+    status: completed
   - id: phase-2-core-plugin
     content: "Phase 2 MUST: 6 full skills Layer A/B + gates + abidance"
-    status: pending
+    status: completed
   - id: phase-3-mvp-stop
     content: "Phase 3 MUST: /do+/2080 + complete HANDBOOK + golden path → STOP"
-    status: pending
+    status: completed
   - id: phase-4-should
     content: "Phase 4 SHOULD: /learn upgrade-only + handbook patches + audit/stats"
-    status: pending
+    status: completed
+  - id: phase-5-lean
+    content: "Phase 5 LEAN: /loop /magic wire stub Linux wrappers"
+    status: completed
+  - id: phase-6-moa
+    content: "Phase 6: /moa Mixture-of-Agents MoA-Lite"
+    status: completed
   - id: phase-5-defer
-    content: "Phase 5+ DEFER: TOON/loop/VSIX/REST/custom MCP/OTel on pain only"
+    content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel on pain only"
     status: pending
 isProject: false
 ---
 
 # Copilot Skills Pack — Final Implementation Plan
+
+**Status:** Phases 0–6 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
 
 **Canonical architecture document (read first):**  
 [copilot_skills_pack_ADR.md](C:\Users\avish\Documents\KnowledgeVault\outputs\copilot_skills_pack_ADR.md)  

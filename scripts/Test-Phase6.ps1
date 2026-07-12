@@ -36,7 +36,7 @@ $cmp = Compare-MoAToBaseline -Root $Root
 Assert ($null -ne $cmp.moaOkCount) "baseline compare works"
 
 $ab = Test-AbidanceGate -SkillPath (Join-Path $Root 'skills\moa')
-Assert $ab.Pass "moa abidance ($($ab.Issues -join '; '))"
+Assert $ab.Pass ("moa abidance" + $(if ($ab.Issues.Count) { ": $($ab.Issues -join '; ')" } else { '' }))
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 6: all passed."

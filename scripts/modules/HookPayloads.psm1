@@ -16,6 +16,11 @@ function Test-HooksManifest {
         foreach ($h in $m.hooks) {
             if (-not $h.event) { $issues += 'hook missing event' }
             if (-not $h.command) { $issues += "hook $($h.event) missing command" }
+            if ($h.command -match 'run-([a-z\-]+)\.ps1') {
+                $scriptName = "run-$($Matches[1]).ps1"
+                $scriptPath = Join-Path $Root "hooks\$scriptName"
+                if (-not (Test-Path $scriptPath)) { $issues += "missing hook script: $scriptName" }
+            }
         }
     } catch {
         $issues += $_.Exception.Message

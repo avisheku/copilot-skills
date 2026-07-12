@@ -38,7 +38,7 @@ try {
 # 5 2080 roles
 try {
     $roles = (Get-PackConfig -Name '2080\roles.json' -Root $Root).roles
-    Step 5 '/2080 roles' ($roles.Count -eq 4) ($roles -join ',')
+    Step 5 '/2080 roles' ($roles.Count -ge 4) ($roles -join ',')
 } catch { Step 5 '/2080 roles' $false $_.Exception.Message }
 
 # 6 Do finish + handoff

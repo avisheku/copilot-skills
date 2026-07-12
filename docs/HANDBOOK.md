@@ -132,6 +132,14 @@ Evidence written to `evidence/golden-path.json`.
 | `/loop` | Manual audit→2080 loop |
 | `/magic` | Alias → `/2080` |
 
+VERIFY:
+  command: `.\scripts\Test-Phase2.ps1`
+  expect: `Phase 2: all passed.`
+
+VERIFY:
+  command: `.\scripts\Test-GoldenPath.ps1`
+  expect: `Golden path PASSED`
+
 ## Learn workflow (Phase 4)
 
 1. Messy session → `/audit -Report`

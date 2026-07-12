@@ -1,13 +1,13 @@
-# Pack acceptance (MVP)
+# Pack acceptance
 
 ## Phase 2
 
-- [ ] Six full skills: do, research, 2080, sync, mcp, create
-- [ ] Each MVP skill: SKILL.md, meta.json, README, SETUP, ACCEPTANCE
-- [ ] skills.graph.json validates
-- [ ] Gate module + shared gate-flow.md
-- [ ] `Test-Phase2.ps1` passes
-- [ ] Install Layer B + sync -Check green
+- [x] Six full skills: do, research, 2080, sync, mcp, create
+- [x] Each MVP skill: SKILL.md, meta.json, README, SETUP, ACCEPTANCE
+- [x] skills.graph.json validates
+- [x] Gate module + shared gate-flow.md
+- [x] `Test-Phase2.ps1` passes
+- [x] Install Layer B + sync -Check green
 
 ## Phase 3 (MVP STOP)
 
@@ -43,3 +43,10 @@
 - [x] Invoke-MoA / Invoke-MoAFinish + proposer/aggregator agents
 - [x] Compare-MoAToBaseline (stats-gated wire later)
 - [x] Test-Phase6.ps1 passes
+
+## 80/20 hardening (post-audit)
+
+- [x] Golden path roles ≥ 4 (not stuck at 4)
+- [x] Description budget counts MVP skills by default
+- [x] Loop warn silenced when MaxIterations explicit
+- [x] Hooks manifest verifies run-*.ps1 files exist

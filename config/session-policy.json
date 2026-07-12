@@ -1,5 +1,6 @@
 {
   "descriptionBudgetMax": 1500,
+  "descriptionBudgetScope": "mvp",
   "tokenSoftWarn": 80000,
   "tokenHardStop": 120000
 }
