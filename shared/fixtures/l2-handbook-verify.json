@@ -1,0 +1,6 @@
+{
+  "id": "l2-handbook-verify",
+  "type": "file-contains",
+  "path": "docs/HANDBOOK.md",
+  "mustContain": ["VERIFY:", "ON_FAIL:", "Agent contract", "Golden path"]
+}

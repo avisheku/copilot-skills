@@ -44,6 +44,24 @@
 - [x] Compare-MoAToBaseline (stats-gated wire later)
 - [x] Test-Phase6.ps1 passes
 
+## Phase 7 (governance)
+
+- [x] InstallSmoke + Phase7 in Test-CI
+- [x] Ledger schema + golden-path shape + learn negatives
+- [x] L2 fixtures + Invoke-L2PromoteGate on promote/handbook
+- [x] Export-LocalDashboard.ps1 → evidence/dashboard.html
+- [x] L3 static markers + promptfoo YAML (LLM optional)
+- [x] CI.md L1/L2/L3 matrix + HANDBOOK promote policy
+
+## Phase 8 (ICS quality)
+
+- [x] Quality.psm1 Instruction Contract Score + baseline maxDrop
+- [x] l4-quality-cases + quality-gate.json + quality-baseline.json
+- [x] Test-Phase8 in Test-CI; promote quality gate for md paths
+- [x] Dashboard ICS KPIs
+- [x] Optional quality-judge.yml (continue-on-error)
+- [x] PHASE8_QUALITY_GATE.md
+
 ## 80/20 hardening (post-audit)
 
 - [x] Golden path roles ≥ 4 (not stuck at 4)

@@ -1,0 +1,8 @@
+{
+  "id": "l2-research-depth",
+  "type": "json-path",
+  "path": "config/research/depth.json",
+  "asserts": [
+    { "key": "defaultMaxDepth", "op": "eq", "value": 1 }
+  ]
+}

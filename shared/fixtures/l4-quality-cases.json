@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "description": "Instruction Contract Score cases — procedure markers for weaker-model resilience",
+  "cases": [
+    {
+      "id": "do-procedure",
+      "weight": 3,
+      "paths": ["skills/do/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "Clarify" },
+        { "op": "contains", "value": "confirm" },
+        { "op": "contains", "value": "/2080" },
+        { "op": "contains", "value": "Invoke-DoPrep" },
+        { "op": "heading", "value": "Procedure" },
+        { "op": "notContains", "value": "TODO: remove gates" },
+        { "op": "minBytes", "value": 400 }
+      ]
+    },
+    {
+      "id": "learn-upgrade",
+      "weight": 2.5,
+      "paths": ["skills/learn/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "upgrade-only" },
+        { "op": "contains", "value": "Promote" },
+        { "op": "contains", "value": "VERIFY" },
+        { "op": "heading", "value": "Workflow" },
+        { "op": "minBytes", "value": 300 }
+      ]
+    },
+    {
+      "id": "handbook-verify",
+      "weight": 3,
+      "paths": ["docs/HANDBOOK.md"],
+      "checks": [
+        { "op": "verifyBlock", "value": true },
+        { "op": "contains", "value": "ON_FAIL:" },
+        { "op": "contains", "value": "Agent contract" },
+        { "op": "contains", "value": "Golden path" },
+        { "op": "minBytes", "value": 2000 },
+        { "op": "maxBytes", "value": 200000 }
+      ]
+    },
+    {
+      "id": "gate-flow",
+      "weight": 2.5,
+      "paths": ["shared/instructions/gate-flow.md"],
+      "checks": [
+        { "op": "contains", "value": "Gate 1" },
+        { "op": "contains", "value": "Clarify" },
+        { "op": "contains", "value": "Confirm" },
+        { "op": "contains", "value": "ShortPlan" },
+        { "op": "contains", "value": "Implement" },
+        { "op": "minBytes", "value": 400 }
+      ]
+    },
+    {
+      "id": "moa-aggregator",
+      "weight": 1,
+      "paths": ["config/moa/aggregator-system.md"],
+      "checks": [
+        { "op": "contains", "value": "Synthesize" },
+        { "op": "minBytes", "value": 80 },
+        { "op": "maxBytes", "value": 20000 }
+      ]
+    },
+    {
+      "id": "moa-proposer",
+      "weight": 1,
+      "paths": ["config/moa/proposer-system.md"],
+      "checks": [
+        { "op": "contains", "value": "Answer the user" },
+        { "op": "minBytes", "value": 40 },
+        { "op": "maxBytes", "value": 20000 }
+      ]
+    },
+    {
+      "id": "stats-contract",
+      "weight": 1.5,
+      "paths": ["skills/stats/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "Get-LedgerStats" },
+        { "op": "minBytes", "value": 100 }
+      ]
+    },
+    {
+      "id": "audit-contract",
+      "weight": 1.5,
+      "paths": ["skills/audit/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "audit" },
+        { "op": "minBytes", "value": 80 }
+      ]
+    },
+    {
+      "id": "2080-contract",
+      "weight": 1.5,
+      "paths": ["skills/2080/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "2080" },
+        { "op": "minBytes", "value": 100 }
+      ]
+    },
+    {
+      "id": "sync-contract",
+      "weight": 1,
+      "paths": ["skills/sync/SKILL.md"],
+      "checks": [
+        { "op": "contains", "value": "sync" },
+        { "op": "minBytes", "value": 80 }
+      ]
+    }
+  ]
+}

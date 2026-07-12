@@ -1,0 +1,8 @@
+{
+  "id": "l2-wire-format",
+  "type": "json-path",
+  "path": "config/wire.json",
+  "asserts": [
+    { "key": "format", "op": "eq", "value": "compact-json" }
+  ]
+}

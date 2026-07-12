@@ -1,0 +1,10 @@
+{
+  "id": "l2-2080-roles",
+  "type": "json-path",
+  "path": "config/2080/roles.json",
+  "asserts": [
+    { "key": "roles", "op": "gte", "value": 4 },
+    { "key": "roles", "op": "contains", "value": "security" },
+    { "key": "roles", "op": "contains", "value": "operator" }
+  ]
+}

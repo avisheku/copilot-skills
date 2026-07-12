@@ -47,14 +47,27 @@ try {
     Step 6 'handoff/restore' $fin.restored 'restored'
 } catch { Step 6 'handoff/restore' $false $_.Exception.Message }
 
-# 7 Ledger
+# 7 Ledger exists
 $ledger = Get-LedgerPath -Root $Root
 $hasLedger = Test-Path $ledger
 Step 7 'ledger' $hasLedger $(if ($hasLedger) { 'exists' } else { 'missing' })
 
+# 8 Ledger contracts (do prep + finish must have written entries)
+try {
+    $entries = @(Get-LedgerEntries -Root $Root -Tail 50)
+    $doOk = @($entries | Where-Object { $_.skill -eq 'do' -and $_.outcome -eq 'ok' })
+    $schemaOk = $true
+    foreach ($e in $doOk) {
+        $r = Test-LedgerEntrySchema -Entry $e -Root $Root
+        if (-not $r.Pass) { $schemaOk = $false; break }
+    }
+    $ok = ($doOk.Count -ge 2) -and $schemaOk
+    Step 8 'ledger contracts' $ok "do-ok=$($doOk.Count) schema=$schemaOk"
+} catch { Step 8 'ledger contracts' $false $_.Exception.Message }
+
 $allPass = (@($steps | Where-Object { -not $_.pass })).Count -eq 0
 $evidence = [ordered]@{
-    goldenPath = 'install -> mcp minimal -> do prep -> 2080 -> finish -> ledger'
+    goldenPath = 'install -> mcp minimal -> do prep -> 2080 -> finish -> ledger -> contracts'
     timestamp  = (Get-Date).ToUniversalTime().ToString('o')
     pass       = $allPass
     steps      = $steps

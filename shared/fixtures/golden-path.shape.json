@@ -1,0 +1,13 @@
+{
+  "minSteps": 7,
+  "requiredSteps": [
+    { "step": 1, "command": "Install-CopilotSkills", "mustPass": true },
+    { "step": 2, "command": "Sync", "mustPass": true },
+    { "step": 3, "command": "mcp", "mustPass": true },
+    { "step": 4, "command": "do prep", "mustPass": true },
+    { "step": 5, "command": "2080", "mustPass": true },
+    { "step": 6, "command": "handoff", "mustPass": true },
+    { "step": 7, "command": "ledger", "mustPass": true },
+    { "step": 8, "command": "ledger contracts", "mustPass": true }
+  ]
+}

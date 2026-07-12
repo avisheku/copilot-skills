@@ -1,5 +1,135 @@
-# Promptfoo stub — Phase 5
-description: Copilot skills gate smoke (manual)
-providers: []
-prompts: []
-tests: []
+# Promptfoo L3 evals (optional, never sole merge gate)
+
+description: Copilot skills static contract smoke — prefer Test-Phase7 static markers in CI
+providers:
+  - id: echo
+    config:
+      note: "Static/file checks live in shared/fixtures/l3-static-markers.json via Test-L3StaticMarkers"
+
+prompts:
+  - "{{input}}"
+
+tests:
+  - description: do skill contract markers
+    vars:
+      input: file://../../skills/do/SKILL.md
+    assert:
+      - type: contains
+        value: Clarify
+      - type: contains
+        value: confirm
+      - type: contains
+        value: "/2080"
+
+  - description: learn upgrade-only
+    vars:
+      input: file://../../skills/learn/SKILL.md
+    assert:
+      - type: contains
+        value: upgrade-only
+      - type: contains
+        value: Promote
+
+  - description: handbook VERIFY
+    vars:
+      input: file://../../docs/HANDBOOK.md
+    assert:
+      - type: contains
+        value: "VERIFY:"
+      - type: contains
+        value: "ON_FAIL:"
+
+  - description: moa aggregator system
+    vars:
+      input: file://../../config/moa/aggregator-system.md
+    assert:
+      - type: contains
+        value: Synthesize
+
+  - description: moa proposer system
+    vars:
+      input: file://../../config/moa/proposer-system.md
+    assert:
+      - type: contains
+        value: Answer the user
+
+  - description: gate-flow
+    vars:
+      input: file://../../shared/instructions/gate-flow.md
+    assert:
+      - type: contains
+        value: Gate
+
+  - description: pillars
+    vars:
+      input: file://../../docs/PILLARS.md
+    assert:
+      - type: contains
+        value: Pillar
+
+  - description: principles
+    vars:
+      input: file://../../docs/PRINCIPLES.md
+    assert:
+      - type: contains
+        value: Essential
+
+  - description: stats skill
+    vars:
+      input: file://../../skills/stats/SKILL.md
+    assert:
+      - type: contains
+        value: Get-LedgerStats
+
+  - description: audit skill
+    vars:
+      input: file://../../skills/audit/SKILL.md
+    assert:
+      - type: contains
+        value: audit
+
+  - description: moa skill
+    vars:
+      input: file://../../skills/moa/SKILL.md
+    assert:
+      - type: contains
+        value: MoA
+
+  - description: ci doc
+    vars:
+      input: file://../../docs/CI.md
+    assert:
+      - type: contains
+        value: PowerShell gates
+
+  - description: error-map doc
+    vars:
+      input: file://../../docs/error-map.md
+    assert:
+      - type: contains
+        value: error-map
+
+  - description: loop skill
+    vars:
+      input: file://../../skills/loop/SKILL.md
+    assert:
+      - type: contains
+        value: loop
+
+  - description: 2080 skill
+    vars:
+      input: file://../../skills/2080/SKILL.md
+    assert:
+      - type: contains
+        value: "2080"
+
+  - description: sync skill
+    vars:
+      input: file://../../skills/sync/SKILL.md
+    assert:
+      - type: contains
+        value: sync
+
+# Manual (optional):
+#   npx promptfoo@latest eval -c tests/evals/promptfoo.yaml
+# CI enforces the same markers via Test-Phase7 / Test-L3StaticMarkers (no LLM).

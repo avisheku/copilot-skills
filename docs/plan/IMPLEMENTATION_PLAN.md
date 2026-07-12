@@ -23,6 +23,12 @@ todos:
   - id: phase-6-moa
     content: "Phase 6: /moa Mixture-of-Agents MoA-Lite"
     status: completed
+  - id: phase-7-governance
+    content: "Phase 7: L1/L2/L3 gates + local HTML dashboard + promote governance"
+    status: completed
+  - id: phase-8-quality
+    content: "Phase 8: ICS quality gate vs baseline maxDrop + optional judge"
+    status: completed
   - id: phase-5-defer
     content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel on pain only"
     status: pending
@@ -31,7 +37,7 @@ isProject: false
 
 # Copilot Skills Pack — Final Implementation Plan
 
-**Status:** Phases 0–6 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
+**Status:** Phases 0–8 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
 
 **Canonical architecture document (read first):**  
 [copilot_skills_pack_ADR.md](C:\Users\avish\Documents\KnowledgeVault\outputs\copilot_skills_pack_ADR.md)  
@@ -153,8 +159,12 @@ Code owns paths/schemas/tests; AI owns judgment inside gates only.
 | **4** | SHOULD | Full `/learn` · handbook patches · `/stats` `/audit` · dual sync PR |
 | **5** | LEAN | `/loop` · `/magic` · wire stub · Linux wrappers |
 | **6** | ACTIVE | `/moa` Mixture-of-Agents (MoA-Lite) — multi-proposer + aggregator |
+| **7** | ACTIVE | Testability · L1/L2/L3 · promote gates · local dashboard |
+| **8** | ACTIVE | Instruction Contract Score · baseline maxDrop · optional judge |
 
-**Phase 6 detail:** [docs/plan/PHASE6_MOA.md](PHASE6_MOA.md)
+**Phase 6 detail:** [docs/plan/PHASE6_MOA.md](PHASE6_MOA.md)  
+**Phase 7 detail:** [docs/plan/PHASE7_GOVERNANCE.md](PHASE7_GOVERNANCE.md)  
+**Phase 8 detail:** [docs/plan/PHASE8_QUALITY_GATE.md](PHASE8_QUALITY_GATE.md)
 
 **Golden path:** HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080` → handoff → ledger (if hooks)
 

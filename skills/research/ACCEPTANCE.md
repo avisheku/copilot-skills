@@ -1,6 +1,9 @@
 # /research acceptance
 
-- [ ] Clarify before search
-- [ ] Depth one unless user expands
-- [ ] Synth cites sources or marks unknown
-- [ ] No implement without `/do` confirm
+**Legend:** `[CI]` · `[human]`
+
+- [ ] `[human]` Clarify before search
+- [x] `[CI]` Depth one default (`config/research/depth.json` L2)
+- [ ] `[human]` Synth cites sources or marks unknown
+- [ ] `[human]` No implement without `/do` confirm
+- [x] `[CI]` delegatesTo fixture present

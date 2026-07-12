@@ -1,0 +1,11 @@
+{
+  "minAbsolute": 0.85,
+  "maxDropFromBaseline": 0.05,
+  "pathGlobs": [
+    "skills/**/*.md",
+    "config/moa/**",
+    "docs/HANDBOOK.md",
+    "shared/instructions/**"
+  ],
+  "note": "ICS = Instruction Contract Score (deterministic). Optional LLM judge is not a merge gate."
+}

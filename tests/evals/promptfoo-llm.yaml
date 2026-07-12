@@ -1,0 +1,45 @@
+# Optional LLM judge — NEVER sole merge gate (Phase 8)
+# Requires OPENAI_API_KEY. Prefer PowerShell ICS in Test-Phase8 for merge blocking.
+
+description: Optional instruction quality judge (non-blocking)
+providers:
+  - id: openai:gpt-4o-mini
+    config:
+      temperature: 0
+
+prompts:
+  - |
+    You are grading whether an instruction file still encodes safe agent procedure.
+    Score pass only if clarify/confirm/upgrade-only/VERIFY contracts remain clear for a weaker model.
+    File excerpt:
+    {{file}}
+
+tests:
+  - description: do skill still has gates
+    vars:
+      file: file://../../skills/do/SKILL.md
+    assert:
+      - type: llm-rubric
+        value: Mentions clarify before research and user confirm before implement
+      - type: contains
+        value: Clarify
+
+  - description: learn still upgrade-only
+    vars:
+      file: file://../../skills/learn/SKILL.md
+    assert:
+      - type: llm-rubric
+        value: Requires upgrade-only promote and VERIFY preservation
+      - type: contains
+        value: upgrade-only
+
+  - description: handbook VERIFY present
+    vars:
+      file: file://../../docs/HANDBOOK.md
+    assert:
+      - type: contains
+        value: "VERIFY:"
+
+# Manual:
+#   npx promptfoo@latest eval -c tests/evals/promptfoo-llm.yaml
+# CI: .github/workflows/quality-judge.yml (continue-on-error)

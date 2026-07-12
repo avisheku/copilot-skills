@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "policy": "static markers only — never sole merge gate; live LLM optional via promptfoo manually",
+  "cases": [
+    { "id": "do-skill", "path": "skills/do/SKILL.md", "mustContain": ["Clarify", "confirm", "/2080"] },
+    { "id": "learn-skill", "path": "skills/learn/SKILL.md", "mustContain": ["upgrade-only", "Promote"] },
+    { "id": "stats-skill", "path": "skills/stats/SKILL.md", "mustContain": ["Get-LedgerStats"] },
+    { "id": "audit-skill", "path": "skills/audit/SKILL.md", "mustContain": ["audit"] },
+    { "id": "moa-skill", "path": "skills/moa/SKILL.md", "mustContain": ["MoA", "proposer"] },
+    { "id": "handbook-verify", "path": "docs/HANDBOOK.md", "mustContain": ["VERIFY:", "ON_FAIL:"] },
+    { "id": "moa-aggregator", "path": "config/moa/aggregator-system.md", "mustContain": ["Synthesize"] },
+    { "id": "moa-proposer", "path": "config/moa/proposer-system.md", "mustContain": ["Answer the user"] },
+    { "id": "gate-flow", "path": "shared/instructions/gate-flow.md", "mustContain": ["Gate"] },
+    { "id": "pillars", "path": "docs/PILLARS.md", "mustContain": ["Pillar"] },
+    { "id": "principles", "path": "docs/PRINCIPLES.md", "mustContain": ["Essential"] },
+    { "id": "ci-doc", "path": "docs/CI.md", "mustContain": ["PowerShell gates"] },
+    { "id": "error-map-doc", "path": "docs/error-map.md", "mustContain": ["error-map"] },
+    { "id": "loop-skill", "path": "skills/loop/SKILL.md", "mustContain": ["loop"] },
+    { "id": "2080-skill", "path": "skills/2080/SKILL.md", "mustContain": ["2080"] },
+    { "id": "sync-skill", "path": "skills/sync/SKILL.md", "mustContain": ["sync"] }
+  ]
+}

@@ -86,6 +86,17 @@ function Test-LearnUpgradeOnly {
         if ($new -lt ($old * 0.5) -and $old -gt 100) {
             $issues += 'possible degrade: staging much smaller than target'
         }
+        # Markdown targets: required headings / VERIFY markers must not disappear
+        if ($TargetPath -match '\.(md|markdown)$') {
+            $before = Get-Content $TargetPath -Raw -ErrorAction SilentlyContinue
+            $after = Get-Content $StagingPath -Raw -ErrorAction SilentlyContinue
+            if ($before -and $after) {
+                $markers = Test-MarkersPreserved -BeforeText $before -AfterText $after
+                if (-not $markers.Pass) {
+                    $issues += "markers dropped: $($markers.Missing -join '; ')"
+                }
+            }
+        }
     }
     [pscustomobject]@{ Pass = ($issues.Count -eq 0); Issues = $issues }
 }
@@ -95,10 +106,19 @@ function Invoke-LearnPromote {
         [Parameter(Mandatory)][string]$StagingFile,
         [Parameter(Mandatory)][string]$TargetFile,
         [switch]$DualSync,
+        [switch]$SkipPromoteGates,
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $cfg = Get-LearnConfig -Root $Root
     if (-not $cfg.upgradeOnly) { throw 'upgradeOnly disabled' }
+
+    if (-not $SkipPromoteGates) {
+        $gate = Invoke-L2PromoteGate -Root $Root
+        if (-not $gate.Pass) { throw "Promote gate failed: $($gate.Issues -join '; ')" }
+        $qg = Invoke-QualityGate -Root $Root -TargetPath $TargetFile
+        if (-not $qg.Pass) { throw "Quality gate failed: $($qg.Issues -join '; ')" }
+    }
+
     $upgrade = Test-LearnUpgradeOnly -StagingPath $StagingFile -TargetPath $TargetFile -Root $Root
     if (-not $upgrade.Pass) { throw "Upgrade check failed: $($upgrade.Issues -join '; ')" }
 
@@ -117,14 +137,30 @@ function Invoke-LearnHandbookPatch {
     param(
         [Parameter(Mandatory)][string]$StagingFile,
         [switch]$WhatIf,
+        [switch]$SkipPromoteGates,
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $handbook = Join-Path $Root 'docs\HANDBOOK.md'
     if (-not (Test-Path $handbook)) { throw 'HANDBOOK.md not found' }
-    $hb = Get-Content $handbook -Raw
-    if ($hb -notmatch 'VERIFY:') { throw 'Handbook VERIFY blocks must remain intact' }
+    $hbBefore = Get-Content $handbook -Raw
+    if ($hbBefore -notmatch 'VERIFY:') { throw 'Handbook VERIFY blocks must remain intact' }
+
+    if (-not $SkipPromoteGates) {
+        $gate = Invoke-L2PromoteGate -Root $Root
+        if (-not $gate.Pass) { throw "Promote gate failed: $($gate.Issues -join '; ')" }
+        $qg = Invoke-QualityGate -Root $Root -TargetPath $handbook
+        if (-not $qg.Pass) { throw "Quality gate failed: $($qg.Issues -join '; ')" }
+    }
+
     $upgrade = Test-LearnUpgradeOnly -StagingPath $StagingFile -TargetPath $handbook -Root $Root
     if (-not $upgrade.Pass) { throw "Handbook patch rejected: $($upgrade.Issues -join '; ')" }
+
+    $hbAfter = Get-Content $StagingFile -Raw
+    $intact = Test-HandbookVerifyIntact -BeforeText $hbBefore -AfterText $hbAfter
+    if (-not $intact.Pass) {
+        throw "Handbook VERIFY/ON_FAIL regression: $($intact.Missing -join '; ')"
+    }
+
     if (-not $WhatIf) {
         Copy-Item $StagingFile $handbook -Force
         $shareDir = Join-Path $Root 'share\handbook'

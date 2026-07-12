@@ -1,0 +1,6 @@
+{
+  "id": "l2-do-skill-contract",
+  "type": "file-contains",
+  "path": "skills/do/SKILL.md",
+  "mustContain": ["name: do", "Clarify", "confirm"]
+}

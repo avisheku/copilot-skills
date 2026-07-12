@@ -1,0 +1,67 @@
+name: Quality judge (optional)
+
+# Optional LLM judge — NOT a merge gate. continue-on-error.
+# Requires OPENAI_API_KEY secret; otherwise skips.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'skills/**/*.md'
+      - 'config/moa/**'
+      - 'docs/HANDBOOK.md'
+      - 'shared/instructions/**'
+      - 'tests/evals/promptfoo-llm.yaml'
+      - 'shared/fixtures/l4-quality-cases.json'
+
+concurrency:
+  group: quality-judge-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  judge:
+    name: Optional LLM judge
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skip without API key
+        id: skip
+        shell: bash
+        run: |
+          if [ -z "${{ secrets.OPENAI_API_KEY }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No OPENAI_API_KEY — optional judge skipped (ICS still enforced by PowerShell gates)."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.skip.outputs.skip != 'true'
+        with:
+          node-version: '22'
+
+      - name: Run promptfoo LLM stub
+        if: steps.skip.outputs.skip != 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        shell: bash
+        run: |
+          set -e
+          mkdir -p evidence
+          if [ ! -f tests/evals/promptfoo-llm.yaml ]; then
+            echo "promptfoo-llm.yaml missing" >&2
+            exit 0
+          fi
+          npx --yes promptfoo@0.114.3 eval -c tests/evals/promptfoo-llm.yaml -o evidence/quality-judge.json || true
+          echo "Judge artifact written (non-blocking)."
+
+      - name: Upload judge artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-judge
+          path: evidence/quality-judge.json
+          if-no-files-found: ignore

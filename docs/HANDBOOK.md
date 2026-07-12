@@ -140,13 +140,16 @@ VERIFY:
   command: `.\scripts\Test-GoldenPath.ps1`
   expect: `Golden path PASSED`
 
-## Learn workflow (Phase 4)
+## Learn workflow (Phase 4 + Phase 7 gates)
 
 1. Messy session → `/audit -Report`
 2. Classify → `learn/error-map/` or `New-ErrorMapEntry`
 3. Stage → `.\scripts\Invoke-Learn.ps1 -Kind <kind> -Title "..." -Body "..."`
-4. Tests pass → promote with `-Promote -DualSync`
-5. PR to share improvements
+4. **L1 + L2 + quality (ICS) must pass** → promote with `-Promote -DualSync` (auto-runs `Invoke-L2PromoteGate` + `Invoke-QualityGate` for md/handbook/moa paths)
+5. Handbook patches: staging must keep every prior `VERIFY:` / `ON_FAIL:` line
+6. PR to share improvements
+
+Upgrade-only: rejects byte shrink **and** dropped markdown markers (headings / VERIFY lines).
 
 VERIFY:
   command: `.\scripts\Test-Phase4.ps1`
@@ -191,6 +194,37 @@ Compare-MoAToBaseline
 VERIFY:
   command: `.\scripts\Test-Phase6.ps1`
   expect: `Phase 6: all passed.`
+
+## Phase 7 — Testability & governance
+
+L1 in CI · L2 promote gates · local HTML dashboard · static L3 markers.  
+Detail: [plan/PHASE7_GOVERNANCE.md](plan/PHASE7_GOVERNANCE.md)
+
+```powershell
+.\scripts\Test-CI.ps1
+.\scripts\Invoke-Stats.ps1 -Html
+# open evidence\dashboard.html
+```
+
+VERIFY:
+  command: `.\scripts\Test-Phase7.ps1`
+  expect: `Phase 7: all passed.`
+
+## Phase 8 — Instruction quality (ICS)
+
+Deterministic Instruction Contract Score vs baseline (`maxDrop`).  
+Detail: [plan/PHASE8_QUALITY_GATE.md](plan/PHASE8_QUALITY_GATE.md)
+
+```powershell
+.\scripts\Test-Phase8.ps1
+.\scripts\Update-QualityBaseline.ps1   # only after intentional green upgrades
+```
+
+`/learn` promote of md/handbook/moa targets also runs `Invoke-QualityGate` after L2.
+
+VERIFY:
+  command: `.\scripts\Test-Phase8.ps1`
+  expect: `Phase 8: all passed.`
 
 ## Troubleshoot
 

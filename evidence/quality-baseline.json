@@ -1,0 +1,49 @@
+﻿{
+    "version":  1,
+    "casesVersion":  "d0cdebf20bb5343cd57f997ca2778584849e7d9ccfab4e7f1e3e3231eacb309b",
+    "score":  1,
+    "caseScores":  {
+                       "handbook-verify":  {
+                                               "pass":  true,
+                                               "weight":  3
+                                           },
+                       "sync-contract":  {
+                                             "pass":  true,
+                                             "weight":  1
+                                         },
+                       "gate-flow":  {
+                                         "pass":  true,
+                                         "weight":  2.5
+                                     },
+                       "moa-aggregator":  {
+                                              "pass":  true,
+                                              "weight":  1
+                                          },
+                       "learn-upgrade":  {
+                                             "pass":  true,
+                                             "weight":  2.5
+                                         },
+                       "2080-contract":  {
+                                             "pass":  true,
+                                             "weight":  1.5
+                                         },
+                       "audit-contract":  {
+                                              "pass":  true,
+                                              "weight":  1.5
+                                          },
+                       "moa-proposer":  {
+                                            "pass":  true,
+                                            "weight":  1
+                                        },
+                       "stats-contract":  {
+                                              "pass":  true,
+                                              "weight":  1.5
+                                          },
+                       "do-procedure":  {
+                                            "pass":  true,
+                                            "weight":  3
+                                        }
+                   },
+    "generatedAt":  "2026-07-12T10:21:43.2196822Z",
+    "note":  "Instruction Contract Score (deterministic). Update only after intentional green upgrades."
+}

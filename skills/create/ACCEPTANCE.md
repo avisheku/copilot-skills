@@ -1,6 +1,7 @@
 # /create acceptance
 
-- [ ] All scaffold files present
-- [ ] `Invoke-CreateAbidanceGate` passes
-- [ ] `Test-SkillsGraph` passes
-- [ ] L1 tests pass before PR
+**Legend:** `[CI]` · `[human]`
+
+- [x] `[CI]` Abidance gate / graph checks exist for skills
+- [ ] `[human]` All scaffold files present for new skill
+- [ ] `[human]` L1 tests pass before PR

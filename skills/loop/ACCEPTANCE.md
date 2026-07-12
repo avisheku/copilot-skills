@@ -1,4 +1,6 @@
 # /loop acceptance
 
-- [ ] Invoke-Loop.ps1 completes without error
-- [ ] Ledger entry per iteration
+**Legend:** `[CI]` · `[human]`
+
+- [x] `[CI]` Invoke-Loop.ps1 completes without error (Phase5)
+- [x] `[CI]` Ledger entry per iteration (Loop.psm1)

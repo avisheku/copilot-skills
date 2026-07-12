@@ -19,6 +19,14 @@ $target = Join-Path $env:TEMP "learn-target-test.txt"
 $up = Test-LearnUpgradeOnly -StagingPath $tmp -TargetPath $target -Root $Root
 Assert $up.Pass "upgrade-only allows growth"
 
+# Negative: shrink must fail
+$bigT = Join-Path $env:TEMP 'learn-big-target.txt'
+$smallS = Join-Path $env:TEMP 'learn-small-staging.txt'
+(('Z' * 240)) | Set-Content $bigT -NoNewline
+(('z' * 30)) | Set-Content $smallS -NoNewline
+$down = Test-LearnUpgradeOnly -StagingPath $smallS -TargetPath $bigT -Root $Root
+Assert (-not $down.Pass) "upgrade-only rejects shrink"
+
 Write-LedgerEntry -Skill 'test' -Tool 'phase4' -Outcome 'ok' -TokensEst 10 -Root $Root | Out-Null
 $stats = Get-LedgerStats -Root $Root
 Assert ($stats.Total -ge 1) "ledger stats"
