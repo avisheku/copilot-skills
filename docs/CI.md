@@ -1,4 +1,4 @@
-# CI and merge control
+# SkillsForge — CI and merge control
 
 ```text
 InstallSmoke → Phase2 → GoldenPath → Phase4 → … → Phase10

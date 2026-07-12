@@ -1,4 +1,4 @@
-# SkillGrid brand kit
+# SkillsForge brand kit
 
 | Asset | Path |
 |-------|------|
@@ -7,9 +7,9 @@
 | README banner | [banner.svg](banner.svg) |
 | Colors | [COLORS.md](COLORS.md) |
 
-**Name:** SkillGrid  
-**Pronunciation:** *skill-grid*  
-**Mark:** 3×3 node grid — dark rails, neon signal path  
-**Tagline:** Structure · Prove · Upgrade at AI pace  
+**Name:** SkillsForge  
+**Pronunciation:** *skills-forge*  
+**Mark:** Claw hammer + 3×3 skill grid  
+**Tagline:** 20% Change. 80% Better.  
 
-Repo folder remains `copilot-skills`; product name in docs and demos is **SkillGrid**.
+Repo folder remains `copilot-skills`; product name in docs and demos is **SkillsForge**.

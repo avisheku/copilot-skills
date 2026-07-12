@@ -1,23 +1,21 @@
-# SkillGrid brand colors
+# SkillsForge brand colors
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| `ink` | `#0B2A2E` | "Skill" / dark nodes / rails |
-| `teal` | `#2F8F8C` | "Grid" wordmark |
-| `signal` | `#7CFF4A` | Neon active nodes / accents |
-| `deep` | `#061418` | Dark fields / banners |
-| `fog` | `#E8F2F2` | Light text on dark |
-| `mist` | `#8BA3B5` | Muted labels |
+| `skills` | `#1B3A6B` | "Skills" wordmark / blue rings |
+| `forge` | `#3D3D3D` | "Forge" / hammer / charcoal |
+| `deep` | `#0F1724` | Dark banner fields |
+| `fog` | `#F4F6F8` | Light surfaces |
+| `mist` | `#6B7280` | Tagline / muted |
 
 CSS variables:
 
 ```css
 :root {
-  --sg-ink: #0B2A2E;
-  --sg-teal: #2F8F8C;
-  --sg-signal: #7CFF4A;
-  --sg-deep: #061418;
-  --sg-fog: #E8F2F2;
-  --sg-mist: #8BA3B5;
+  --sf-skills: #1B3A6B;
+  --sf-forge: #3D3D3D;
+  --sf-deep: #0F1724;
+  --sf-fog: #F4F6F8;
+  --sf-mist: #6B7280;
 }
 ```

@@ -1,4 +1,6 @@
-# Copilot Skills Pack — Solution Architecture & ADRs
+# SkillsForge — Solution Architecture & ADRs
+
+**Product:** SkillsForge · **Tagline:** 20% Change. 80% Better. · **Pack:** Copilot Skills Pack (`copilot-skills`)
 
 | Field | Value |
 |-------|-------|
@@ -715,4 +717,4 @@ Silent = accept all. Explicitly not adopted: hooks replace gates · eliminate PS
 
 ---
 
-*End of Solution Architecture & ADRs — Copilot Skills Pack v1.0*
+*End of Solution Architecture & ADRs — SkillsForge / Copilot Skills Pack v1.0*

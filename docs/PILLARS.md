@@ -1,4 +1,6 @@
-# Seven pillars
+# SkillsForge — Seven pillars
+
+**20% Change. 80% Better.**
 
 | # | Pillar | Test |
 |---|--------|------|

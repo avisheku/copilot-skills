@@ -1,4 +1,6 @@
-# Copilot Skills Pack — Solution Architecture Plan (v2)
+# SkillsForge — Solution Architecture Plan (v2)
+
+Historical research notes for SkillsForge (Copilot Skills Pack).
 
 Document type: Solution design (presentable)
 Status: **REV 2 — research-updated · pending user approval** (v1 was APPROVED 2026-07-11; v2 changes need one confirm)

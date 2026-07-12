@@ -1,32 +1,32 @@
 <p align="center">
-  <img src="brand/banner.svg" alt="SkillGrid — Copilot skills harness" width="100%"/>
+  <img src="brand/banner.svg" alt="SkillsForge — 20% Change. 80% Better." width="100%"/>
 </p>
 
 <p align="center">
-  <img src="brand/logo-wordmark.png" alt="SkillGrid" width="420"/>
+  <img src="brand/logo-wordmark.png" alt="SkillsForge" width="520"/>
 </p>
 
-<h1 align="center">SkillGrid</h1>
+<h1 align="center">SkillsForge</h1>
 
 <p align="center">
-  <strong>The Copilot skills harness that keeps pace with AI.</strong><br/>
-  Structure your agent skills · Prove they work · Upgrade before they go stale.
+  <strong>20% Change. 80% Better.</strong><br/>
+  The Copilot skills harness that keeps pace with AI — structure, prove, and upgrade without rewriting everything.
 </p>
 
 <p align="center">
-  <a href="https://github.com/avisheku/copilot-skills/actions"><img src="https://img.shields.io/github/actions/workflow/status/avisheku/copilot-skills/ci.yml?branch=master&style=for-the-badge&label=CI&color=7CFF4A" alt="CI"/></a>
-  <img src="https://img.shields.io/badge/phases-0–10-2F8F8C?style=for-the-badge" alt="Phases 0–10"/>
-  <img src="https://img.shields.io/badge/pack-1.4.0--phase10-0B2A2E?style=for-the-badge" alt="Version"/>
-  <img src="https://img.shields.io/badge/Windows--first-061418?style=for-the-badge" alt="Windows-first"/>
+  <a href="https://github.com/avisheku/copilot-skills/actions"><img src="https://img.shields.io/github/actions/workflow/status/avisheku/copilot-skills/ci.yml?branch=master&style=for-the-badge&label=CI&color=1B3A6B" alt="CI"/></a>
+  <img src="https://img.shields.io/badge/phases-0–10-3D3D3D?style=for-the-badge" alt="Phases 0–10"/>
+  <img src="https://img.shields.io/badge/pack-1.4.0--phase10-1B3A6B?style=for-the-badge" alt="Version"/>
+  <img src="https://img.shields.io/badge/Windows--first-0F1724?style=for-the-badge" alt="Windows-first"/>
 </p>
 
 ---
 
-## Why SkillGrid
+## Why SkillsForge
 
 AI tools, models, and eval practices move weekly. Most skill packs rot quietly: tips go stale, sources drift, nobody can prove the harness beats solo Chat.
 
-**SkillGrid** is an office-safe skills system for **GitHub Copilot** (and Claude Code) with:
+**SkillsForge** is an office-safe skills system for **GitHub Copilot** (and Claude Code). Small, deliberate upgrades — **20% change** — compound into an **80% better** agent workflow:
 
 | Pillar | What you get |
 |--------|----------------|
@@ -42,9 +42,10 @@ No silent auto-scrape. Upgrades are explicit, measurable, and merge-gated.
 
 | | |
 |-|-|
-| **Name** | SkillGrid (*skill-grid*) |
-| **Mark** | 3×3 node grid — dark rails + neon signal path |
-| **Palette** | Ink `#0B2A2E` · Teal `#2F8F8C` · Signal `#7CFF4A` · Deep `#061418` |
+| **Name** | SkillsForge (*skills-forge*) |
+| **Mark** | Claw hammer + 3×3 skill grid |
+| **Tagline** | 20% Change. 80% Better. |
+| **Palette** | Skills `#1B3A6B` · Forge `#3D3D3D` · Deep `#0F1724` · Fog `#F4F6F8` |
 | **Kit** | [`brand/`](brand/) — wordmark, mark SVG, banner, [COLORS](brand/COLORS.md) |
 
 ---
@@ -52,7 +53,7 @@ No silent auto-scrape. Upgrades are explicit, measurable, and merge-gated.
 ## Quick start
 
 ```powershell
-# From the SkillGrid repo root
+# From the SkillsForge repo root
 .\scripts\Install-CopilotSkills.ps1
 ```
 
@@ -163,7 +164,7 @@ Constitution: [PILLARS](docs/PILLARS.md) · [PRINCIPLES](docs/PRINCIPLES.md)
 ---
 
 <p align="center">
-  <img src="brand/logo.svg" width="56" alt="SkillGrid mark"/>
+  <img src="brand/logo.svg" width="64" alt="SkillsForge mark"/>
   <br/>
-  <sub>SkillGrid — structure · prove · upgrade at AI pace</sub>
+  <sub>SkillsForge — 20% Change. 80% Better.</sub>
 </p>

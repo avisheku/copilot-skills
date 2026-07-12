@@ -1,6 +1,6 @@
 ---
-name: Copilot Skills Pack
-overview: "Professional Solution Architecture + ADRs + Implementation Plan. Phases 0–10 shipped (MVP through upgrade/frontier scan)."
+name: SkillsForge
+overview: "SkillsForge (Copilot Skills Pack) — Solution Architecture + ADRs + Implementation Plan. Phases 0–10 shipped. Tagline: 20% Change. 80% Better."
 todos:
   - id: phase-0-bootstrap
     content: "Phase 0 MUST: Repo, constitution, HANDBOOK skeleton, COMPAT, plugin stubs"
@@ -41,7 +41,9 @@ todos:
 isProject: false
 ---
 
-# Copilot Skills Pack — Final Implementation Plan
+# SkillsForge — Final Implementation Plan
+
+**Product:** SkillsForge · **20% Change. 80% Better.** · Pack folder: `copilot-skills`
 
 **Status:** Phases 0–10 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
 

@@ -1,49 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" role="img" aria-label="SkillGrid — Copilot skills harness">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" role="img" aria-label="SkillsForge — 20% Change. 80% Better.">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#061418"/>
-      <stop offset="55%" stop-color="#0B2A2E"/>
-      <stop offset="100%" stop-color="#12484A"/>
+      <stop offset="0%" stop-color="#0F1724"/>
+      <stop offset="55%" stop-color="#152238"/>
+      <stop offset="100%" stop-color="#1B3A6B"/>
     </linearGradient>
-    <linearGradient id="glow" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#7CFF4A" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#7CFF4A" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#2F8F8C" stop-opacity="0"/>
-    </linearGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" fill="none" stroke="#E6EEF2" stroke-opacity="0.05" stroke-width="1"/>
+    <radialGradient id="glow" cx="78%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#F4F6F8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#F4F6F8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#F4F6F8" fill-opacity="0.08"/>
     </pattern>
   </defs>
 
   <rect width="1280" height="420" fill="url(#bg)"/>
-  <rect width="1280" height="420" fill="url(#grid)"/>
-  <ellipse cx="1000" cy="210" rx="380" ry="160" fill="url(#glow)"/>
+  <rect width="1280" height="420" fill="url(#dots)"/>
+  <rect width="1280" height="420" fill="url(#glow)"/>
 
   <!-- Mark -->
-  <g transform="translate(88,118) scale(1.45)">
-    <g fill="none" stroke="#1A4A4E" stroke-width="7" stroke-linecap="round">
-      <path d="M32 32v64M64 32v64M96 32v32"/>
-      <path d="M32 32h64M32 64h64M32 96h32"/>
+  <g transform="translate(72,95) scale(1.7)">
+    <g fill="#C8CDD3">
+      <path d="M22 18h28c3 0 5 2 5 5v10c0 2-1 4-3 5l-8 4v4H33v-4l-8-4c-2-1-3-3-3-5V23c0-3 2-5 5-5z"/>
+      <rect x="40" y="42" width="10" height="68" rx="3"/>
+      <path d="M22 23h10v14H18c0-4 1-8 4-14z" opacity="0.9"/>
     </g>
-    <g fill="none" stroke="#7CFF4A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M32 32h64v32H32v32h32"/>
+    <g stroke="#7EA0D4" stroke-width="4" fill="none">
+      <circle cx="72" cy="40" r="9"/>
+      <circle cx="96" cy="40" r="9"/>
+      <circle cx="72" cy="64" r="9"/>
+      <circle cx="96" cy="64" r="9"/>
+      <circle cx="72" cy="88" r="9"/>
+      <circle cx="96" cy="88" r="9"/>
     </g>
-    <circle cx="32" cy="96" r="9" fill="#0B2A2E"/>
-    <circle cx="96" cy="32" r="9" fill="#0B2A2E"/>
-    <circle cx="96" cy="64" r="9" fill="#0B2A2E"/>
-    <circle cx="64" cy="96" r="9" fill="#0B2A2E"/>
-    <circle cx="96" cy="96" r="9" fill="#0B2A2E"/>
-    <circle cx="32" cy="32" r="11" fill="#7CFF4A"/>
-    <circle cx="64" cy="32" r="11" fill="#7CFF4A"/>
-    <circle cx="32" cy="64" r="11" fill="#7CFF4A"/>
-    <circle cx="64" cy="64" r="11" fill="#7CFF4A"/>
+    <circle cx="52" cy="40" r="9" fill="#7EA0D4"/>
+    <circle cx="52" cy="64" r="9" fill="#C8CDD3"/>
+    <circle cx="52" cy="88" r="9" fill="#7EA0D4"/>
+    <circle cx="72" cy="40" r="9" fill="#C8CDD3"/>
   </g>
 
-  <text x="340" y="188" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="84" font-weight="700" letter-spacing="-1.5">
-    <tspan fill="#E8F2F2">Skill</tspan><tspan fill="#2F8F8C">Grid</tspan>
+  <text x="340" y="178" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.5">
+    <tspan fill="#8EB4E8">Skills</tspan><tspan fill="#E5E7EB">Forge</tspan>
   </text>
-  <text x="344" y="238" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="500" fill="#8BA3B5">Copilot skills harness</text>
-  <text x="344" y="292" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" fill="#7CFF4A">Structure · Prove · Upgrade at AI pace</text>
+  <text x="344" y="232" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="500" fill="#9CA3AF">Copilot skills harness</text>
+  <text x="344" y="290" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="26" fill="#E5E7EB">20% Change. 80% Better.</text>
 
-  <rect x="0" y="408" width="1280" height="12" fill="#7CFF4A"/>
+  <rect x="0" y="408" width="640" height="12" fill="#1B3A6B"/>
+  <rect x="640" y="408" width="640" height="12" fill="#3D3D3D"/>
 </svg>

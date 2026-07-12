@@ -1,4 +1,6 @@
-# Pack acceptance
+# SkillsForge — Pack acceptance
+
+**Product:** SkillsForge · **20% Change. 80% Better.**
 
 ## Phase 2
 
