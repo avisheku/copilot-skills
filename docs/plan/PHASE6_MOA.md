@@ -1,7 +1,9 @@
 # Phase 6 — Mixture of Agents (`/moa`)
 
-**Status:** ACTIVE  
+**Status:** Implemented  
 **Command:** `/moa`  
+**Related:** [PHASE9_COMPARE_TRACKER.md](PHASE9_COMPARE_TRACKER.md) · [CI.md](../CI.md) · [ACCEPTANCE.md](../../ACCEPTANCE.md)
+
 **Goal:** Better output than one large model at lower cost — fan-out cheaper proposers in parallel, synthesize with one aggregator.
 
 ## Research base (inspire — do not vendor)

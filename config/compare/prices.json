@@ -1,0 +1,11 @@
+{
+  "currency": "USD",
+  "note": "Pinned illustrative prices for compare reports — update when you care about absolute $. Relative ranks still work.",
+  "models": [
+    { "id": "default", "inputPerMTok": 3.0, "outputPerMTok": 15.0 },
+    { "id": "anthropic-opus", "inputPerMTok": 15.0, "outputPerMTok": 75.0 },
+    { "id": "anthropic-sonnet", "inputPerMTok": 3.0, "outputPerMTok": 15.0 },
+    { "id": "openai-gpt", "inputPerMTok": 2.5, "outputPerMTok": 10.0 },
+    { "id": "google-gemini", "inputPerMTok": 1.25, "outputPerMTok": 5.0 }
+  ]
+}

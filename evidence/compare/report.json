@@ -1,0 +1,144 @@
+﻿{
+    "generatedAt":  "2026-07-12T10:30:56.4106447Z",
+    "runCount":  10,
+    "pairCount":  9,
+    "leaderboard":  [
+                        {
+                            "armKey":  "harness-do|anthropic-opus",
+                            "armId":  "harness-do",
+                            "modelId":  "anthropic-opus",
+                            "elo":  1035.55,
+                            "n":  1,
+                            "qualityAvg":  0.95,
+                            "tokensAvg":  1700,
+                            "costAvgUsd":  0.0555,
+                            "latencyAvgMs":  15000,
+                            "qualityPerDollar":  17.12
+                        },
+                        {
+                            "armKey":  "harness-do|anthropic-sonnet",
+                            "armId":  "harness-do",
+                            "modelId":  "anthropic-sonnet",
+                            "elo":  1022.8,
+                            "n":  2,
+                            "qualityAvg":  0.865,
+                            "tokensAvg":  1175,
+                            "costAvgUsd":  0.008025,
+                            "latencyAvgMs":  7500,
+                            "qualityPerDollar":  107.79
+                        },
+                        {
+                            "armKey":  "harness-2080|openai-gpt",
+                            "armId":  "harness-2080",
+                            "modelId":  "openai-gpt",
+                            "elo":  1012,
+                            "n":  1,
+                            "qualityAvg":  0.9,
+                            "tokensAvg":  1500,
+                            "costAvgUsd":  0.00825,
+                            "latencyAvgMs":  10000,
+                            "qualityPerDollar":  109.09
+                        },
+                        {
+                            "armKey":  "moa-lite|anthropic-opus",
+                            "armId":  "moa-lite",
+                            "modelId":  "anthropic-opus",
+                            "elo":  1010.8,
+                            "n":  1,
+                            "qualityAvg":  0.92,
+                            "tokensAvg":  6200,
+                            "costAvgUsd":  0.165,
+                            "latencyAvgMs":  45000,
+                            "qualityPerDollar":  5.58
+                        },
+                        {
+                            "armKey":  "solo|openai-gpt",
+                            "armId":  "solo",
+                            "modelId":  "openai-gpt",
+                            "elo":  988,
+                            "n":  1,
+                            "qualityAvg":  0.5,
+                            "tokensAvg":  1100,
+                            "costAvgUsd":  0.0065,
+                            "latencyAvgMs":  7000,
+                            "qualityPerDollar":  76.92
+                        },
+                        {
+                            "armKey":  "solo|anthropic-sonnet",
+                            "armId":  "solo",
+                            "modelId":  "anthropic-sonnet",
+                            "elo":  976.43,
+                            "n":  2,
+                            "qualityAvg":  0.55,
+                            "tokensAvg":  1125,
+                            "costAvgUsd":  0.010275,
+                            "latencyAvgMs":  6500,
+                            "qualityPerDollar":  53.53
+                        },
+                        {
+                            "armKey":  "solo|anthropic-opus",
+                            "armId":  "solo",
+                            "modelId":  "anthropic-opus",
+                            "elo":  954.42,
+                            "n":  2,
+                            "qualityAvg":  0.5,
+                            "tokensAvg":  2050,
+                            "costAvgUsd":  0.06975,
+                            "latencyAvgMs":  16000,
+                            "qualityPerDollar":  7.17
+                        }
+                    ],
+    "lifts":  [
+                  {
+                      "modelId":  "anthropic-sonnet",
+                      "armId":  "harness-do",
+                      "qualityLift":  0.315,
+                      "tokenDelta":  50,
+                      "costDelta":  -0.00225
+                  },
+                  {
+                      "modelId":  "anthropic-opus",
+                      "armId":  "harness-do",
+                      "qualityLift":  0.45,
+                      "tokenDelta":  -350,
+                      "costDelta":  -0.01425
+                  },
+                  {
+                      "modelId":  "anthropic-opus",
+                      "armId":  "moa-lite",
+                      "qualityLift":  0.42,
+                      "tokenDelta":  4150,
+                      "costDelta":  0.09525
+                  },
+                  {
+                      "modelId":  "openai-gpt",
+                      "armId":  "harness-2080",
+                      "qualityLift":  0.4,
+                      "tokenDelta":  400,
+                      "costDelta":  0.00175
+                  }
+              ],
+    "skills":  [
+                   {
+                       "skill":  "2080",
+                       "n":  2,
+                       "harnessAvg":  0.9,
+                       "soloAvg":  0.5,
+                       "lift":  0.4
+                   },
+                   {
+                       "skill":  "do",
+                       "n":  8,
+                       "harnessAvg":  0.9,
+                       "soloAvg":  0.525,
+                       "lift":  0.375
+                   },
+                   {
+                       "skill":  "moa",
+                       "n":  2,
+                       "harnessAvg":  0.92,
+                       "soloAvg":  0.55,
+                       "lift":  0.37
+                   }
+               ]
+}

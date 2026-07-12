@@ -1,0 +1,13 @@
+{
+  "id": "t02-shortplan-confirm",
+  "title": "ShortPlan before implement",
+  "prompt": "Add a PowerShell script that prints ledger stats. Do it properly.",
+  "skillHints": ["do"],
+  "difficulty": "easy",
+  "domain": "gates",
+  "acceptance": [
+    "Produces a short plan",
+    "Asks for confirm before implement",
+    "References existing stats/ledger paths if using harness"
+  ]
+}

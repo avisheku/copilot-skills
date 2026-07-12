@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-07",
+    "taskId":  "t04-2080-review",
+    "armId":  "solo",
+    "modelId":  "openai-gpt",
+    "tokens_in":  600,
+    "tokens_out":  500,
+    "tokens_est":  1100,
+    "latency_ms":  7000,
+    "cost_usd":  0.0065,
+    "quality":  {
+                    "passRate":  0.5,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3611149Z"
+}

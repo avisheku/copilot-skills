@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-04",
+    "taskId":  "t01-clarify-scope",
+    "armId":  "harness-do",
+    "modelId":  "anthropic-sonnet",
+    "tokens_in":  1100,
+    "tokens_out":  450,
+    "tokens_est":  1550,
+    "latency_ms":  9000,
+    "cost_usd":  0.01005,
+    "quality":  {
+                    "passRate":  0.88,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3522928Z"
+}

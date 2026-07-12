@@ -1,0 +1,13 @@
+{
+  "id": "t03-research-depth",
+  "title": "Research then summarize",
+  "prompt": "What are the tradeoffs of MoA vs a single strong model for coding agents?",
+  "skillHints": ["research", "do"],
+  "difficulty": "medium",
+  "domain": "research",
+  "acceptance": [
+    "Separates research from implementation",
+    "Cites or marks uncertainty",
+    "Stays depth-one unless asked"
+  ]
+}

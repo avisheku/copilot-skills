@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-06",
+    "taskId":  "t07-moa-hard-judgment",
+    "armId":  "moa-lite",
+    "modelId":  "anthropic-opus",
+    "tokens_in":  5000,
+    "tokens_out":  1200,
+    "tokens_est":  6200,
+    "latency_ms":  45000,
+    "cost_usd":  0.165,
+    "quality":  {
+                    "passRate":  0.92,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3568547Z"
+}

@@ -114,6 +114,7 @@ Evidence written to `evidence/golden-path.json`.
 | Metrics | `/stats` |
 | Session review | `/audit` |
 | Hard synth / multi-model | `/moa` |
+| Prove harness vs solo | `/compare` |
 
 ## Skill catalog
 
@@ -129,6 +130,7 @@ Evidence written to `evidence/golden-path.json`.
 | `/stats` | Ledger rollup |
 | `/audit` | Search + report → learn candidates |
 | `/moa` | Mixture of Agents — multi-proposer + aggregator |
+| `/compare` | Elo / lift / cost leaderboard (solo vs harness vs MoA) |
 | `/loop` | Manual audit→2080 loop |
 | `/magic` | Alias → `/2080` |
 
@@ -225,6 +227,22 @@ Detail: [plan/PHASE8_QUALITY_GATE.md](plan/PHASE8_QUALITY_GATE.md)
 VERIFY:
   command: `.\scripts\Test-Phase8.ps1`
   expect: `Phase 8: all passed.`
+
+## Phase 9 — Harness comparison (proof)
+
+Record solo vs harness vs MoA runs; Elo / lift / cost leaderboard.  
+Detail: [plan/PHASE9_COMPARE_TRACKER.md](plan/PHASE9_COMPARE_TRACKER.md)
+
+```powershell
+.\scripts\Seed-CompareDemo.ps1
+.\scripts\Export-CompareReport.ps1
+# open evidence\compare\report.html
+.\scripts\Invoke-CompareRun.ps1 -TaskId t01-clarify-scope -ArmId harness-do -ModelId anthropic-opus -QualityPassRate 0.9
+```
+
+VERIFY:
+  command: `.\scripts\Test-Phase9.ps1`
+  expect: `Phase 9: all passed.`
 
 ## Troubleshoot
 

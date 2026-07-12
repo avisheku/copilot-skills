@@ -1,6 +1,6 @@
 # Deferred (pain only)
 
-Phase 5–8 shipped lean extensions. Still **not built** until measured need:
+Phases 5–9 shipped lean. Still **not built** until measured need:
 
 | Item | Why deferred |
 |------|----------------|
@@ -8,41 +8,20 @@ Phase 5–8 shipped lean extensions. Still **not built** until measured need:
 | Firm pack | No multi-tenant demand yet |
 | OTel / SaaS obs | Local JSONL + HTML dashboard enough |
 | Graphify | No graph UI pain yet |
-| REST UI | Scripts + HANDBOOK + local dashboard enough |
+| REST UI | Scripts + dashboard enough |
 | Custom MCP product | Explicit `/mcp` profiles enough |
 | Marketplace | O7: local/git only |
-| TOON wire | `wire.json` toonEnabled=false until measured |
-| Auto-scrape sources | `/learn -Sources` on ask only |
+| TOON wire | off until measured |
+| Auto-scrape sources | on ask only |
 | 2080 auto-apply | User confirm required |
 | Deep Cursor | Best-effort COMPAT only |
-| LLM-as-judge as required merge gate | Optional `quality-judge.yml` only; ICS is merge gate |
-| Copilot-session / agentskills with_skill evals | Cost + flake; DEFER |
+| LLM-as-judge as required merge gate | Optional only |
+| Copilot-session auto-capture for compare | Manual `Invoke-CompareRun` day one |
+| Auto-wire MoA into `/do` from Elo alone | Needs enough real compare samples |
 
-## Phase 5 shipped
+## Shipped phase docs
 
-- `/loop` + `Invoke-Loop.ps1`
-- `/magic` alias → `/2080`
-- `config/research/depth.json` (default depth 1)
-- `WireFormat.psm1` compact JSON envelope
-- Linux `scripts/linux/*.sh` wrappers
-- L3 eval stub → filled in Phase 7
-
-## Phase 6 shipped (lean MoA)
-
-- `/moa` MoA-Lite — see `docs/plan/PHASE6_MOA.md`
-- Still DEFER: dense 3+ MoA layers, Faster-MoA tree/early-exit serving, auto-wire into `/do` without stats
-
-## Phase 7 shipped (governance)
-
-- L1 InstallSmoke in CI · Phase7 schema/shape/negatives
-- L2 fixtures + promote/handbook VERIFY gates
-- Local `evidence/dashboard.html`
-- Static L3 markers (LLM-judge still deferred as required)
-
-## Phase 8 shipped (ICS)
-
-- Instruction Contract Score vs baseline (`maxDrop`)
-- Optional judge workflow (non-blocking)
-- Still DEFER: required LLM judge, full Copilot-session harness
-
-Enable remaining deferred items via `/learn` + ADR update when pain is proven.
+- Phase 6: [PHASE6_MOA.md](plan/PHASE6_MOA.md)
+- Phase 7: [PHASE7_GOVERNANCE.md](plan/PHASE7_GOVERNANCE.md)
+- Phase 8: [PHASE8_QUALITY_GATE.md](plan/PHASE8_QUALITY_GATE.md)
+- Phase 9: [PHASE9_COMPARE_TRACKER.md](plan/PHASE9_COMPARE_TRACKER.md)

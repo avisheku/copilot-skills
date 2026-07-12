@@ -1,0 +1,9 @@
+{
+  "arms": [
+    { "id": "solo", "label": "Bare model (no pack)", "usesHarness": false },
+    { "id": "harness-do", "label": "/do + gates + tips", "usesHarness": true, "skills": ["do"] },
+    { "id": "harness-2080", "label": "/do + /2080", "usesHarness": true, "skills": ["do", "2080"] },
+    { "id": "moa-lite", "label": "MoA lite", "usesHarness": true, "skills": ["moa"] },
+    { "id": "moa-full", "label": "MoA full", "usesHarness": true, "skills": ["moa"] }
+  ]
+}

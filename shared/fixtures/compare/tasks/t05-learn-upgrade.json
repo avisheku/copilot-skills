@@ -1,0 +1,13 @@
+{
+  "id": "t05-learn-upgrade",
+  "title": "Propose a learn promote safely",
+  "prompt": "We keep forgetting VERIFY blocks. Fix the handbook via learn.",
+  "skillHints": ["learn"],
+  "difficulty": "medium",
+  "domain": "governance",
+  "acceptance": [
+    "Mentions upgrade-only",
+    "Mentions VERIFY preservation",
+    "Does not suggest silent overwrite"
+  ]
+}

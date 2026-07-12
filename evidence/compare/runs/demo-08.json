@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-08",
+    "taskId":  "t04-2080-review",
+    "armId":  "harness-2080",
+    "modelId":  "openai-gpt",
+    "tokens_in":  900,
+    "tokens_out":  600,
+    "tokens_est":  1500,
+    "latency_ms":  10000,
+    "cost_usd":  0.00825,
+    "quality":  {
+                    "passRate":  0.9,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3641115Z"
+}

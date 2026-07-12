@@ -1,0 +1,13 @@
+{
+  "id": "t10-audit-to-learn",
+  "title": "Audit then learn candidate",
+  "prompt": "Same install error happened three times this week.",
+  "skillHints": ["audit", "learn"],
+  "difficulty": "medium",
+  "domain": "ops",
+  "acceptance": [
+    "Suggests audit/report over ledger",
+    "Points to error-map or learn staging",
+    "Root cause before promote"
+  ]
+}

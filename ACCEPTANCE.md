@@ -52,6 +52,7 @@
 - [x] Export-LocalDashboard.ps1 → evidence/dashboard.html
 - [x] L3 static markers + promptfoo YAML (LLM optional)
 - [x] CI.md L1/L2/L3 matrix + HANDBOOK promote policy
+- Detail: [docs/plan/PHASE7_GOVERNANCE.md](docs/plan/PHASE7_GOVERNANCE.md)
 
 ## Phase 8 (ICS quality)
 
@@ -60,7 +61,16 @@
 - [x] Test-Phase8 in Test-CI; promote quality gate for md paths
 - [x] Dashboard ICS KPIs
 - [x] Optional quality-judge.yml (continue-on-error)
-- [x] PHASE8_QUALITY_GATE.md
+- [x] PHASE8_QUALITY_GATE.md — [docs/plan/PHASE8_QUALITY_GATE.md](docs/plan/PHASE8_QUALITY_GATE.md)
+
+## Phase 9 (compare tracker)
+
+- [x] Compare.psm1 Elo + lift + cost scoreboard
+- [x] Task cards + arms + prices; `/compare` skill
+- [x] Seed-CompareDemo + report.html
+- [x] Test-Phase9 in Test-CI
+- [x] PHASE9_COMPARE_TRACKER.md — [docs/plan/PHASE9_COMPARE_TRACKER.md](docs/plan/PHASE9_COMPARE_TRACKER.md)
+- [ ] Human: record real multi-model runs for stakeholder demo
 
 ## 80/20 hardening (post-audit)
 

@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-10",
+    "taskId":  "t08-token-thrift",
+    "armId":  "harness-do",
+    "modelId":  "anthropic-sonnet",
+    "tokens_in":  500,
+    "tokens_out":  300,
+    "tokens_est":  800,
+    "latency_ms":  6000,
+    "cost_usd":  0.006,
+    "quality":  {
+                    "passRate":  0.85,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3710833Z"
+}

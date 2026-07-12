@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-09",
+    "taskId":  "t08-token-thrift",
+    "armId":  "solo",
+    "modelId":  "anthropic-sonnet",
+    "tokens_in":  400,
+    "tokens_out":  800,
+    "tokens_est":  1200,
+    "latency_ms":  5000,
+    "cost_usd":  0.0132,
+    "quality":  {
+                    "passRate":  0.7,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3680850Z"
+}

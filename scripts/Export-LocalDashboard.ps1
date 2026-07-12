@@ -59,6 +59,22 @@ try {
     $icsPass = 'error'
 }
 
+$compareTop = ''
+$compareLift = 'n/a'
+$compareRuns = '0'
+try {
+    $cboard = Invoke-CompareScoreboard -Root $Root
+    $compareRuns = [string]$cboard.runCount
+    if ($cboard.leaderboard -and $cboard.leaderboard.Count -gt 0) {
+        $top = $cboard.leaderboard[0]
+        $compareTop = "$($top.armId) / $($top.modelId) Elo=$($top.elo)"
+    }
+    $pos = @($cboard.lifts | Where-Object { $_.qualityLift -gt 0 } | Select-Object -First 1)
+    if ($pos) { $compareLift = [string]$pos.qualityLift }
+} catch {
+    $compareTop = 'n/a'
+}
+
 $html = @"
 <!DOCTYPE html>
 <html lang="en">
@@ -99,8 +115,11 @@ $html = @"
       <div><strong>$icsBaseline</strong><span>ICS baseline</span></div>
       <div><strong>$icsDrop</strong><span>ICS drop</span></div>
       <div><strong>$icsPass</strong><span>ICS gate</span></div>
+      <div><strong>$compareRuns</strong><span>Compare runs</span></div>
+      <div><strong>$compareLift</strong><span>Sample harness lift</span></div>
     </div>
-    <p class="meta" style="margin-top:.75rem">ICS = Instruction Contract Score — not live Copilot chat quality.</p>
+    <p class="meta" style="margin-top:.75rem">ICS = Instruction Contract Score — not live Copilot chat quality. Compare leaderboard: evidence/compare/report.html</p>
+    <p class="meta">Top arm: $([System.Net.WebUtility]::HtmlEncode($compareTop))</p>
   </section>
 
   <section>

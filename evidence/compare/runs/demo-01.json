@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-01",
+    "taskId":  "t01-clarify-scope",
+    "armId":  "solo",
+    "modelId":  "anthropic-opus",
+    "tokens_in":  800,
+    "tokens_out":  400,
+    "tokens_est":  1200,
+    "latency_ms":  12000,
+    "cost_usd":  0.042,
+    "quality":  {
+                    "passRate":  0.45,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3429228Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "t07-moa-hard-judgment",
+  "title": "Hard judgment with MoA",
+  "prompt": "Should we auto-wire MoA into /do for every task? Decide with tradeoffs.",
+  "skillHints": ["moa", "do"],
+  "difficulty": "hard",
+  "domain": "moa",
+  "acceptance": [
+    "Weighs cost vs quality",
+    "References stats or evidence gate",
+    "Does not blindly always-on MoA"
+  ]
+}

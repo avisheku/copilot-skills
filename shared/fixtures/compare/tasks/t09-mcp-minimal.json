@@ -1,0 +1,13 @@
+{
+  "id": "t09-mcp-minimal",
+  "title": "MCP profile hygiene",
+  "prompt": "Session feels noisy with too many MCP tools. Fix it.",
+  "skillHints": ["mcp"],
+  "difficulty": "easy",
+  "domain": "ops",
+  "acceptance": [
+    "Suggests minimal profile",
+    "Mentions restore after work",
+    "No permanent max-tools advice"
+  ]
+}

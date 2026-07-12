@@ -1,0 +1,13 @@
+{
+  "id": "t08-token-thrift",
+  "title": "Token-thrifty answer",
+  "prompt": "Explain our CI gate list in as few tokens as possible without losing accuracy.",
+  "skillHints": ["do"],
+  "difficulty": "easy",
+  "domain": "thrift",
+  "acceptance": [
+    "Lists main gates",
+    "Stays concise",
+    "Mentions PowerShell gates or merge block"
+  ]
+}

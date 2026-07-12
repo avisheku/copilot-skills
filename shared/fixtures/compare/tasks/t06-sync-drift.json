@@ -1,0 +1,13 @@
+{
+  "id": "t06-sync-drift",
+  "title": "Diagnose sync drift",
+  "prompt": "My global Copilot skills folder looks stale vs the repo.",
+  "skillHints": ["sync"],
+  "difficulty": "easy",
+  "domain": "ops",
+  "acceptance": [
+    "Suggests Sync -Check",
+    "Mentions dual sync or install",
+    "Avoids destructive wipe advice"
+  ]
+}

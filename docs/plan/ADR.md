@@ -3,9 +3,9 @@
 | Field | Value |
 |-------|-------|
 | **Document type** | Solution Architecture + Architecture Decision Records (ADRs) + Implementation Plan |
-| **Status** | FINAL (ready to execute) |
-| **Version** | 1.0 |
-| **Date** | 2026-07-11 |
+| **Status** | LIVING (Phases 0–9 implemented; see ACCEPTANCE.md / DEFER.md) |
+| **Version** | 1.1 |
+| **Date** | 2026-07-12 |
 | **Repo** | `C:\Users\avish\Documents\KnowledgeVault\projects\copilot-skills` |
 | **Vault** | `C:\Users\avish\Documents\KnowledgeVault` |
 | **Out of scope** | InstagramVault · ClaudeTrades product code |
@@ -403,10 +403,12 @@ Individual install: `-Skill <id>`. Share via PR of that folder.
 | `/sync` | Full | Repo↔global; per-block Check |
 | `/mcp` | Full | Explicit profile (e.g. `minimal`) |
 | `/create` | Full | Expert block + abidance |
-| `/learn` | Stub→P4 | Upgrade-only; error-map; dual sync; handbook kinds |
-| `/stats` `/audit` | Stub→P4 | Ledger rollup; searchable |
-| `/loop` | DEFER | Reuses models + 2080 later |
-| `/magic` | DEFER | Alias only |
+| `/learn` | P4+ | Upgrade-only; error-map; dual sync; handbook kinds; L2+ICS promote |
+| `/stats` `/audit` | P4+ | Ledger rollup; searchable |
+| `/loop` | P5 | Reuses audit + 2080 |
+| `/magic` | P5 | Alias → 2080 |
+| `/moa` | P6 | MoA-Lite |
+| `/compare` | P9 | Harness vs solo Elo / lift / cost |
 
 **Capability ladder (execution fallback inside a skill):**  
 code → helper script → MCP → browser/venv → ask human — same `/command`; internals may change.
@@ -495,7 +497,9 @@ Caveman: `config/caveman/global.md` + `levels.json` (lite/full/ultra); per-skill
 |------------|------|------|
 | **L1** | PS, schemas, sync, hooks JSON, versions, budget, inject/restore | Always (Pester) |
 | **L2** | Decision fixtures, trajectory asserts, ACCEPTANCE | Promote |
-| **L3** | Promptfoo / LLM-judge | Optional; never sole promote; Phase 5+ |
+| **L3** | Static markers (Phase7) + optional Promptfoo LLM | Static in CI; LLM never sole gate |
+| **L4** | ICS instruction score vs baseline (Phase8) | Promote + CI |
+| **L5** | Compare tracker Elo math smoke (Phase9) | CI fixtures only; live models manual |
 
 ---
 
@@ -535,7 +539,7 @@ copilot-skills/
 ## 11. Delivery roadmap
 
 **[A]** = agent · **[U]** = you  
-Phases **0–3 MUST** → golden path → **STOP**. Phase **4 SHOULD**. Phase **5+ DEFER**.
+Phases **0–3 MUST** → golden path → **STOP AND USE**. Phases **4–9** shipped lean (learn → compare). Remaining pain-only: [DEFER.md](../DEFER.md).
 
 ### Phase 0 — Bootstrap · MUST
 
@@ -592,9 +596,19 @@ HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080
 - [ ] **[A]** Extra 2080 roles; playbooks → create; L1+L2 promote  
 - [ ] **[U]** Messy session → audit → learn → PR  
 
-### Phase 5+ — DEFER (pain only)
+### Phase 5+ — originally DEFER (many now shipped lean)
 
-TOON · `/loop` · `/magic` alias · VSIX · Firm pack · OTel · Graphify · 2080 auto-apply · Linux parity · REST UI · custom MCP product · marketplace · research depth >1 · deep Cursor · auto-scrape sources · Promptfoo L3 · B0 displaced custom engines  
+Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3 · …
+
+**Shipped lean:** Phase 5 `/loop` `/magic` · Phase 6 `/moa` · Phase 7 governance · Phase 8 ICS · Phase 9 `/compare`.  
+**Still DEFER:** see [DEFER.md](../DEFER.md). Plans: PHASE6–PHASE9 under `docs/plan/`.
+
+### ADR-015 — Comparison tracker (Phase 9)
+
+| | |
+|--|--|
+| **Decision** | Prove harness with task cards × arms (solo / harness / MoA) × models; Arena-style Elo + quality/cost/latency lift. Manual run capture day one; CI smoke only. |
+| **Consequences** | `/compare` + `evidence/compare/report.html`. Does not auto-wire MoA. |
 
 ---
 

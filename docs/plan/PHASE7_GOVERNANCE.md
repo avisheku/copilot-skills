@@ -4,7 +4,8 @@
 |-------|-------|
 | **Status** | Implemented |
 | **Depends on** | Phase 6 MoA + CI branch protection |
-| **Detail** | L1 in CI · L2 promote gates · local HTML dashboard · static L3 markers |
+| **Next** | [PHASE8_QUALITY_GATE.md](PHASE8_QUALITY_GATE.md) · [PHASE9_COMPARE_TRACKER.md](PHASE9_COMPARE_TRACKER.md) |
+| **Also** | [CI.md](../CI.md) · [ACCEPTANCE.md](../../ACCEPTANCE.md) · [HANDBOOK.md](../HANDBOOK.md)
 
 ## Problem
 

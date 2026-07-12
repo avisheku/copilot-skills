@@ -6,6 +6,11 @@
 | **Depends on** | Phase 7 governance |
 | **Merge gate** | Deterministic Instruction Contract Score vs baseline (`maxDrop`) |
 | **Optional** | LLM judge workflow (`continue-on-error`) |
+| **Related** | [PHASE7_GOVERNANCE.md](PHASE7_GOVERNANCE.md) · [PHASE9_COMPARE_TRACKER.md](PHASE9_COMPARE_TRACKER.md) · [CI.md](../CI.md) · [tests/evals/README.md](../../tests/evals/README.md)
+
+## Risks (summary)
+
+False confidence, gaming, over-blocking learn, baseline creep — mitigated by minAbsolute+maxDrop, casesVersion hash, path-scoped promote, judge never required. Full table lived in the Phase 8 plan; do not treat ICS as chat quality.
 
 ## Split with Phase 7
 

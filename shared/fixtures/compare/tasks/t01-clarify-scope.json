@@ -1,0 +1,13 @@
+{
+  "id": "t01-clarify-scope",
+  "title": "Clarify a vague build request",
+  "prompt": "Build me a dashboard for my trades. Make it nice.",
+  "skillHints": ["do"],
+  "difficulty": "easy",
+  "domain": "gates",
+  "acceptance": [
+    "Asks clarifying questions before implementing",
+    "Does not jump to code",
+    "Mentions scope or done criteria"
+  ]
+}

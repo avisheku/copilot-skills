@@ -1,0 +1,18 @@
+﻿{
+    "runId":  "demo-03",
+    "taskId":  "t01-clarify-scope",
+    "armId":  "solo",
+    "modelId":  "anthropic-sonnet",
+    "tokens_in":  700,
+    "tokens_out":  350,
+    "tokens_est":  1050,
+    "latency_ms":  8000,
+    "cost_usd":  0.00735,
+    "quality":  {
+                    "passRate":  0.4,
+                    "source":  "demo"
+                },
+    "outputPath":  null,
+    "notes":  "synthetic demo for Phase9 scoreboard",
+    "createdAt":  "2026-07-12T10:30:56.3492801Z"
+}

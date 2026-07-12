@@ -1,0 +1,13 @@
+{
+  "id": "t04-2080-review",
+  "title": "Post-work 2080 recommendations",
+  "prompt": "I just added a new slash skill. Give me the 20/80 review.",
+  "skillHints": ["2080"],
+  "difficulty": "medium",
+  "domain": "review",
+  "acceptance": [
+    "Uses multiple roles or lenses",
+    "At most five recommendations",
+    "Includes essentials / prioritization"
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: Copilot Skills Pack
-overview: "Professional Solution Architecture + ADRs + Implementation Plan for Windows-first Copilot/Claude skills harness. MVP Phases 0–3 then STOP. Full ADR at KnowledgeVault outputs."
+overview: "Professional Solution Architecture + ADRs + Implementation Plan for Windows-first Copilot/Claude skills harness. Phases 0–9 shipped (MVP through compare tracker)."
 todos:
   - id: phase-0-bootstrap
     content: "Phase 0 MUST: Repo, constitution, HANDBOOK skeleton, COMPAT, plugin stubs"
@@ -29,15 +29,18 @@ todos:
   - id: phase-8-quality
     content: "Phase 8: ICS quality gate vs baseline maxDrop + optional judge"
     status: completed
-  - id: phase-5-defer
-    content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel on pain only"
+  - id: phase-9-compare
+    content: "Phase 9: Harness compare tracker Elo/lift/cost leaderboard"
+    status: completed
+  - id: phase-defer
+    content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel/required LLM judge/auto session capture"
     status: pending
 isProject: false
 ---
 
 # Copilot Skills Pack — Final Implementation Plan
 
-**Status:** Phases 0–8 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
+**Status:** Phases 0–9 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
 
 **Canonical architecture document (read first):**  
 [copilot_skills_pack_ADR.md](C:\Users\avish\Documents\KnowledgeVault\outputs\copilot_skills_pack_ADR.md)  
@@ -124,9 +127,9 @@ flowchart TB
 
 ## MVP command surface
 
-| Full (Phase 2–3) | Stub→Phase 4 | DEFER |
-|------------------|--------------|-------|
-| `/do` `/research` `/2080` `/sync` `/mcp` `/create` | `/learn` `/stats` `/audit` | `/loop` `/magic` TOON REST custom-MCP VSIX |
+| Full | Ops / proof | DEFER |
+|------|-------------|-------|
+| `/do` `/research` `/2080` `/sync` `/mcp` `/create` | `/learn` `/stats` `/audit` `/loop` `/magic` `/moa` `/compare` | TOON REST VSIX custom-MCP OTel required LLM judge |
 
 **/do flow:** clarify → research → clarify → ShortPlan confirm → FullPlan + native parallel → `/2080` → handoff if token thresholds  
 
@@ -157,14 +160,14 @@ Code owns paths/schemas/tests; AI owns judgment inside gates only.
 | **2** | MUST | 6 full skills · shared gates · Layer A/B · abidance · graph |
 | **3** | MUST → **STOP** | `/do`+/`research` native · model tips · `/2080` · **full HANDBOOK** · golden evidence |
 | **4** | SHOULD | Full `/learn` · handbook patches · `/stats` `/audit` · dual sync PR |
-| **5** | LEAN | `/loop` · `/magic` · wire stub · Linux wrappers |
-| **6** | ACTIVE | `/moa` Mixture-of-Agents (MoA-Lite) — multi-proposer + aggregator |
-| **7** | ACTIVE | Testability · L1/L2/L3 · promote gates · local dashboard |
-| **8** | ACTIVE | Instruction Contract Score · baseline maxDrop · optional judge |
+| **5** | completed | `/loop` · `/magic` · wire stub · Linux wrappers |
+| **6** | completed | `/moa` Mixture-of-Agents (MoA-Lite) |
+| **7** | completed | Testability · L1/L2/L3 · promote gates · local dashboard |
+| **8** | completed | Instruction Contract Score · baseline maxDrop · optional judge |
+| **9** | completed | Harness compare tracker · Elo / lift / cost leaderboard |
 
-**Phase 6 detail:** [docs/plan/PHASE6_MOA.md](PHASE6_MOA.md)  
-**Phase 7 detail:** [docs/plan/PHASE7_GOVERNANCE.md](PHASE7_GOVERNANCE.md)  
-**Phase 8 detail:** [docs/plan/PHASE8_QUALITY_GATE.md](PHASE8_QUALITY_GATE.md)
+**Phase plans:** [PHASE6_MOA.md](PHASE6_MOA.md) · [PHASE7_GOVERNANCE.md](PHASE7_GOVERNANCE.md) · [PHASE8_QUALITY_GATE.md](PHASE8_QUALITY_GATE.md) · [PHASE9_COMPARE_TRACKER.md](PHASE9_COMPARE_TRACKER.md)  
+**CI:** [docs/CI.md](../CI.md)
 
 **Golden path:** HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080` → handoff → ledger (if hooks)
 

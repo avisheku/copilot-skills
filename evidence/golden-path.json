@@ -1,6 +1,6 @@
 ﻿{
     "goldenPath":  "install -\u003e mcp minimal -\u003e do prep -\u003e 2080 -\u003e finish -\u003e ledger -\u003e contracts",
-    "timestamp":  "2026-07-12T10:23:41.7372126Z",
+    "timestamp":  "2026-07-12T10:30:53.6656637Z",
     "pass":  true,
     "steps":  [
                   {
@@ -49,7 +49,7 @@
                       "step":  8,
                       "command":  "ledger contracts",
                       "pass":  true,
-                      "detail":  "do-ok=12 schema=True"
+                      "detail":  "do-ok=14 schema=True"
                   }
               ]
 }
