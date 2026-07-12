@@ -2,10 +2,6 @@
   <img src="brand/banner.png" alt="SkillsForge - 20% Change. 80% Better." width="100%"/>
 </p>
 
-<p align="center">
-  <img src="brand/logo-wordmark.png" alt="SkillsForge" width="480"/>
-</p>
-
 <h1 align="center">SkillsForge</h1>
 
 <p align="center">
@@ -166,5 +162,5 @@ Constitution: [PILLARS](docs/PILLARS.md) · [PRINCIPLES](docs/PRINCIPLES.md)
 <p align="center">
   <img src="brand/logo-mark.png" width="72" alt="SkillsForge mark"/>
   <br/>
-  <sub>SkillsForge — 20% Change. 80% Better.</sub>
+  <sub>SkillsForge - 20% Change. 80% Better.</sub>
 </p>

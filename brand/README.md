@@ -1,20 +1,15 @@
 # SkillsForge brand kit
 
-| Asset | Path |
-|-------|------|
-| Wordmark (PNG) | [logo-wordmark.png](logo-wordmark.png) |
-| Mark crop (PNG) | [logo-mark.png](logo-mark.png) / [logo.png](logo.png) |
-| Mark (SVG, no fonts) | [logo.svg](logo.svg) |
-| Banner (PNG, README) | [banner.png](banner.png) |
-| Banner (SVG fallback) | [banner.svg](banner.svg) |
-| Colors | [COLORS.md](COLORS.md) |
+| Asset | Path | Notes |
+|-------|------|-------|
+| Banner (PNG) | [banner.png](banner.png) | Solid blue `#1B3A6B` + logo (README hero) |
+| Wordmark (PNG) | [logo-wordmark.png](logo-wordmark.png) | Icon + name + tagline, transparent bg |
+| Mark (PNG) | [logo-mark.png](logo-mark.png) / [logo.png](logo.png) | Icon only, transparent bg |
+| Mark (SVG) | [logo.svg](logo.svg) | Vector fallback |
+| Banner (SVG) | [banner.svg](banner.svg) | Fallback |
+| Colors | [COLORS.md](COLORS.md) | |
 
 **Name:** SkillsForge  
-**Pronunciation:** *skills-forge*  
-**Mark:** Claw hammer + 3x3 skill grid  
 **Tagline:** 20% Change. 80% Better.  
 
-GitHub README uses **PNG** (`banner.png`, `logo-wordmark.png`) so fonts cannot break. SVG mark has **no text**.
-
-Repo folder remains `copilot-skills`; product name is **SkillsForge**.
-
+README shows **banner only** (no duplicate wordmark under it).
