@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Skillrig">
+  <defs>
+    <linearGradient id="sr-field" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="55%" stop-color="#0E4D5C"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <linearGradient id="sr-rail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3DDC97"/>
+      <stop offset="100%" stop-color="#F4A261"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#sr-field)"/>
+  <!-- Rig frame -->
+  <path d="M34 38h60v12H34z" fill="#E6EEF2" opacity="0.92"/>
+  <path d="M34 78h60v12H34z" fill="#E6EEF2" opacity="0.92"/>
+  <path d="M42 38v52h12V38z" fill="#E6EEF2" opacity="0.75"/>
+  <path d="M74 38v52h12V38z" fill="#E6EEF2" opacity="0.75"/>
+  <!-- Signal crossbar -->
+  <path d="M28 58h72v12H28z" fill="url(#sr-rail)"/>
+  <!-- Pivot nodes -->
+  <circle cx="36" cy="64" r="5" fill="#0A1628"/>
+  <circle cx="64" cy="64" r="5" fill="#0A1628"/>
+  <circle cx="92" cy="64" r="5" fill="#0A1628"/>
+  <circle cx="36" cy="64" r="2.2" fill="#3DDC97"/>
+  <circle cx="64" cy="64" r="2.2" fill="#E6EEF2"/>
+  <circle cx="92" cy="64" r="2.2" fill="#F4A261"/>
+</svg>
