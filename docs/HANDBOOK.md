@@ -1,6 +1,6 @@
-# Handbook — Skillrig
+# Handbook — SkillGrid
 
-**Skillrig** (Copilot Skills Pack) — single guide of record. AI and human install paths share the same steps.
+**SkillGrid** (Copilot Skills Pack) — single guide of record. AI and human install paths share the same steps.
 
 ## Agent contract
 

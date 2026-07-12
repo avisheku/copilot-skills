@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Skillrig">
-  <defs>
-    <linearGradient id="sr-field" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0A1628"/>
-      <stop offset="55%" stop-color="#0E4D5C"/>
-      <stop offset="100%" stop-color="#0A1628"/>
-    </linearGradient>
-    <linearGradient id="sr-rail" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#3DDC97"/>
-      <stop offset="100%" stop-color="#F4A261"/>
-    </linearGradient>
-  </defs>
-  <rect width="128" height="128" rx="28" fill="url(#sr-field)"/>
-  <!-- Rig frame -->
-  <path d="M34 38h60v12H34z" fill="#E6EEF2" opacity="0.92"/>
-  <path d="M34 78h60v12H34z" fill="#E6EEF2" opacity="0.92"/>
-  <path d="M42 38v52h12V38z" fill="#E6EEF2" opacity="0.75"/>
-  <path d="M74 38v52h12V38z" fill="#E6EEF2" opacity="0.75"/>
-  <!-- Signal crossbar -->
-  <path d="M28 58h72v12H28z" fill="url(#sr-rail)"/>
-  <!-- Pivot nodes -->
-  <circle cx="36" cy="64" r="5" fill="#0A1628"/>
-  <circle cx="64" cy="64" r="5" fill="#0A1628"/>
-  <circle cx="92" cy="64" r="5" fill="#0A1628"/>
-  <circle cx="36" cy="64" r="2.2" fill="#3DDC97"/>
-  <circle cx="64" cy="64" r="2.2" fill="#E6EEF2"/>
-  <circle cx="92" cy="64" r="2.2" fill="#F4A261"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SkillGrid">
+  <!-- 3x3 node grid — dark rails + neon signal path -->
+  <g fill="none" stroke="#0B2A2E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- verticals -->
+    <path d="M32 32v64"/>
+    <path d="M64 32v64"/>
+    <path d="M96 32v32"/>
+    <!-- horizontals -->
+    <path d="M32 32h64"/>
+    <path d="M32 64h64"/>
+    <path d="M32 96h32"/>
+  </g>
+  <!-- neon path highlight (S-flow through grid) -->
+  <g fill="none" stroke="#7CFF4A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+    <path d="M32 32h64v32H32v32h32"/>
+  </g>
+  <!-- nodes: dark -->
+  <circle cx="32" cy="96" r="9" fill="#0B2A2E"/>
+  <circle cx="96" cy="32" r="9" fill="#0B2A2E"/>
+  <circle cx="96" cy="64" r="9" fill="#0B2A2E"/>
+  <circle cx="64" cy="96" r="9" fill="#0B2A2E"/>
+  <circle cx="96" cy="96" r="9" fill="#0B2A2E"/>
+  <!-- nodes: neon signal -->
+  <circle cx="32" cy="32" r="11" fill="#7CFF4A"/>
+  <circle cx="64" cy="32" r="11" fill="#7CFF4A"/>
+  <circle cx="32" cy="64" r="11" fill="#7CFF4A"/>
+  <circle cx="64" cy="64" r="11" fill="#7CFF4A"/>
 </svg>

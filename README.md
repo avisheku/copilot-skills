@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="brand/banner.svg" alt="Skillrig — Copilot skills harness" width="100%"/>
+  <img src="brand/banner.svg" alt="SkillGrid — Copilot skills harness" width="100%"/>
 </p>
 
 <p align="center">
-  <img src="brand/logo.svg" alt="Skillrig logo" width="88"/>
+  <img src="brand/logo-wordmark.png" alt="SkillGrid" width="420"/>
 </p>
 
-<h1 align="center">Skillrig</h1>
+<h1 align="center">SkillGrid</h1>
 
 <p align="center">
   <strong>The Copilot skills harness that keeps pace with AI.</strong><br/>
@@ -14,19 +14,19 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/avisheku/copilot-skills/actions"><img src="https://img.shields.io/github/actions/workflow/status/avisheku/copilot-skills/ci.yml?branch=master&style=for-the-badge&label=CI&color=3DDC97" alt="CI"/></a>
-  <img src="https://img.shields.io/badge/phases-0–10-0E4D5C?style=for-the-badge" alt="Phases 0–10"/>
-  <img src="https://img.shields.io/badge/pack-1.4.0--phase10-F4A261?style=for-the-badge" alt="Version"/>
-  <img src="https://img.shields.io/badge/Windows--first-0A1628?style=for-the-badge" alt="Windows-first"/>
+  <a href="https://github.com/avisheku/copilot-skills/actions"><img src="https://img.shields.io/github/actions/workflow/status/avisheku/copilot-skills/ci.yml?branch=master&style=for-the-badge&label=CI&color=7CFF4A" alt="CI"/></a>
+  <img src="https://img.shields.io/badge/phases-0–10-2F8F8C?style=for-the-badge" alt="Phases 0–10"/>
+  <img src="https://img.shields.io/badge/pack-1.4.0--phase10-0B2A2E?style=for-the-badge" alt="Version"/>
+  <img src="https://img.shields.io/badge/Windows--first-061418?style=for-the-badge" alt="Windows-first"/>
 </p>
 
 ---
 
-## Why Skillrig
+## Why SkillGrid
 
 AI tools, models, and eval practices move weekly. Most skill packs rot quietly: tips go stale, sources drift, nobody can prove the harness beats solo Chat.
 
-**Skillrig** is an office-safe skills system for **GitHub Copilot** (and Claude Code) with:
+**SkillGrid** is an office-safe skills system for **GitHub Copilot** (and Claude Code) with:
 
 | Pillar | What you get |
 |--------|----------------|
@@ -42,17 +42,17 @@ No silent auto-scrape. Upgrades are explicit, measurable, and merge-gated.
 
 | | |
 |-|-|
-| **Name** | Skillrig (*skill-rig*) |
-| **Mark** | Rig frame + signal rail (structure × motion) |
-| **Palette** | Ink `#0A1628` · Sea `#0E4D5C` · Signal `#3DDC97` · Ember `#F4A261` · Fog `#E6EEF2` |
-| **Kit** | [`brand/`](brand/) — logo, banner, [COLORS](brand/COLORS.md) |
+| **Name** | SkillGrid (*skill-grid*) |
+| **Mark** | 3×3 node grid — dark rails + neon signal path |
+| **Palette** | Ink `#0B2A2E` · Teal `#2F8F8C` · Signal `#7CFF4A` · Deep `#061418` |
+| **Kit** | [`brand/`](brand/) — wordmark, mark SVG, banner, [COLORS](brand/COLORS.md) |
 
 ---
 
 ## Quick start
 
 ```powershell
-# From the Skillrig repo root
+# From the SkillGrid repo root
 .\scripts\Install-CopilotSkills.ps1
 ```
 
@@ -163,7 +163,7 @@ Constitution: [PILLARS](docs/PILLARS.md) · [PRINCIPLES](docs/PRINCIPLES.md)
 ---
 
 <p align="center">
-  <img src="brand/logo.svg" width="48" alt=""/>
+  <img src="brand/logo.svg" width="56" alt="SkillGrid mark"/>
   <br/>
-  <sub>Skillrig — structure · prove · upgrade at AI pace</sub>
+  <sub>SkillGrid — structure · prove · upgrade at AI pace</sub>
 </p>
