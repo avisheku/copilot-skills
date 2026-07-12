@@ -11,7 +11,8 @@ $config.Run.Path = @(
     (Join-Path $PSScriptRoot 'L1\ControlPlane.Tests.ps1'),
     (Join-Path $PSScriptRoot 'L1\Phase2.Tests.ps1'),
     (Join-Path $PSScriptRoot 'L1\Phase3.Tests.ps1'),
-    (Join-Path $PSScriptRoot 'L1\Phase4.Tests.ps1')
+    (Join-Path $PSScriptRoot 'L1\Phase4.Tests.ps1'),
+    (Join-Path $PSScriptRoot 'L1\Phase5.Tests.ps1')
 )
 $config.Run.PassThru = $true
 $config.Output.Verbosity = 'Detailed'

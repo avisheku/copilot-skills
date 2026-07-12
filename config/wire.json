@@ -1,0 +1,5 @@
+{
+  "format": "compact-json",
+  "toonEnabled": false,
+  "note": "TOON remains off until measured pain. Use ConvertTo-Json -Compress."
+}

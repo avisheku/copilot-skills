@@ -25,3 +25,13 @@
 - [x] error-map shards + docs
 - [x] 2080 security + operator roles
 - [x] Test-Phase4.ps1 passes
+
+## Phase 5 (lean)
+
+- [x] `/loop` + Invoke-Loop.ps1
+- [x] `/magic` alias → 2080
+- [x] WireFormat compact JSON (TOON off)
+- [x] research depth config
+- [x] Linux shell wrappers
+- [x] L3 eval stub + docs/DEFER.md
+- [x] Test-Phase5.ps1 passes

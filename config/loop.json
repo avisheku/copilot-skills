@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "intervalMinutes": 60,
+  "steps": ["audit", "2080"],
+  "maxIterations": 5,
+  "note": "Manual Invoke-Loop.ps1 only. No background daemon in Phase 5."
+}

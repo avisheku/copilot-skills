@@ -12,7 +12,7 @@ Same gates as `/do` for clarify/confirm. Research only — do not implement unle
 ## Procedure
 
 1. Clarify what to research.
-2. Fan-out depth **one** (native fork if available).
+2. Fan-out depth from `config/research/depth.json` — default **one**. Depth >1 only if `allowDepthGreaterThanOne` true.
 3. Synthesize findings for ShortPlan input.
 4. Flag unknowns and sources.
 

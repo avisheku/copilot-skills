@@ -140,6 +140,21 @@ VERIFY:
   command: `.\scripts\Test-Phase4.ps1`
   expect: `Phase 4: all passed.`
 
+## Phase 5 extensions
+
+| Item | Command |
+|------|---------|
+| `/loop` | `.\scripts\Invoke-Loop.ps1` |
+| `/magic` | Alias → `/2080` |
+| Linux | `scripts/linux/install.sh` (needs pwsh) |
+
+Still deferred: [DEFER.md](DEFER.md)
+
+VERIFY:
+  command: `.\scripts\Test-Phase5.ps1`
+  expect: `Phase 5: all passed.`
+
+## Troubleshoot
 
 ### install-layer-a
 

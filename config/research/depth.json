@@ -1,0 +1,5 @@
+{
+  "defaultMaxDepth": 1,
+  "allowDepthGreaterThanOne": false,
+  "note": "Set allowDepthGreaterThanOne true only after measured pain. Phase 5 config only."
+}

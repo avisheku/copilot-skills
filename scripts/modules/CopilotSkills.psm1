@@ -2,7 +2,7 @@ $ModuleRoot = $PSScriptRoot
 $modules = @(
     'Paths', 'Config', 'Obs', 'Budget', 'ContextPack', 'McpProfile',
     'InstallLogic', 'SyncLogic', 'Abidance', 'Caveman', 'HookPayloads',
-    'Gate', 'Graph', 'Models', 'Handoff', 'Learn', 'Stats'
+    'Gate', 'Graph', 'Models', 'Handoff', 'Learn', 'Stats', 'Loop', 'WireFormat'
 )
 foreach ($m in $modules) {
     Import-Module (Join-Path $ModuleRoot "$m.psm1") -Force -Global
