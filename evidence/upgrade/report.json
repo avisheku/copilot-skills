@@ -1,0 +1,310 @@
+﻿{
+    "generatedAt":  "2026-07-12T10:37:40.9990362Z",
+    "packRoot":  "C:\\Users\\avish\\Documents\\KnowledgeVault\\projects\\copilot-skills",
+    "summary":  {
+                    "components":  12,
+                    "action":  0,
+                    "review":  3,
+                    "ok":  9
+                },
+    "components":  [
+                       {
+                           "id":  "pack-version",
+                           "kind":  "meta",
+                           "path":  "docs/VERSIONS.md",
+                           "status":  "review",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "review-pack-version",
+                                                "detail":  "Confirm Pack version vs shipped phases"
+                                            },
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://github.com/avisheku/copilot-skills/releases"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://github.com/avisheku/copilot-skills/releases"
+                                     ]
+                       },
+                       {
+                           "id":  "skills-graph",
+                           "kind":  "skills",
+                           "path":  "config/skills.graph.json",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://agentskills.io | https://docs.github.com/copilot"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://agentskills.io",
+                                         "https://docs.github.com/copilot"
+                                     ]
+                       },
+                       {
+                           "id":  "model-tips",
+                           "kind":  "models",
+                           "path":  "config/models/matrix.json",
+                           "status":  "review",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "research-model-tips",
+                                                "detail":  "Research provider changelogs; update tip cards if APIs/prompting guidance changed"
+                                            },
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://docs.anthropic.com | https://platform.openai.com/docs | https://ai.google.dev/docs"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://docs.anthropic.com",
+                                         "https://platform.openai.com/docs",
+                                         "https://ai.google.dev/docs"
+                                     ]
+                       },
+                       {
+                           "id":  "moa",
+                           "kind":  "orchestration",
+                           "path":  "config/moa/profiles.json",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://github.com/togethercomputer/moa | https://arxiv.org/abs/2406.04692"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://github.com/togethercomputer/moa",
+                                         "https://arxiv.org/abs/2406.04692"
+                                     ]
+                       },
+                       {
+                           "id":  "ics-quality",
+                           "kind":  "governance",
+                           "path":  "config/evals/quality-gate.json",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://www.promptfoo.dev/docs/integrations/ci-cd/"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://www.promptfoo.dev/docs/integrations/ci-cd/"
+                                     ]
+                       },
+                       {
+                           "id":  "compare-tracker",
+                           "kind":  "governance",
+                           "path":  "config/compare/arms.json",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://arxiv.org/html/2605.27922 | https://lmarena.ai"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://arxiv.org/html/2605.27922",
+                                         "https://lmarena.ai"
+                                     ]
+                       },
+                       {
+                           "id":  "ci-actions",
+                           "kind":  "ci",
+                           "path":  ".github/workflows/ci.yml",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://github.blog/changelog/ | https://docs.github.com/en/actions"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://github.blog/changelog/",
+                                         "https://docs.github.com/en/actions"
+                                     ]
+                       },
+                       {
+                           "id":  "hooks-compat",
+                           "kind":  "runtime",
+                           "path":  "docs/COMPAT.md",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://docs.github.com/copilot"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://docs.github.com/copilot"
+                                     ]
+                       },
+                       {
+                           "id":  "frontier-sources",
+                           "kind":  "sources",
+                           "path":  "docs/SOURCES.md",
+                           "status":  "review",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "frontier-pass",
+                                                "detail":  "Agent: scan SOURCES + news URLs for new/deprecated items"
+                                            },
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://agentskills.io | https://github.blog/changelog/ | https://openai.com/index/ | https://www.anthropic.com/news | https://deepmind.google/discover/blog/"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://agentskills.io",
+                                         "https://github.blog/changelog/",
+                                         "https://openai.com/index/",
+                                         "https://www.anthropic.com/news",
+                                         "https://deepmind.google/discover/blog/"
+                                     ]
+                       },
+                       {
+                           "id":  "defer-backlog",
+                           "kind":  "roadmap",
+                           "path":  "docs/DEFER.md",
+                           "status":  "ok",
+                           "findings":  [
+
+                                        ],
+                           "watch":  [
+
+                                     ]
+                       },
+                       {
+                           "id":  "handbook",
+                           "kind":  "instructions",
+                           "path":  "docs/HANDBOOK.md",
+                           "status":  "ok",
+                           "findings":  [
+
+                                        ],
+                           "watch":  [
+
+                                     ]
+                       },
+                       {
+                           "id":  "gate-flow",
+                           "kind":  "instructions",
+                           "path":  "shared/instructions/gate-flow.md",
+                           "status":  "ok",
+                           "findings":  [
+                                            {
+                                                "severity":  "info",
+                                                "code":  "watchlist",
+                                                "detail":  "https://agentskills.io"
+                                            }
+                                        ],
+                           "watch":  [
+                                         "https://agentskills.io"
+                                     ]
+                       }
+                   ],
+    "frontierTopics":  [
+                           "agent skills / SKILL.md standards",
+                           "Copilot hooks plugins fork",
+                           "model tip / prompting best practices (Anthropic OpenAI Google)",
+                           "MoA / multi-agent synthesis",
+                           "eval harnesses / prompt regression / ICS",
+                           "harness vs model performance (Harness-Bench)",
+                           "MCP tooling changes",
+                           "GitHub Actions / token / security changelog"
+                       ],
+    "researchSources":  [
+                            {
+                                "id":  "agentskills",
+                                "topic":  "Agent Skills",
+                                "url":  "https://agentskills.io"
+                            },
+                            {
+                                "id":  "copilot-docs",
+                                "topic":  "GitHub Copilot",
+                                "url":  "https://docs.github.com/copilot"
+                            },
+                            {
+                                "id":  "anthropic",
+                                "topic":  "Anthropic docs",
+                                "url":  "https://docs.anthropic.com"
+                            },
+                            {
+                                "id":  "openai",
+                                "topic":  "OpenAI docs",
+                                "url":  "https://platform.openai.com/docs"
+                            },
+                            {
+                                "id":  "google-ai",
+                                "topic":  "Google AI docs",
+                                "url":  "https://ai.google.dev/docs"
+                            },
+                            {
+                                "id":  "moa",
+                                "topic":  "Mixture-of-Agents",
+                                "url":  "https://github.com/togethercomputer/moa"
+                            },
+                            {
+                                "id":  "moa-paper",
+                                "topic":  "MoA paper",
+                                "url":  "https://arxiv.org/abs/2406.04692"
+                            },
+                            {
+                                "id":  "harness-bench",
+                                "topic":  "Harness-Bench",
+                                "url":  "https://arxiv.org/html/2605.27922"
+                            },
+                            {
+                                "id":  "harness-effect",
+                                "topic":  "Harness Effect",
+                                "url":  "https://arxiv.org/html/2607.06906"
+                            },
+                            {
+                                "id":  "promptfoo-ci",
+                                "topic":  "Promptfoo CI",
+                                "url":  "https://www.promptfoo.dev/docs/integrations/ci-cd/"
+                            },
+                            {
+                                "id":  "lmarena",
+                                "topic":  "LMArena",
+                                "url":  "https://lmarena.ai"
+                            },
+                            {
+                                "id":  "gh-changelog",
+                                "topic":  "GitHub Changelog",
+                                "url":  "https://github.blog/changelog/"
+                            },
+                            {
+                                "id":  "anthropic-news",
+                                "topic":  "Anthropic news",
+                                "url":  "https://www.anthropic.com/news"
+                            },
+                            {
+                                "id":  "openai-news",
+                                "topic":  "OpenAI news",
+                                "url":  "https://openai.com/index/"
+                            }
+                        ],
+    "nextSteps":  [
+                      "For each status=action: fix locally or stage via /learn",
+                      "For each status=review: agent researches watch URLs + frontierTopics",
+                      "Promote instruction/model tip changes with upgrade-only /learn + CI",
+                      "Refresh ICS baseline only after intentional green upgrades",
+                      "Record compare runs after material harness changes (Phase 9)"
+                  ]
+}

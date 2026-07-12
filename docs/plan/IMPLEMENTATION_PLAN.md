@@ -1,6 +1,6 @@
 ---
 name: Copilot Skills Pack
-overview: "Professional Solution Architecture + ADRs + Implementation Plan for Windows-first Copilot/Claude skills harness. Phases 0–9 shipped (MVP through compare tracker)."
+overview: "Professional Solution Architecture + ADRs + Implementation Plan. Phases 0–10 shipped (MVP through upgrade/frontier scan)."
 todos:
   - id: phase-0-bootstrap
     content: "Phase 0 MUST: Repo, constitution, HANDBOOK skeleton, COMPAT, plugin stubs"
@@ -32,15 +32,18 @@ todos:
   - id: phase-9-compare
     content: "Phase 9: Harness compare tracker Elo/lift/cost leaderboard"
     status: completed
+  - id: phase-10-upgrade
+    content: "Phase 10: /upgrade component + frontier scan"
+    status: completed
   - id: phase-defer
-    content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel/required LLM judge/auto session capture"
+    content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel/required LLM judge/auto scrape"
     status: pending
 isProject: false
 ---
 
 # Copilot Skills Pack — Final Implementation Plan
 
-**Status:** Phases 0–9 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
+**Status:** Phases 0–10 implemented. See ACCEPTANCE.md. Remaining DEFER in docs/DEFER.md.
 
 **Canonical architecture document (read first):**  
 [copilot_skills_pack_ADR.md](C:\Users\avish\Documents\KnowledgeVault\outputs\copilot_skills_pack_ADR.md)  
@@ -129,7 +132,7 @@ flowchart TB
 
 | Full | Ops / proof | DEFER |
 |------|-------------|-------|
-| `/do` `/research` `/2080` `/sync` `/mcp` `/create` | `/learn` `/stats` `/audit` `/loop` `/magic` `/moa` `/compare` | TOON REST VSIX custom-MCP OTel required LLM judge |
+| `/do` `/research` `/2080` `/sync` `/mcp` `/create` | `/learn` `/stats` `/audit` `/loop` `/magic` `/moa` `/compare` `/upgrade` | TOON REST VSIX custom-MCP OTel required LLM judge auto-scrape |
 
 **/do flow:** clarify → research → clarify → ShortPlan confirm → FullPlan + native parallel → `/2080` → handoff if token thresholds  
 
@@ -165,8 +168,9 @@ Code owns paths/schemas/tests; AI owns judgment inside gates only.
 | **7** | completed | Testability · L1/L2/L3 · promote gates · local dashboard |
 | **8** | completed | Instruction Contract Score · baseline maxDrop · optional judge |
 | **9** | completed | Harness compare tracker · Elo / lift / cost leaderboard |
+| **10** | completed | `/upgrade` component + frontier scan |
 
-**Phase plans:** [PHASE6_MOA.md](PHASE6_MOA.md) · [PHASE7_GOVERNANCE.md](PHASE7_GOVERNANCE.md) · [PHASE8_QUALITY_GATE.md](PHASE8_QUALITY_GATE.md) · [PHASE9_COMPARE_TRACKER.md](PHASE9_COMPARE_TRACKER.md)  
+**Phase plans:** [PHASE6](PHASE6_MOA.md) · [PHASE7](PHASE7_GOVERNANCE.md) · [PHASE8](PHASE8_QUALITY_GATE.md) · [PHASE9](PHASE9_COMPARE_TRACKER.md) · [PHASE10](PHASE10_UPGRADE.md)  
 **CI:** [docs/CI.md](../CI.md)
 
 **Golden path:** HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080` → handoff → ledger (if hooks)

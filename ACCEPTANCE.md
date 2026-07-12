@@ -72,6 +72,14 @@
 - [x] PHASE9_COMPARE_TRACKER.md — [docs/plan/PHASE9_COMPARE_TRACKER.md](docs/plan/PHASE9_COMPARE_TRACKER.md)
 - [ ] Human: record real multi-model runs for stakeholder demo
 
+## Phase 10 (upgrade / frontier)
+
+- [x] Upgrade.psm1 + registry + Invoke-UpgradeScan
+- [x] sources.json populated; `/upgrade` skill
+- [x] Test-Phase10 in Test-CI
+- [x] PHASE10_UPGRADE.md — [docs/plan/PHASE10_UPGRADE.md](docs/plan/PHASE10_UPGRADE.md)
+- [ ] Human: periodic frontier research from report checklist
+
 ## 80/20 hardening (post-audit)
 
 - [x] Golden path roles ≥ 4 (not stuck at 4)

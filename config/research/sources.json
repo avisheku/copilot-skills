@@ -1,1 +1,19 @@
-{}
+{
+  "updatedPolicy": "explicit /upgrade or /learn -Sources only — never auto-scrape on install",
+  "entries": [
+    { "id": "agentskills", "topic": "Agent Skills", "url": "https://agentskills.io" },
+    { "id": "copilot-docs", "topic": "GitHub Copilot", "url": "https://docs.github.com/copilot" },
+    { "id": "anthropic", "topic": "Anthropic docs", "url": "https://docs.anthropic.com" },
+    { "id": "openai", "topic": "OpenAI docs", "url": "https://platform.openai.com/docs" },
+    { "id": "google-ai", "topic": "Google AI docs", "url": "https://ai.google.dev/docs" },
+    { "id": "moa", "topic": "Mixture-of-Agents", "url": "https://github.com/togethercomputer/moa" },
+    { "id": "moa-paper", "topic": "MoA paper", "url": "https://arxiv.org/abs/2406.04692" },
+    { "id": "harness-bench", "topic": "Harness-Bench", "url": "https://arxiv.org/html/2605.27922" },
+    { "id": "harness-effect", "topic": "Harness Effect", "url": "https://arxiv.org/html/2607.06906" },
+    { "id": "promptfoo-ci", "topic": "Promptfoo CI", "url": "https://www.promptfoo.dev/docs/integrations/ci-cd/" },
+    { "id": "lmarena", "topic": "LMArena", "url": "https://lmarena.ai" },
+    { "id": "gh-changelog", "topic": "GitHub Changelog", "url": "https://github.blog/changelog/" },
+    { "id": "anthropic-news", "topic": "Anthropic news", "url": "https://www.anthropic.com/news" },
+    { "id": "openai-news", "topic": "OpenAI news", "url": "https://openai.com/index/" }
+  ]
+}

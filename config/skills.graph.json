@@ -12,6 +12,7 @@
     { "id": "loop", "version": "0.1.0", "phase": "extension", "delegatesTo": ["audit", "2080"] },
     { "id": "magic", "version": "0.1.0", "phase": "extension", "aliasOf": "2080" },
     { "id": "moa", "version": "0.1.0", "phase": "extension" },
-    { "id": "compare", "version": "0.1.0", "phase": "extension" }
+    { "id": "compare", "version": "0.1.0", "phase": "extension" },
+    { "id": "upgrade", "version": "0.1.0", "phase": "extension" }
   ]
 }

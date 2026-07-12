@@ -2,5 +2,6 @@
 
 | Component | Version |
 |-----------|---------|
-| Pack | 1.3.1-audit80 |
+| Pack | 1.4.0-phase10 |
 | Schema | 1 |
+| Phases | 0–10 |

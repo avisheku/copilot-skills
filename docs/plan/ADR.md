@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | **Document type** | Solution Architecture + Architecture Decision Records (ADRs) + Implementation Plan |
-| **Status** | LIVING (Phases 0–9 implemented; see ACCEPTANCE.md / DEFER.md) |
+| **Status** | LIVING (Phases 0–10 implemented; see ACCEPTANCE.md / DEFER.md) |
 | **Version** | 1.1 |
 | **Date** | 2026-07-12 |
 | **Repo** | `C:\Users\avish\Documents\KnowledgeVault\projects\copilot-skills` |
@@ -409,6 +409,7 @@ Individual install: `-Skill <id>`. Share via PR of that folder.
 | `/magic` | P5 | Alias → 2080 |
 | `/moa` | P6 | MoA-Lite |
 | `/compare` | P9 | Harness vs solo Elo / lift / cost |
+| `/upgrade` | P10 | Component + frontier scan → learn |
 
 **Capability ladder (execution fallback inside a skill):**  
 code → helper script → MCP → browser/venv → ask human — same `/command`; internals may change.
@@ -600,8 +601,8 @@ HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080
 
 Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3 · …
 
-**Shipped lean:** Phase 5 `/loop` `/magic` · Phase 6 `/moa` · Phase 7 governance · Phase 8 ICS · Phase 9 `/compare`.  
-**Still DEFER:** see [DEFER.md](../DEFER.md). Plans: PHASE6–PHASE9 under `docs/plan/`.
+**Shipped lean:** Phase 5 `/loop` `/magic` · Phase 6 `/moa` · Phase 7 governance · Phase 8 ICS · Phase 9 `/compare` · Phase 10 `/upgrade`.  
+**Still DEFER:** see [DEFER.md](../DEFER.md). Plans: PHASE6–PHASE10 under `docs/plan/`.
 
 ### ADR-015 — Comparison tracker (Phase 9)
 
@@ -609,6 +610,13 @@ Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3
 |--|--|
 | **Decision** | Prove harness with task cards × arms (solo / harness / MoA) × models; Arena-style Elo + quality/cost/latency lift. Manual run capture day one; CI smoke only. |
 | **Consequences** | `/compare` + `evidence/compare/report.html`. Does not auto-wire MoA. |
+
+### ADR-016 — Upgrade / frontier scan (Phase 10)
+
+| | |
+|--|--|
+| **Decision** | Explicit `/upgrade` inventories components + frontier watchlist; agent researches; promote via upgrade-only `/learn`. No auto-scrape. |
+| **Consequences** | `evidence/upgrade/report.md`; keeps tips/sources/CI current without silent drift. |
 
 ---
 

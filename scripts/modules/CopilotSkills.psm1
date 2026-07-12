@@ -2,7 +2,7 @@ $ModuleRoot = $PSScriptRoot
 $modules = @(
     'Paths', 'Config', 'Obs', 'Budget', 'ContextPack', 'McpProfile',
     'InstallLogic', 'SyncLogic', 'Abidance', 'Caveman', 'HookPayloads',
-    'Gate', 'Graph', 'Models', 'Handoff', 'Schema', 'Governance', 'Quality', 'Compare',
+    'Gate', 'Graph', 'Models', 'Handoff', 'Schema', 'Governance', 'Quality', 'Compare', 'Upgrade',
     'Learn', 'Stats', 'Loop', 'WireFormat', 'MoA'
 )
 foreach ($m in $modules) {

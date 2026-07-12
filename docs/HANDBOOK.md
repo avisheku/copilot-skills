@@ -115,6 +115,7 @@ Evidence written to `evidence/golden-path.json`.
 | Session review | `/audit` |
 | Hard synth / multi-model | `/moa` |
 | Prove harness vs solo | `/compare` |
+| Stay current / AI pace | `/upgrade` |
 
 ## Skill catalog
 
@@ -131,6 +132,7 @@ Evidence written to `evidence/golden-path.json`.
 | `/audit` | Search + report → learn candidates |
 | `/moa` | Mixture of Agents — multi-proposer + aggregator |
 | `/compare` | Elo / lift / cost leaderboard (solo vs harness vs MoA) |
+| `/upgrade` | Component + frontier upgrade scan → `/learn` |
 | `/loop` | Manual audit→2080 loop |
 | `/magic` | Alias → `/2080` |
 
@@ -243,6 +245,20 @@ Detail: [plan/PHASE9_COMPARE_TRACKER.md](plan/PHASE9_COMPARE_TRACKER.md)
 VERIFY:
   command: `.\scripts\Test-Phase9.ps1`
   expect: `Phase 9: all passed.`
+
+## Phase 10 — Upgrade / frontier
+
+Scan components + AI frontier watchlist; research; stage via `/learn`.  
+Detail: [plan/PHASE10_UPGRADE.md](plan/PHASE10_UPGRADE.md)
+
+```powershell
+.\scripts\Invoke-UpgradeScan.ps1
+# evidence\upgrade\report.md
+```
+
+VERIFY:
+  command: `.\scripts\Test-Phase10.ps1`
+  expect: `Phase 10: all passed.`
 
 ## Troubleshoot
 
