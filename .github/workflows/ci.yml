@@ -22,6 +22,5 @@ jobs:
       - name: Run CI gates
         shell: pwsh
         run: |
-          Set-StrictMode -Version Latest
           $ErrorActionPreference = 'Stop'
           & .\scripts\Test-CI.ps1

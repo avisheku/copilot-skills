@@ -6,7 +6,7 @@ Import-Module (Join-Path $PSScriptRoot 'modules\CopilotSkills.psm1') -Force
 $fail = 0
 function Assert($c, $m) { if (-not $c) { Write-Host "FAIL: $m"; $script:fail++ } else { Write-Host "OK: $m" } }
 
-$map = Get-ErrorMapEntries -Root $Root
+$map = @(Get-ErrorMapEntries -Root $Root)
 Assert ($map.Count -ge 3) "error-map entries ($($map.Count))"
 
 $staging = New-LearnStaging -Kind 'sync' -Title 'test' -Body 'upgrade body content here' -Root $Root
@@ -30,8 +30,8 @@ $roles = (Get-PackConfig -Name '2080\roles.json' -Root $Root).roles
 Assert ($roles -contains 'security') "2080 security role"
 Assert ($roles -contains 'operator') "2080 operator role"
 
-$ops = Test-AllSkillsAbidance -Root $Root | Where-Object { $_.Skill -in @('learn','stats','audit') }
-Assert (($ops | Where-Object { -not $_.Pass }).Count -eq 0) 'learn/stats/audit abidance'
+$ops = @(Test-AllSkillsAbidance -Root $Root | Where-Object { $_.Skill -in @('learn','stats','audit') })
+Assert ((@($ops | Where-Object { -not $_.Pass })).Count -eq 0) 'learn/stats/audit abidance'
 
 if ($fail -gt 0) { exit 1 }
 Write-Host "Phase 4: all passed."

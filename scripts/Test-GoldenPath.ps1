@@ -52,7 +52,7 @@ $ledger = Get-LedgerPath -Root $Root
 $hasLedger = Test-Path $ledger
 Step 7 'ledger' $hasLedger $(if ($hasLedger) { 'exists' } else { 'missing' })
 
-$allPass = ($steps | Where-Object { -not $_.pass }).Count -eq 0
+$allPass = (@($steps | Where-Object { -not $_.pass })).Count -eq 0
 $evidence = [ordered]@{
     goldenPath = 'install -> mcp minimal -> do prep -> 2080 -> finish -> ledger'
     timestamp  = (Get-Date).ToUniversalTime().ToString('o')

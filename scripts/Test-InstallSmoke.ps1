@@ -14,7 +14,8 @@ Assert $hooks.Pass 'hooks.json valid'
 
 & (Join-Path $PSScriptRoot 'Install-CopilotSkills.ps1') -Target Copilot -Layer Folders | Out-Null
 $sync = Sync-CopilotSkillsTarget -Check -Target Copilot -Root $Root
-Assert (($sync | Where-Object { -not $_.InSync }).Count -eq 0) 'post-install sync'
+$sync = @(Sync-CopilotSkillsTarget -Check -Target Copilot -Root $Root)
+Assert ((@($sync | Where-Object { -not $_.InSync })).Count -eq 0) 'post-install sync'
 
 $pack = Invoke-ContextPack -PackId 'default' -Root $Root
 Assert ($pack.refs.Count -ge 1) 'context pack inject'
