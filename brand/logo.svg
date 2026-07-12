@@ -1,22 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SkillsForge">
-  <!-- Hammer (charcoal) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140" role="img" aria-label="SkillsForge">
+  <!--
+    SkillsForge mark: claw hammer + 3x3 skill grid
+    Colors: skills #1B3A6B, forge #3D3D3D
+    Pure shapes only (no fonts) for GitHub SVG safety
+  -->
+  <!-- Grid circles (drawn first so handle overlays left column) -->
+  <!-- Col 1 -->
+  <circle cx="42" cy="36" r="12" fill="#1B3A6B"/>
+  <circle cx="42" cy="68" r="12" fill="#3D3D3D"/>
+  <circle cx="42" cy="100" r="12" fill="#1B3A6B"/>
+  <!-- Col 2 -->
+  <circle cx="74" cy="36" r="12" fill="#3D3D3D"/>
+  <circle cx="74" cy="68" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+  <circle cx="74" cy="100" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+  <!-- Col 3 -->
+  <circle cx="106" cy="36" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+  <circle cx="106" cy="68" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+  <circle cx="106" cy="100" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+
+  <!-- Claw hammer -->
   <g fill="#3D3D3D">
-    <path d="M22 18h28c3 0 5 2 5 5v10c0 2-1 4-3 5l-8 4v4H33v-4l-8-4c-2-1-3-3-3-5V23c0-3 2-5 5-5z"/>
-    <rect x="40" y="42" width="10" height="68" rx="3"/>
-    <path d="M22 23h10v14H18c0-4 1-8 4-14z" opacity="0.9"/>
+    <!-- head -->
+    <path d="M8 22
+             C6 14 12 8 22 10
+             L48 10
+             C56 10 60 16 60 24
+             L60 48
+             C60 56 54 60 46 60
+             L38 60
+             L38 130
+             L30 130
+             L30 60
+             L24 60
+             C14 60 8 50 10 36
+             C4 34 2 26 8 22 Z"/>
+    <!-- upper claw gap -->
+    <path d="M12 18 C8 14 10 10 16 12 L26 20 L18 28 Z" fill="#FFFFFF"/>
+    <!-- lower claw gap -->
+    <path d="M10 40 C4 42 4 52 12 54 L26 44 L18 38 Z" fill="#FFFFFF"/>
   </g>
-  <!-- 3x3 grid -->
-  <g stroke="#1B3A6B" stroke-width="4" fill="none">
-    <circle cx="72" cy="40" r="9"/>
-    <circle cx="96" cy="40" r="9"/>
-    <circle cx="72" cy="64" r="9"/>
-    <circle cx="96" cy="64" r="9"/>
-    <circle cx="72" cy="88" r="9"/>
-    <circle cx="96" cy="88" r="9"/>
-  </g>
-  <!-- Left column / solids peeking by hammer -->
-  <circle cx="52" cy="40" r="9" fill="#1B3A6B"/>
-  <circle cx="52" cy="64" r="9" fill="#3D3D3D"/>
-  <circle cx="52" cy="88" r="9" fill="#1B3A6B"/>
-  <circle cx="72" cy="40" r="9" fill="#3D3D3D"/>
 </svg>

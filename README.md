@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="brand/banner.svg" alt="SkillsForge — 20% Change. 80% Better." width="100%"/>
+  <img src="brand/banner.png" alt="SkillsForge - 20% Change. 80% Better." width="100%"/>
 </p>
 
 <p align="center">
-  <img src="brand/logo-wordmark.png" alt="SkillsForge" width="520"/>
+  <img src="brand/logo-wordmark.png" alt="SkillsForge" width="480"/>
 </p>
 
 <h1 align="center">SkillsForge</h1>
 
 <p align="center">
   <strong>20% Change. 80% Better.</strong><br/>
-  The Copilot skills harness that keeps pace with AI — structure, prove, and upgrade without rewriting everything.
+  The Copilot skills harness that keeps pace with AI - structure, prove, and upgrade without rewriting everything.
 </p>
 
 <p align="center">
@@ -164,7 +164,7 @@ Constitution: [PILLARS](docs/PILLARS.md) · [PRINCIPLES](docs/PRINCIPLES.md)
 ---
 
 <p align="center">
-  <img src="brand/logo.svg" width="64" alt="SkillsForge mark"/>
+  <img src="brand/logo-mark.png" width="72" alt="SkillsForge mark"/>
   <br/>
   <sub>SkillsForge — 20% Change. 80% Better.</sub>
 </p>

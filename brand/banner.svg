@@ -1,50 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" role="img" aria-label="SkillsForge — 20% Change. 80% Better.">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="SkillsForge - 20% Change. 80% Better.">
+  <!-- Prefer brand/banner.png in README. This SVG is a fallback: no exotic fonts. -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0F1724"/>
-      <stop offset="55%" stop-color="#152238"/>
       <stop offset="100%" stop-color="#1B3A6B"/>
     </linearGradient>
-    <radialGradient id="glow" cx="78%" cy="45%" r="45%">
-      <stop offset="0%" stop-color="#F4F6F8" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#F4F6F8" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.2" fill="#F4F6F8" fill-opacity="0.08"/>
-    </pattern>
   </defs>
-
   <rect width="1280" height="420" fill="url(#bg)"/>
-  <rect width="1280" height="420" fill="url(#dots)"/>
-  <rect width="1280" height="420" fill="url(#glow)"/>
+  <!-- light card -->
+  <rect x="140" y="70" width="1000" height="280" rx="16" fill="#F7F8FA"/>
 
-  <!-- Mark -->
-  <g transform="translate(72,95) scale(1.7)">
-    <g fill="#C8CDD3">
-      <path d="M22 18h28c3 0 5 2 5 5v10c0 2-1 4-3 5l-8 4v4H33v-4l-8-4c-2-1-3-3-3-5V23c0-3 2-5 5-5z"/>
-      <rect x="40" y="42" width="10" height="68" rx="3"/>
-      <path d="M22 23h10v14H18c0-4 1-8 4-14z" opacity="0.9"/>
+  <!-- mark -->
+  <g transform="translate(200,95) scale(1.35)">
+    <circle cx="42" cy="36" r="12" fill="#1B3A6B"/>
+    <circle cx="42" cy="68" r="12" fill="#3D3D3D"/>
+    <circle cx="42" cy="100" r="12" fill="#1B3A6B"/>
+    <circle cx="74" cy="36" r="12" fill="#3D3D3D"/>
+    <circle cx="74" cy="68" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+    <circle cx="74" cy="100" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+    <circle cx="106" cy="36" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+    <circle cx="106" cy="68" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+    <circle cx="106" cy="100" r="12" fill="none" stroke="#1B3A6B" stroke-width="5"/>
+    <g fill="#3D3D3D">
+      <path d="M8 22 C6 14 12 8 22 10 L48 10 C56 10 60 16 60 24 L60 48 C60 56 54 60 46 60 L38 60 L38 130 L30 130 L30 60 L24 60 C14 60 8 50 10 36 C4 34 2 26 8 22 Z"/>
+      <path d="M12 18 C8 14 10 10 16 12 L26 20 L18 28 Z" fill="#F7F8FA"/>
+      <path d="M10 40 C4 42 4 52 12 54 L26 44 L18 38 Z" fill="#F7F8FA"/>
     </g>
-    <g stroke="#7EA0D4" stroke-width="4" fill="none">
-      <circle cx="72" cy="40" r="9"/>
-      <circle cx="96" cy="40" r="9"/>
-      <circle cx="72" cy="64" r="9"/>
-      <circle cx="96" cy="64" r="9"/>
-      <circle cx="72" cy="88" r="9"/>
-      <circle cx="96" cy="88" r="9"/>
-    </g>
-    <circle cx="52" cy="40" r="9" fill="#7EA0D4"/>
-    <circle cx="52" cy="64" r="9" fill="#C8CDD3"/>
-    <circle cx="52" cy="88" r="9" fill="#7EA0D4"/>
-    <circle cx="72" cy="40" r="9" fill="#C8CDD3"/>
   </g>
 
-  <text x="340" y="178" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.5">
-    <tspan fill="#8EB4E8">Skills</tspan><tspan fill="#E5E7EB">Forge</tspan>
+  <text x="420" y="195" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">
+    <tspan fill="#1B3A6B">Skills</tspan><tspan fill="#3D3D3D">Forge</tspan>
   </text>
-  <text x="344" y="232" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="500" fill="#9CA3AF">Copilot skills harness</text>
-  <text x="344" y="290" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="26" fill="#E5E7EB">20% Change. 80% Better.</text>
-
-  <rect x="0" y="408" width="640" height="12" fill="#1B3A6B"/>
-  <rect x="640" y="408" width="640" height="12" fill="#3D3D3D"/>
+  <text x="424" y="250" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#6B7280">20% Change. 80% Better.</text>
 </svg>
