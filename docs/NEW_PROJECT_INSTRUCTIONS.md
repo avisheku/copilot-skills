@@ -199,12 +199,33 @@ After golden path green → **STOP AND USE** unless the user requests the next p
 
 ---
 
-## 10. Secrets & personal data
+## 10. Secrets & personal data (Pillar 7 — non-negotiable)
 
-- Never commit: `.env`, API keys, tokens, session cookies, or personal/private documents.  
-- `data/` is local only (bind-mount / gitignored).  
-- `samples/` must be **redacted**.  
-- User types credentials at use time; do not store them in code.  
+**Decision test:** Would this identify a real person, unlock an account, or expose tax/financial docs? → **must not be in git.**
+
+### Never commit
+
+| Class | Examples |
+|-------|----------|
+| Secrets | `.env`, API keys, tokens, session cookies, SSH/private keys, OTP dumps |
+| Credentials | Portal/broker passwords, master passwords, `tax_vault.json`, `*credentials*.json` |
+| Personal / tax PII | Real PAN, Aadhaar, DOB used as password, bank account numbers |
+| Documents | Form 16 PDF, AIS/26AS, broker P&L, ITR JSON, ack PDFs |
+| Runtime stores | `data/**`, `*.db` / SQLite, local profile YAML with filled PAN |
+| Generated PII | `reports/`, `ledger/*.jsonl` if they contain real amounts/identities |
+
+### Always do
+
+- `.gitignore` covers `data/`, `.env`, DBs, vault docs, and **local profile/PII paths** — not only `.env`.
+- Ship **redacted seeds only**: `*.example.yaml`, `samples/`, `tests/fixtures/` with **fake** numbers.
+- User types credentials at use time; encrypt at rest if stored (never plaintext in repo).
+- Prefer a **secrets audit script** (or CI check) that fails if forbidden paths appear in `git ls-files`.
+- Agents: never `git add -f` ignored secret paths; never paste live passwords/PANs into commits or public chat logs.
+
+### Share / clone
+
+- Share **code + Compose + examples**, never personal `data/` or filled profiles.
+- Private GitHub ≠ license to commit secrets — ignore rules still apply.
 
 ---
 
@@ -240,7 +261,8 @@ This file holds **cross-project** rules only: pillars, principles, packaging, ga
 - [ ] `docs/HANDBOOK.md` with VERIFY  
 - [ ] `config/` for tunables  
 - [ ] Docker Compose when a runtime exists  
-- [ ] `.gitignore` locks secrets + `data/`  
+- [ ] `.gitignore` locks secrets + `data/` + PII profiles/docs (not only `.env`)  
+- [ ] Secrets audit / checklist: no real PAN/passwords in tracked files  
 - [ ] Golden path + DEFER list written  
 - [ ] Share/run path documented  
 - [ ] User manual steps kept minimal  
