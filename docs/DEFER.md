@@ -25,4 +25,9 @@ Phase 5 shipped **lean** extensions. Still **not built** until measured need:
 - Linux `scripts/linux/*.sh` wrappers
 - L3 eval stub (`tests/evals/`)
 
-Enable deferred items via `/learn` + ADR update when pain is proven.
+## Phase 6 shipped (lean MoA)
+
+- `/moa` MoA-Lite — see `docs/plan/PHASE6_MOA.md`
+- Still DEFER: dense 3+ MoA layers, Faster-MoA tree/early-exit serving, auto-wire into `/do` without stats
+
+Enable remaining deferred items via `/learn` + ADR update when pain is proven.

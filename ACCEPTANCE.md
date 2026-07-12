@@ -35,3 +35,11 @@
 - [x] Linux shell wrappers
 - [x] L3 eval stub + docs/DEFER.md
 - [x] Test-Phase5.ps1 passes
+
+## Phase 6 (MoA)
+
+- [x] Research note PHASE6_MOA.md (Together MoA inspire)
+- [x] `/moa` skill + MoA.psm1 + profiles lite/full/research
+- [x] Invoke-MoA / Invoke-MoAFinish + proposer/aggregator agents
+- [x] Compare-MoAToBaseline (stats-gated wire later)
+- [x] Test-Phase6.ps1 passes

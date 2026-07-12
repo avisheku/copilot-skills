@@ -6,6 +6,7 @@ memory/.mcp-state.json
 memory/.model-state.json
 memory/.handoff-pack.json
 memory/.mcp-snapshot.json
+memory/moa/
 rules/user/
 logs/
 *.log

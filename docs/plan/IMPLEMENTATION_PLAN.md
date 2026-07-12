@@ -143,7 +143,10 @@ Code owns paths/schemas/tests; AI owns judgment inside gates only.
 | **2** | MUST | 6 full skills · shared gates · Layer A/B · abidance · graph |
 | **3** | MUST → **STOP** | `/do`+/`research` native · model tips · `/2080` · **full HANDBOOK** · golden evidence |
 | **4** | SHOULD | Full `/learn` · handbook patches · `/stats` `/audit` · dual sync PR |
-| **5+** | DEFER | TOON · loop · VSIX · Firm · OTel · Graphify · REST · custom MCP · marketplace |
+| **5** | LEAN | `/loop` · `/magic` · wire stub · Linux wrappers |
+| **6** | ACTIVE | `/moa` Mixture-of-Agents (MoA-Lite) — multi-proposer + aggregator |
+
+**Phase 6 detail:** [docs/plan/PHASE6_MOA.md](PHASE6_MOA.md)
 
 **Golden path:** HANDBOOK Agent contract → install → `/mcp minimal` → `/do` tiny → `/2080` → handoff → ledger (if hooks)
 

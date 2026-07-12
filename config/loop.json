@@ -2,6 +2,7 @@
   "enabled": false,
   "intervalMinutes": 60,
   "steps": ["audit", "2080"],
+  "optionalSteps": ["moa"],
   "maxIterations": 5,
-  "note": "Manual Invoke-Loop.ps1 only. No background daemon in Phase 5."
+  "note": "Add moa to steps only when Compare-MoAToBaseline.recommendWire is true. Manual Invoke-Loop.ps1 only."
 }

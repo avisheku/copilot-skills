@@ -113,6 +113,7 @@ Evidence written to `evidence/golden-path.json`.
 | Fix recurring issue | `/learn` |
 | Metrics | `/stats` |
 | Session review | `/audit` |
+| Hard synth / multi-model | `/moa` |
 
 ## Skill catalog
 
@@ -127,6 +128,9 @@ Evidence written to `evidence/golden-path.json`.
 | `/learn` | Upgrade-only promote; error-map; handbook |
 | `/stats` | Ledger rollup |
 | `/audit` | Search + report → learn candidates |
+| `/moa` | Mixture of Agents — multi-proposer + aggregator |
+| `/loop` | Manual audit→2080 loop |
+| `/magic` | Alias → `/2080` |
 
 ## Learn workflow (Phase 4)
 
@@ -153,6 +157,32 @@ Still deferred: [DEFER.md](DEFER.md)
 VERIFY:
   command: `.\scripts\Test-Phase5.ps1`
   expect: `Phase 5: all passed.`
+
+## Phase 6 — `/moa` (Mixture of Agents)
+
+Multi-model: cheap proposers in parallel → pack → aggregator synth.  
+Detail: [plan/PHASE6_MOA.md](plan/PHASE6_MOA.md)
+
+```powershell
+.\scripts\Invoke-MoA.ps1 -Query "your hard question" -Profile lite
+# fork proposers, then:
+.\scripts\Invoke-MoAFinish.ps1 -RunId <id> -ProposalsJson '[{...}]'
+# then aggregator agent
+```
+
+Profiles: `lite` · `full` · `research`
+
+Wire into `/loop` or `/do` only after:
+
+```powershell
+Import-Module .\scripts\modules\CopilotSkills.psm1 -Force
+Compare-MoAToBaseline
+# recommendWire = true when enough MoA samples beat /do token median
+```
+
+VERIFY:
+  command: `.\scripts\Test-Phase6.ps1`
+  expect: `Phase 6: all passed.`
 
 ## Troubleshoot
 

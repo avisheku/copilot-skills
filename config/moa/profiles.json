@@ -1,0 +1,43 @@
+{
+  "defaultProfile": "lite",
+  "maxLayers": 2,
+  "minSuccessfulProposers": 1,
+  "maxProposalChars": 1200,
+  "proposerTemperatureHint": 0.7,
+  "aggregatorTemperatureHint": 0.4,
+  "profiles": {
+    "lite": {
+      "label": "MoA-Lite — 3 cheap proposers + mid aggregator",
+      "proposers": [
+        { "id": "p-openai", "family": "openai", "role": "proposer", "tipTask": "implement" },
+        { "id": "p-google", "family": "google", "role": "proposer", "tipTask": "implement" },
+        { "id": "p-universal", "family": "universal", "role": "proposer", "tipTask": "research" }
+      ],
+      "aggregator": { "id": "agg-anthropic", "family": "anthropic", "role": "aggregator", "tipTask": "orchestrate" }
+    },
+    "full": {
+      "label": "MoA full — 4 proposers + strong aggregator",
+      "proposers": [
+        { "id": "p-openai", "family": "openai", "role": "proposer", "tipTask": "implement" },
+        { "id": "p-google", "family": "google", "role": "proposer", "tipTask": "implement" },
+        { "id": "p-universal", "family": "universal", "role": "proposer", "tipTask": "research" },
+        { "id": "p-anthropic-lite", "family": "anthropic", "role": "proposer", "tipTask": "research" }
+      ],
+      "aggregator": { "id": "agg-anthropic", "family": "anthropic", "role": "aggregator", "tipTask": "orchestrate" }
+    },
+    "research": {
+      "label": "MoA for research synthesis",
+      "proposers": [
+        { "id": "p-universal", "family": "universal", "role": "proposer", "tipTask": "research" },
+        { "id": "p-openai", "family": "openai", "role": "proposer", "tipTask": "research" },
+        { "id": "p-google", "family": "google", "role": "proposer", "tipTask": "research" }
+      ],
+      "aggregator": { "id": "agg-anthropic", "family": "anthropic", "role": "aggregator", "tipTask": "orchestrate" }
+    }
+  },
+  "wireIntoLoopWhen": "ledger shows moa token_est median lower and outcome ok rate higher than single-model baseline",
+  "cite": [
+    "https://github.com/togethercomputer/moa",
+    "https://arxiv.org/abs/2406.04692"
+  ]
+}

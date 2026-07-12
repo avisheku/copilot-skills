@@ -23,6 +23,10 @@ function Invoke-LoopIteration {
                 $roles = (Get-PackConfig -Name '2080\roles.json' -Root $Root).roles
                 $results.steps += @{ step = '2080'; roles = $roles; note = 'run /2080 in chat for synthesis' }
             }
+            'moa' {
+                $cmp = Compare-MoAToBaseline -Root $Root
+                $results.steps += @{ step = 'moa'; compare = $cmp; note = 'run /moa in chat when recommendWire or for hard synth' }
+            }
             default {
                 $results.steps += @{ step = $step; skipped = $true }
             }

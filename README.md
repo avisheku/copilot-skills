@@ -11,4 +11,4 @@ Windows-first skills harness for VS Code Copilot and Claude Code.
 | [Implementation plan](docs/plan/IMPLEMENTATION_PLAN.md) | Phases 0–3 MVP |
 | [SETUP](SETUP.md) | Setup pointer |
 
-MVP + Phases 4–5: learn/stats/audit, loop, magic alias, Linux wrappers. See docs/DEFER.md for not-built items.
+Phases 0–6: MVP + learn/stats/audit + loop/magic + **/moa** (MoA-Lite). See docs/plan/PHASE6_MOA.md and docs/DEFER.md.
