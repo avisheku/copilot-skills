@@ -91,6 +91,19 @@
 - [x] PHASE11_LIVING_MATRIX.md — [docs/plan/PHASE11_LIVING_MATRIX.md](docs/plan/PHASE11_LIVING_MATRIX.md)
 - [ ] Human: record real cell outcomes so evidence can promote starts
 
+## Constitution remediation (Phases 6–11)
+
+Later phases mostly follow pillars; close these so promote/gates/ICS match the constitution everywhere. Detail: [docs/plan/IMPLEMENTATION_PLAN.md](docs/plan/IMPLEMENTATION_PLAN.md) § Constitution remediation.
+
+- [ ] C1 MoA clarify/confirm (or ADR exception)
+- [ ] C2 MoA wire uses compare Elo/lift (or single documented evidence path)
+- [ ] C3 Matrix-cell promote through L2 + ICS
+- [ ] C4 ICS/L3 coverage for moa/compare/upgrade/matrix
+- [ ] C5 Matrix promote considers qualityMin / avgQuality
+- [ ] C6 Document `matrix-cell` in learn SKILL
+- [ ] C7 Pre-push secrets-audit script (Pillar 7)
+- [ ] C8 Evidence outputs gitignore / redaction policy
+
 ## 80/20 hardening (post-audit)
 
 - [x] Golden path roles ≥ 4 (not stuck at 4)
