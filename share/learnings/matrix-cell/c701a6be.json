@@ -1,0 +1,8 @@
+﻿{
+    "id":  "c701a6be",
+    "kind":  "matrix-cell",
+    "title":  "matrix start implement -\u003e anthropic/medium",
+    "body":  "{\"start\":{\"effort\":\"medium\",\"family\":\"anthropic\"},\"taskKind\":\"implement\"}",
+    "status":  "staging",
+    "createdAt":  "2026-07-13T03:53:41.8368594Z"
+}

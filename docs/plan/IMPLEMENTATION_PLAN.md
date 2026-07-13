@@ -1,6 +1,6 @@
 ---
 name: SkillsForge
-overview: "SkillsForge (Copilot Skills Pack) — Solution Architecture + ADRs + Implementation Plan. Phases 0–10 shipped. Tagline: 20% Change. 80% Better."
+overview: "SkillsForge (Copilot Skills Pack) — Solution Architecture + ADRs + Implementation Plan. Phases 0–11 shipped. Tagline: 20% Change. 80% Better."
 todos:
   - id: phase-0-bootstrap
     content: "Phase 0 MUST: Repo, constitution, HANDBOOK skeleton, COMPAT, plugin stubs"
@@ -34,6 +34,9 @@ todos:
     status: completed
   - id: phase-10-upgrade
     content: "Phase 10: /upgrade component + frontier scan"
+    status: completed
+  - id: phase-11-living-matrix
+    content: "Phase 11: living matrix evidence + effort/family ladder + learn promote"
     status: completed
   - id: phase-defer
     content: "Still DEFER: TOON-on/VSIX/REST/custom MCP/OTel/required LLM judge/auto scrape"

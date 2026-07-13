@@ -82,6 +82,15 @@
 - [x] PHASE10_UPGRADE.md — [docs/plan/PHASE10_UPGRADE.md](docs/plan/PHASE10_UPGRADE.md)
 - [ ] Human: periodic frontier research from report checklist
 
+## Phase 11 (living matrix)
+
+- [x] Evidence runs `evidence/matrix/runs` + ledger
+- [x] Recommend-MatrixCell; effort tips; `/do` escalate + synth pack
+- [x] `/learn` kind `matrix-cell` promote gate
+- [x] Test-Phase11 in Test-CI
+- [x] PHASE11_LIVING_MATRIX.md — [docs/plan/PHASE11_LIVING_MATRIX.md](docs/plan/PHASE11_LIVING_MATRIX.md)
+- [ ] Human: record real cell outcomes so evidence can promote starts
+
 ## 80/20 hardening (post-audit)
 
 - [x] Golden path roles ≥ 4 (not stuck at 4)

@@ -170,5 +170,103 @@ function Invoke-LearnHandbookPatch {
     return @{ Patched = -not $WhatIf; Target = $handbook }
 }
 
+function New-MatrixCellProposal {
+    param(
+        [Parameter(Mandatory)][string]$TaskKind,
+        [Parameter(Mandatory)][string]$Family,
+        [ValidateSet('low', 'medium', 'high', 'extra')][string]$Effort = 'medium',
+        [string]$Title = '',
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    if (-not $Title) { $Title = "matrix start $TaskKind -> $Family/$Effort" }
+    $body = (@{
+        taskKind = $TaskKind
+        start    = @{ family = $Family; effort = $Effort }
+    } | ConvertTo-Json -Compress)
+    return New-LearnStaging -Kind 'matrix-cell' -Title $Title -Body $body -Root $Root
+}
+
+function Test-MatrixCellPromoteGate {
+    param(
+        [Parameter(Mandatory)][string]$TaskKind,
+        [Parameter(Mandatory)][string]$Family,
+        [Parameter(Mandatory)][string]$Effort,
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    $issues = @()
+    $cell = Get-MatrixTaskCell -TaskKind $TaskKind -Root $Root
+    $minN = if ($cell.evidenceMin) { [int]$cell.evidenceMin } else { 3 }
+    $stats = @(Get-MatrixCellStats -TaskKind $TaskKind -Root $Root)
+    $candidate = $stats | Where-Object { $_.family -eq $Family -and $_.effort -eq $Effort } | Select-Object -First 1
+    if (-not $candidate) {
+        return [pscustomobject]@{ Pass = $false; Issues = @('no evidence for proposed cell') }
+    }
+    if ($candidate.n -lt $minN) {
+        $issues += "need n>=$minN (got $($candidate.n))"
+    }
+    $curFam = $cell.start.family
+    $curEff = $cell.start.effort
+    $current = $stats | Where-Object { $_.family -eq $curFam -and $_.effort -eq $curEff } | Select-Object -First 1
+    $curRate = if ($current) { [double]$current.okRate } else { 0 }
+    if ([double]$candidate.okRate -le $curRate -and $current) {
+        # Allow promote if same okRate but fewer tokens
+        if ([double]$candidate.okRate -eq $curRate -and $candidate.medianTokens -lt $current.medianTokens) {
+            # ok
+        }
+        else {
+            $issues += "okRate $($candidate.okRate) not better than current $curRate"
+        }
+    }
+    # Reject identical start (no-op)
+    if ($Family -eq $curFam -and $Effort -eq $curEff) {
+        $issues += 'proposed start equals current start'
+    }
+    [pscustomobject]@{ Pass = ($issues.Count -eq 0); Issues = $issues; Candidate = $candidate; Current = $current }
+}
+
+function Invoke-MatrixCellPromote {
+    param(
+        [Parameter(Mandatory)][string]$StagingFile,
+        [switch]$SkipEvidenceGate,
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    $cfg = Get-LearnConfig -Root $Root
+    if (-not $cfg.upgradeOnly) { throw 'upgradeOnly disabled' }
+    if (-not (Test-Path $StagingFile)) { throw "staging missing: $StagingFile" }
+
+    $staging = Get-Content $StagingFile -Raw | ConvertFrom-Json
+    if ($staging.kind -ne 'matrix-cell') { throw 'staging kind must be matrix-cell' }
+    $payload = $staging.body | ConvertFrom-Json
+    $taskKind = $payload.taskKind
+    $family = $payload.start.family
+    $effort = $payload.start.effort
+    if (-not $taskKind -or -not $family -or -not $effort) { throw 'matrix-cell body needs taskKind and start.family/effort' }
+
+    if (-not $SkipEvidenceGate) {
+        $gate = Test-MatrixCellPromoteGate -TaskKind $taskKind -Family $family -Effort $effort -Root $Root
+        if (-not $gate.Pass) { throw "Matrix promote gate failed: $($gate.Issues -join '; ')" }
+    }
+
+    $matrixPath = Join-Path $Root 'config\models\matrix.json'
+    $matrix = Get-Content $matrixPath -Raw | ConvertFrom-Json
+    if (-not $matrix.cells.$taskKind) {
+        throw "taskKind not in matrix cells: $taskKind"
+    }
+    $matrix.cells.$taskKind.start.family = $family
+    $matrix.cells.$taskKind.start.effort = $effort
+    $matrix.cells.$taskKind.source = 'learn'
+    $matrix.cells.$taskKind.updatedAt = (Get-Date).ToUniversalTime().ToString('o')
+
+    $json = $matrix | ConvertTo-Json -Depth 10
+    Set-Content -Path $matrixPath -Value $json -Encoding utf8
+    Write-LedgerEntry -Skill 'learn' -Tool 'promote-matrix-cell' -Outcome 'ok' -Root $Root | Out-Null
+    return [pscustomobject]@{
+        Promoted = $matrixPath
+        TaskKind = $taskKind
+        Start    = @{ family = $family; effort = $effort }
+    }
+}
+
 Export-ModuleMember -Function Get-LearnConfig, New-ErrorMapEntry, Get-ErrorMapEntries,
-    New-LearnStaging, Test-LearnUpgradeOnly, Invoke-LearnPromote, Invoke-LearnHandbookPatch
+    New-LearnStaging, Test-LearnUpgradeOnly, Invoke-LearnPromote, Invoke-LearnHandbookPatch,
+    New-MatrixCellProposal, Test-MatrixCellPromoteGate, Invoke-MatrixCellPromote

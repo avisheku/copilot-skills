@@ -58,6 +58,7 @@ function Invoke-AuditReport {
         errorCount  = $errors.Count
         denyCount   = $denies.Count
         errorMapIds = @($map | ForEach-Object { $_.id })
+        matrixCells = @(Get-MatrixCellStats -Root $Root | Select-Object -First 20)
         recentErrors = @($errors | Select-Object -Last 10)
     }
 }

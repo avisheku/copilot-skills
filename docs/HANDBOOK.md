@@ -261,6 +261,21 @@ VERIFY:
   command: `.\scripts\Test-Phase10.ps1`
   expect: `Phase 10: all passed.`
 
+## Phase 11 — Living matrix
+
+Start `/do` from best evidenced `(family, effort)` cell; escalate effort then family with a synth pack; `/learn` promotes winners into `matrix.json`.  
+Detail: [plan/PHASE11_LIVING_MATRIX.md](plan/PHASE11_LIVING_MATRIX.md)
+
+```powershell
+.\scripts\Invoke-DoPrep.ps1
+.\scripts\Save-MatrixEvidence.ps1 -TaskKind implement -Family universal -Effort medium -Outcome ok
+.\scripts\Test-Phase11.ps1
+```
+
+VERIFY:
+  command: `.\scripts\Test-Phase11.ps1`
+  expect: `Phase 11: all passed.`
+
 ## Troubleshoot
 
 ### install-layer-a

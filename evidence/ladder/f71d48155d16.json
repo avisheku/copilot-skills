@@ -1,0 +1,20 @@
+﻿{
+    "type":  "LadderSynthPack",
+    "runId":  "f71d48155d16",
+    "taskKind":  "implement",
+    "query":  "fix flaky test",
+    "attemptSummary":  "still failing",
+    "whatWorked":  "",
+    "blockers":  "",
+    "artifacts":  "",
+    "nextAsk":  "",
+    "from":  {
+                 "family":  "universal",
+                 "effort":  "high"
+             },
+    "to":  {
+               "family":  "anthropic",
+               "effort":  "medium"
+           },
+    "packedAt":  "2026-07-13T03:53:41.2724783Z"
+}

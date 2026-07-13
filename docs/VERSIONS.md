@@ -3,6 +3,6 @@
 | Component | Version |
 |-----------|---------|
 | Product | SkillsForge |
-| Pack | 1.4.0-phase10 |
+| Pack | 1.5.0-phase11 |
 | Schema | 1 |
-| Phases | 0–10 |
+| Phases | 0–11 |

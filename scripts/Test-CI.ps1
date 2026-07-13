@@ -14,7 +14,8 @@ $gates = @(
     @{ Name = 'Phase7'; Script = 'scripts\Test-Phase7.ps1' },
     @{ Name = 'Phase8'; Script = 'scripts\Test-Phase8.ps1' },
     @{ Name = 'Phase9'; Script = 'scripts\Test-Phase9.ps1' },
-    @{ Name = 'Phase10'; Script = 'scripts\Test-Phase10.ps1' }
+    @{ Name = 'Phase10'; Script = 'scripts\Test-Phase10.ps1' },
+    @{ Name = 'Phase11'; Script = 'scripts\Test-Phase11.ps1' }
 )
 
 $failed = @()

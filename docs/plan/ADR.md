@@ -5,9 +5,9 @@
 | Field | Value |
 |-------|-------|
 | **Document type** | Solution Architecture + Architecture Decision Records (ADRs) + Implementation Plan |
-| **Status** | LIVING (Phases 0–10 implemented; see ACCEPTANCE.md / DEFER.md) |
-| **Version** | 1.1 |
-| **Date** | 2026-07-12 |
+| **Status** | LIVING (Phases 0–11 implemented; see ACCEPTANCE.md / DEFER.md) |
+| **Version** | 1.2 |
+| **Date** | 2026-07-13 |
 | **Repo** | `C:\Users\avish\Documents\KnowledgeVault\projects\copilot-skills` |
 | **Vault** | `C:\Users\avish\Documents\KnowledgeVault` |
 | **Out of scope** | InstagramVault · ClaudeTrades product code |
@@ -619,6 +619,13 @@ Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3
 |--|--|
 | **Decision** | Explicit `/upgrade` inventories components + frontier watchlist; agent researches; promote via upgrade-only `/learn`. No auto-scrape. |
 | **Consequences** | `evidence/upgrade/report.md`; keeps tips/sources/CI current without silent drift. |
+
+### ADR-017 — Living matrix: task × family × effort (Phase 11)
+
+| | |
+|--|--|
+| **Decision** | Log every `(taskKind, family, effort)` attempt; start `/do` from best evidenced cell (else seed); escalate **effort before family** with a synth pack; `/learn` kind `matrix-cell` promotes start when evidence clears the gate. No auto IDE model switch. |
+| **Consequences** | Stops always-max model/effort; prior work survives escalate; matrix improves via promote not vibes. |
 
 ---
 

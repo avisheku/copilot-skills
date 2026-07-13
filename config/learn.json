@@ -1,4 +1,4 @@
 {
   "upgradeOnly": true,
-  "kinds": ["setup", "sync", "arch", "playbook", "token-save", "context-save", "caveman", "handbook-fix", "handbook-install", "handbook-skill"]
+  "kinds": ["setup", "sync", "arch", "playbook", "token-save", "context-save", "caveman", "handbook-fix", "handbook-install", "handbook-skill", "matrix-cell"]
 }

@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="https://github.com/avisheku/copilot-skills/actions"><img src="https://img.shields.io/github/actions/workflow/status/avisheku/copilot-skills/ci.yml?branch=master&style=for-the-badge&label=CI&color=1B3A6B" alt="CI"/></a>
-  <img src="https://img.shields.io/badge/phases-0–10-3D3D3D?style=for-the-badge" alt="Phases 0–10"/>
-  <img src="https://img.shields.io/badge/pack-1.4.0--phase10-1B3A6B?style=for-the-badge" alt="Version"/>
+  <img src="https://img.shields.io/badge/phases-0–11-3D3D3D?style=for-the-badge" alt="Phases 0–11"/>
+  <img src="https://img.shields.io/badge/pack-1.5.0--phase11-1B3A6B?style=for-the-badge" alt="Version"/>
   <img src="https://img.shields.io/badge/Windows--first-0F1724?style=for-the-badge" alt="Windows-first"/>
 </p>
 
@@ -68,12 +68,13 @@ Full install & VERIFY steps: **[docs/HANDBOOK.md](docs/HANDBOOK.md)**
 
 ---
 
-## What ships (Phases 0–10)
+## What ships (Phases 0–11)
 
 ```
 Install → Graph & gates → Golden path → Learn/Audit
        → Loop/Research → MoA → Governance dashboard
        → Instruction quality (ICS) → Compare tracker → Frontier /upgrade
+       → Living matrix (task × family × effort)
 ```
 
 | Phase | Capability | Doc |
@@ -83,8 +84,9 @@ Install → Graph & gates → Golden path → Learn/Audit
 | 8 | Instruction Contract Score | [PHASE8](docs/plan/PHASE8_QUALITY_GATE.md) |
 | 9 | Harness compare (Elo / lift / $) | [PHASE9](docs/plan/PHASE9_COMPARE_TRACKER.md) |
 | 10 | Upgrade / frontier scan | [PHASE10](docs/plan/PHASE10_UPGRADE.md) |
+| 11 | Living matrix + ladder | [PHASE11](docs/plan/PHASE11_LIVING_MATRIX.md) |
 
-**CI chain:** InstallSmoke → Phase2 → GoldenPath → Phase4–10  
+**CI chain:** InstallSmoke → Phase2 → GoldenPath → Phase4–11  
 **Defer list:** [docs/DEFER.md](docs/DEFER.md)
 
 ---
@@ -132,7 +134,7 @@ Local ops dashboard (after CI / gates): `evidence\dashboard.html`
 | [HANDBOOK](docs/HANDBOOK.md) | Install, configure, troubleshoot |
 | [CI](docs/CI.md) | GitHub Actions + merge protection |
 | [ADR](docs/plan/ADR.md) | Architecture decisions |
-| [Implementation plan](docs/plan/IMPLEMENTATION_PLAN.md) | Phases 0–10 |
+| [Implementation plan](docs/plan/IMPLEMENTATION_PLAN.md) | Phases 0–11 |
 | [SOURCES](docs/SOURCES.md) | Curated frontier links |
 | [Brand kit](brand/README.md) | Logo · banner · colors |
 | [SETUP](SETUP.md) | Setup pointer |
