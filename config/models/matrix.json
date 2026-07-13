@@ -3,7 +3,8 @@
   "taskTiers": {
     "orchestrate": "copilot-auto",
     "implement": "copilot-auto",
-    "research": "copilot-auto"
+    "research": "copilot-auto",
+    "debug": "copilot-auto"
   },
   "efforts": ["low", "medium", "high", "extra"],
   "families": {
@@ -21,10 +22,11 @@
   "cells": {
     "implement": {
       "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalatePolicy": "effortThenFamily",
       "escalate": [
-        { "family": "copilot-auto", "effort": "high" },
-        { "family": "universal", "effort": "high" },
-        { "family": "anthropic", "effort": "medium" }
+        { "family": "copilot-auto", "effort": "high", "why": "keep Auto discount; raise effort" },
+        { "family": "universal", "effort": "high", "why": "leave Auto; mid named family" },
+        { "family": "anthropic", "effort": "medium", "why": "stronger family; reset effort" }
       ],
       "evidenceMin": 3,
       "source": "seed",
@@ -32,10 +34,11 @@
     },
     "orchestrate": {
       "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalatePolicy": "effortThenFamily",
       "escalate": [
-        { "family": "copilot-auto", "effort": "high" },
-        { "family": "universal", "effort": "high" },
-        { "family": "anthropic", "effort": "medium" }
+        { "family": "copilot-auto", "effort": "high", "why": "keep Auto discount" },
+        { "family": "universal", "effort": "high", "why": "leave Auto" },
+        { "family": "anthropic", "effort": "medium", "why": "stronger family" }
       ],
       "evidenceMin": 3,
       "source": "seed",
@@ -43,9 +46,22 @@
     },
     "research": {
       "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalatePolicy": "effortThenFamily",
       "escalate": [
-        { "family": "copilot-auto", "effort": "high" },
-        { "family": "anthropic", "effort": "medium" }
+        { "family": "copilot-auto", "effort": "high", "why": "deeper Auto research" },
+        { "family": "anthropic", "effort": "medium", "why": "stronger synth" }
+      ],
+      "evidenceMin": 3,
+      "source": "seed",
+      "updatedAt": null
+    },
+    "debug": {
+      "start": { "family": "copilot-auto", "effort": "high" },
+      "escalatePolicy": "familyThenEffort",
+      "escalate": [
+        { "family": "anthropic", "effort": "medium", "why": "hard bugs often need stronger family sooner" },
+        { "family": "anthropic", "effort": "high", "why": "then raise effort" },
+        { "family": "anthropic", "effort": "extra", "why": "last rung" }
       ],
       "evidenceMin": 3,
       "source": "seed",
@@ -56,10 +72,12 @@
     "enabled": true,
     "preferEffortBeforeFamily": true,
     "preferDiscountFamily": "copilot-auto",
-    "maxSteps": 3,
+    "maxSteps": 4,
     "evidenceMin": 3,
     "qualityMin": 0.75,
-    "escalateOn": ["error", "deny", "qualityBelow"]
+    "escalateOn": ["error", "deny", "qualityBelow"],
+    "stopWhen": ["okAndQualityOk"],
+    "cascadeStyle": "FrugalGPT-like sequential until stop judger"
   },
   "injectAt": "worker_boundary",
   "restoreAfterDo": true

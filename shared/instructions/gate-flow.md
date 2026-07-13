@@ -31,7 +31,9 @@ Only after confirm. Native parallel only for independent tasks after confirm.
 
 ## Gate 5 — Finish
 
-Run `/2080` for ≤ five recommendations. Handoff pack if session token thresholds hit.
+Run `/2080` for ≤ five recommendations.  
+If session soft-warn: `Invoke-ContextCompact` (lean pack + prune) then continue or handoff.  
+Hard stop: handoff pack + **new chat**. Never rehydrate full tip dumps after compact.
 
 ## Re-open gates
 

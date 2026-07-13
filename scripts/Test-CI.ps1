@@ -5,17 +5,18 @@ $ErrorActionPreference = 'Stop'
 Set-Location $Root
 
 $gates = @(
-    @{ Name = 'InstallSmoke'; Script = 'scripts\Test-InstallSmoke.ps1' },
-    @{ Name = 'Phase2'; Script = 'scripts\Test-Phase2.ps1' },
-    @{ Name = 'GoldenPath'; Script = 'scripts\Test-GoldenPath.ps1' },
-    @{ Name = 'Phase4'; Script = 'scripts\Test-Phase4.ps1' },
-    @{ Name = 'Phase5'; Script = 'scripts\Test-Phase5.ps1' },
-    @{ Name = 'Phase6'; Script = 'scripts\Test-Phase6.ps1' },
-    @{ Name = 'Phase7'; Script = 'scripts\Test-Phase7.ps1' },
-    @{ Name = 'Phase8'; Script = 'scripts\Test-Phase8.ps1' },
-    @{ Name = 'Phase9'; Script = 'scripts\Test-Phase9.ps1' },
-    @{ Name = 'Phase10'; Script = 'scripts\Test-Phase10.ps1' },
+    @{ Name = 'InstallSmoke'; Script = 'scripts\Test-InstallSmoke.ps1' }
+    @{ Name = 'Phase2'; Script = 'scripts\Test-Phase2.ps1' }
+    @{ Name = 'GoldenPath'; Script = 'scripts\Test-GoldenPath.ps1' }
+    @{ Name = 'Phase4'; Script = 'scripts\Test-Phase4.ps1' }
+    @{ Name = 'Phase5'; Script = 'scripts\Test-Phase5.ps1' }
+    @{ Name = 'Phase6'; Script = 'scripts\Test-Phase6.ps1' }
+    @{ Name = 'Phase7'; Script = 'scripts\Test-Phase7.ps1' }
+    @{ Name = 'Phase8'; Script = 'scripts\Test-Phase8.ps1' }
+    @{ Name = 'Phase9'; Script = 'scripts\Test-Phase9.ps1' }
+    @{ Name = 'Phase10'; Script = 'scripts\Test-Phase10.ps1' }
     @{ Name = 'Phase11'; Script = 'scripts\Test-Phase11.ps1' }
+    @{ Name = 'SecretsAudit'; Script = 'scripts\Test-SecretsAudit.ps1' }
 )
 
 $failed = @()

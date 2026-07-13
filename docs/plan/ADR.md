@@ -624,8 +624,8 @@ Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3
 
 | | |
 |--|--|
-| **Decision** | Prefer **Copilot Auto** (10% discount) as default start; log `(taskKind, family, effort, qualityScore)`; escalate on **failure or quality below `qualityMin`**; raise Auto effort before leaving Auto; synth pack; `/learn` matrix-cell promote. No auto IDE model switch. |
-| **Consequences** | Maximizes Auto discount; ladder is quality-aware not only fail-aware; matrix improves via evidence. |
+| **Decision** | Prefer **Copilot Auto** (10% discount) as default start; log `(taskKind, family, effort, qualityScore)`; escalate on **failure or quality below task `qualityMin`** until Done; per-task `escalatePolicy` (effort↔family); normalize quality 0..1 via rubric (FrugalGPT + promptfoo pattern); cascade plan for `/do`; `/learn` matrix-cell promote through L2+ICS + avgQuality. Context thrift: tip/synth caps + `Invoke-ContextCompact` on soft warn (artifact pack, not fake IDE compact). No auto IDE model switch. |
+| **Consequences** | Maximizes Auto discount; ladder is quality-aware; same quality scale across tasks; working memory stays lean; matrix improves via evidence under constitution promote gates. |
 
 ---
 

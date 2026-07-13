@@ -4,8 +4,10 @@
   "pathGlobs": [
     "skills/**/*.md",
     "config/moa/**",
+    "config/models/tips/**",
+    "config/models/efforts/**",
     "docs/HANDBOOK.md",
     "shared/instructions/**"
   ],
-  "note": "ICS = Instruction Contract Score (deterministic). Optional LLM judge is not a merge gate."
+  "note": "ICS = Instruction Contract Score (deterministic). matrix.json promote uses L2 + evidence (JSON not ICS-scored). Optional LLM judge is not a merge gate."
 }

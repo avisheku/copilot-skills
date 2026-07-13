@@ -1,0 +1,25 @@
+{
+  "scale": { "min": 0.0, "max": 1.0 },
+  "qualityMinDefault": 0.75,
+  "inspiredBy": [
+    "https://github.com/stanford-futuredata/FrugalGPT",
+    "https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/",
+    "https://lmarena.ai"
+  ],
+  "dimensions": {
+    "correctness": { "weight": 0.40, "note": "Solves the stated task / verify pass" },
+    "completeness": { "weight": 0.25, "note": "Covers done-criteria from ShortPlan" },
+    "clarity": { "weight": 0.15, "note": "Actionable, cited, no rediscovery fluff" },
+    "thrift": { "weight": 0.10, "note": "No unnecessary scope / token waste" },
+    "safety": { "weight": 0.10, "note": "No secrets leak / gate refuse honored" }
+  },
+  "taskOverrides": {
+    "implement": { "qualityMin": 0.75 },
+    "orchestrate": { "qualityMin": 0.75 },
+    "research": { "qualityMin": 0.70 },
+    "debug": { "qualityMin": 0.80 }
+  },
+  "scoring": {
+    "note": "Human or agent fills dimensions 0..1; Get-NormalizedQualityScore returns weighted average clamped to scale. Single -Score bypasses dims. Same 0..1 used across all taskKinds so qualityMin is comparable (FrugalGPT stop-judger + promptfoo llm-rubric threshold pattern)."
+  }
+}

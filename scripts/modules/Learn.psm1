@@ -196,6 +196,7 @@ function Test-MatrixCellPromoteGate {
     $issues = @()
     $cell = Get-MatrixTaskCell -TaskKind $TaskKind -Root $Root
     $minN = if ($cell.evidenceMin) { [int]$cell.evidenceMin } else { 3 }
+    $qMin = Get-TaskQualityMin -TaskKind $TaskKind -Root $Root
     $stats = @(Get-MatrixCellStats -TaskKind $TaskKind -Root $Root)
     $candidate = $stats | Where-Object { $_.family -eq $Family -and $_.effort -eq $Effort } | Select-Object -First 1
     if (-not $candidate) {
@@ -204,30 +205,37 @@ function Test-MatrixCellPromoteGate {
     if ($candidate.n -lt $minN) {
         $issues += "need n>=$minN (got $($candidate.n))"
     }
+    if ($null -ne $candidate.avgQuality -and [double]$candidate.avgQuality -lt $qMin) {
+        $issues += "avgQuality $($candidate.avgQuality) < qualityMin $qMin"
+    }
     $curFam = $cell.start.family
     $curEff = $cell.start.effort
     $current = $stats | Where-Object { $_.family -eq $curFam -and $_.effort -eq $curEff } | Select-Object -First 1
     $curRate = if ($current) { [double]$current.okRate } else { 0 }
     if ([double]$candidate.okRate -le $curRate -and $current) {
-        # Allow promote if same okRate but fewer tokens
         if ([double]$candidate.okRate -eq $curRate -and $candidate.medianTokens -lt $current.medianTokens) {
-            # ok
+            # ok — same rate, cheaper
+        }
+        elseif ($null -ne $candidate.avgQuality -and $null -ne $current.avgQuality -and
+                [double]$candidate.avgQuality -gt [double]$current.avgQuality -and
+                [double]$candidate.okRate -ge $curRate) {
+            # ok — quality win at >= okRate
         }
         else {
             $issues += "okRate $($candidate.okRate) not better than current $curRate"
         }
     }
-    # Reject identical start (no-op)
     if ($Family -eq $curFam -and $Effort -eq $curEff) {
         $issues += 'proposed start equals current start'
     }
-    [pscustomobject]@{ Pass = ($issues.Count -eq 0); Issues = $issues; Candidate = $candidate; Current = $current }
+    [pscustomobject]@{ Pass = ($issues.Count -eq 0); Issues = $issues; Candidate = $candidate; Current = $current; QualityMin = $qMin }
 }
 
 function Invoke-MatrixCellPromote {
     param(
         [Parameter(Mandatory)][string]$StagingFile,
         [switch]$SkipEvidenceGate,
+        [switch]$SkipPromoteGates,
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $cfg = Get-LearnConfig -Root $Root
@@ -248,6 +256,14 @@ function Invoke-MatrixCellPromote {
     }
 
     $matrixPath = Join-Path $Root 'config\models\matrix.json'
+    # Constitution: same promote gates as handbook/md learn (L2 + ICS on matrix path)
+    if (-not $SkipPromoteGates) {
+        $l2 = Invoke-L2PromoteGate -Root $Root
+        if (-not $l2.Pass) { throw "Promote gate failed: $($l2.Issues -join '; ')" }
+        $qg = Invoke-QualityGate -Root $Root -TargetPath $matrixPath
+        if (-not $qg.Pass) { throw "Quality gate failed: $($qg.Issues -join '; ')" }
+    }
+
     $matrix = Get-Content $matrixPath -Raw | ConvertFrom-Json
     if (-not $matrix.cells.$taskKind) {
         throw "taskKind not in matrix cells: $taskKind"
@@ -264,6 +280,7 @@ function Invoke-MatrixCellPromote {
         Promoted = $matrixPath
         TaskKind = $taskKind
         Start    = @{ family = $family; effort = $effort }
+        Gates    = 'L2+ICS+evidence'
     }
 }
 

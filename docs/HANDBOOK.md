@@ -263,13 +263,16 @@ VERIFY:
 
 ## Phase 11 — Living matrix
 
-Start `/do` on **Copilot Auto** (10% discount) + effort from the living matrix; escalate on **fail or low quality**; raise Auto effort before leaving Auto; `/learn` promotes winners into `matrix.json`.  
+Start `/do` on **Copilot Auto** (10% discount) + effort from the living matrix; cascade until **Done** (ok + quality ≥ task min); raise Auto effort before leaving Auto (or jump family sooner for `debug`); score quality 0..1; `/learn matrix-cell` promotes via L2+ICS.  
+**Context thrift:** soft token warn → `Invoke-ContextCompact` (lean pack ≤3.5k chars, prune ladder/matrix dumps, blank inject); hard stop → handoff + new chat. Tip state stores card paths + short excerpts only.  
 Detail: [plan/PHASE11_LIVING_MATRIX.md](plan/PHASE11_LIVING_MATRIX.md)
 
 ```powershell
 .\scripts\Invoke-DoPrep.ps1
-.\scripts\Save-MatrixEvidence.ps1 -TaskKind implement -Family universal -Effort medium -Outcome ok
+.\scripts\Save-MatrixEvidence.ps1 -TaskKind implement -Family copilot-auto -Effort medium -Outcome ok -QualityScore 0.9
+.\scripts\Invoke-ContextCompact.ps1 -Goal 'continue' -SkipAsk
 .\scripts\Test-Phase11.ps1
+.\scripts\Test-SecretsAudit.ps1
 ```
 
 VERIFY:

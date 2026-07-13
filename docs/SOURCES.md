@@ -16,6 +16,8 @@ Machine list: `config/research/sources.json` (used by upgrade scan).
 | Harness-Bench | https://arxiv.org/html/2605.27922 |
 | Harness Effect | https://arxiv.org/html/2607.06906 |
 | Promptfoo CI | https://www.promptfoo.dev/docs/integrations/ci-cd/ |
+| Promptfoo llm-rubric (0..1) | https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/ |
+| FrugalGPT (cascade + stop judger) | https://github.com/stanford-futuredata/FrugalGPT |
 | LMArena | https://lmarena.ai |
 | GitHub Changelog | https://github.blog/changelog/ |
 | Anthropic news | https://www.anthropic.com/news |

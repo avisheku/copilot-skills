@@ -84,9 +84,9 @@
 
 ## Phase 11 (living matrix)
 
-- [x] Evidence runs `evidence/matrix/runs` + ledger
-- [x] Recommend-MatrixCell; effort tips; `/do` escalate + synth pack
-- [x] `/learn` kind `matrix-cell` promote gate
+- [x] Prefer **Copilot Auto**; escalate on fail or qualityBelow until Done
+- [x] Quality 0..1 rubric + cascade plan + context compact (never grow heavy)
+- [x] `/learn` matrix-cell (L2+ICS+quality) documented in learn SKILL
 - [x] Test-Phase11 in Test-CI
 - [x] PHASE11_LIVING_MATRIX.md — [docs/plan/PHASE11_LIVING_MATRIX.md](docs/plan/PHASE11_LIVING_MATRIX.md)
 - [ ] Human: record real cell outcomes so evidence can promote starts
@@ -97,12 +97,12 @@ Later phases mostly follow pillars; close these so promote/gates/ICS match the c
 
 - [ ] C1 MoA clarify/confirm (or ADR exception)
 - [ ] C2 MoA wire uses compare Elo/lift (or single documented evidence path)
-- [ ] C3 Matrix-cell promote through L2 + ICS
-- [ ] C4 ICS/L3 coverage for moa/compare/upgrade/matrix
-- [ ] C5 Matrix promote considers qualityMin / avgQuality
-- [ ] C6 Document `matrix-cell` in learn SKILL
-- [ ] C7 Pre-push secrets-audit script (Pillar 7)
-- [ ] C8 Evidence outputs gitignore / redaction policy
+- [x] C3 Matrix-cell promote through L2 + ICS
+- [x] C4 ICS/L3 coverage for moa/compare/upgrade/matrix (compare/upgrade/learn-matrix + effort/tip globs; MoA path TBD if needed)
+- [x] C5 Matrix promote considers qualityMin / avgQuality
+- [x] C6 Document `matrix-cell` in learn SKILL
+- [x] C7 Pre-push secrets-audit script (Pillar 7)
+- [x] C8 Evidence outputs gitignore / redaction policy
 
 ## 80/20 hardening (post-audit)
 

@@ -8,7 +8,7 @@
 | **Mirror** | `KnowledgeVault/projects/copilot-skills/docs/NEW_PROJECT_INSTRUCTIONS.md` |
 | **Related** | `PILLARS.md` · `PRINCIPLES.md` · copilot-skills ADR (constitution detail) |
 | **Vault** | `$M` = KnowledgeVault root |
-| **Version** | 1.1 · 2026-07-12 |
+| **Version** | 1.2 · 2026-07-12 |
 
 **Agent contract:** Read this **before** scaffolding. Do not invent a different constitution. Ask only for project-specific deltas (name, domain, constraints). Keep domain rules inside that project’s `config/` and handbook — never bake them into this file.
 
@@ -178,6 +178,27 @@ Do not implement a new project during pure research unless the user says **execu
 
 ---
 
+## 7.1 Concrete Lock (no mid-flight hiccups)
+
+Before implement, freeze in the plan / design-lock:
+
+- Stack and libraries for the golden path  
+- Asset sources (code / existing files / named CDNs) — not “TBD later”  
+- Motion / visual approach (or explicit “none”)  
+- MUST / SHOULD / DEFER / REJECT  
+- Exact VERIFY commands  
+
+**Rules:**
+
+1. Do not swap libraries or visual systems mid-golden-path.  
+2. AI image/video tools = research or static mockups only unless the plan lists them as **production** assets.  
+3. Reopen a frozen choice only via explicit user change to the plan — update the plan, then code.  
+4. Prefer one design-lock doc over vibe lists (“add some motion”).  
+
+Fail the create/abidance gate if the plan still has unresolved product forks for MUST work.
+
+---
+
 ## 8. Phasing language
 
 | Stage | Meaning |
@@ -261,8 +282,8 @@ This file holds **cross-project** rules only: pillars, principles, packaging, ga
 - [ ] `docs/HANDBOOK.md` with VERIFY  
 - [ ] `config/` for tunables  
 - [ ] Docker Compose when a runtime exists  
-- [ ] `.gitignore` locks secrets + `data/` + PII profiles/docs (not only `.env`)  
-- [ ] Secrets audit / checklist: no real PAN/passwords in tracked files  
+- [ ] `.gitignore` locks secrets + `data/` + PII profiles/docs (not only `.env`)
+- [ ] Secrets audit / checklist: no real PAN/passwords in tracked files
 - [ ] Golden path + DEFER list written  
 - [ ] Share/run path documented  
 - [ ] User manual steps kept minimal  

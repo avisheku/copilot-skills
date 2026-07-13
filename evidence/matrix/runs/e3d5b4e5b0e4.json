@@ -1,12 +1,12 @@
 ﻿{
-    "id":  "93f150bade90",
-    "taskKind":  "implement",
+    "id":  "e3d5b4e5b0e4",
+    "taskKind":  "debug",
     "family":  "copilot-auto",
-    "effort":  "medium",
+    "effort":  "high",
     "outcome":  "error",
     "tokensEst":  0,
     "qualityScore":  null,
     "escalatedFrom":  "",
     "escalateReason":  "error",
-    "ts":  "2026-07-13T06:12:51.0201571Z"
+    "ts":  "2026-07-13T06:59:17.3372121Z"
 }

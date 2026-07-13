@@ -6,10 +6,13 @@ memory/.mcp-state.json
 memory/.model-state.json
 memory/.handoff-pack.json
 memory/.mcp-snapshot.json
+memory/.context-compact.json
+memory/.context-compact.md
 memory/moa/
 rules/user/
 logs/
 *.log
+evidence/compare/outputs/
 .DS_Store
 Thumbs.db
 .vscode/

@@ -1,6 +1,6 @@
 ﻿{
     "type":  "LadderSynthPack",
-    "runId":  "f71d48155d16",
+    "runId":  "b5f1be445240",
     "taskKind":  "implement",
     "query":  "fix flaky test",
     "attemptSummary":  "still failing",
@@ -8,13 +8,14 @@
     "blockers":  "",
     "artifacts":  "",
     "nextAsk":  "",
+    "escalateReason":  "error",
     "from":  {
-                 "family":  "universal",
+                 "family":  "copilot-auto",
                  "effort":  "high"
              },
     "to":  {
-               "family":  "anthropic",
-               "effort":  "medium"
+               "family":  "universal",
+               "effort":  "high"
            },
-    "packedAt":  "2026-07-13T03:53:41.2724783Z"
+    "packedAt":  "2026-07-13T06:59:17.2971123Z"
 }

@@ -1,0 +1,12 @@
+﻿{
+    "id":  "8d581dcba88f",
+    "taskKind":  "research",
+    "family":  "openai",
+    "effort":  "high",
+    "outcome":  "ok",
+    "tokensEst":  20,
+    "qualityScore":  0.35,
+    "escalatedFrom":  "",
+    "escalateReason":  "",
+    "ts":  "2026-07-13T06:59:17.6839201Z"
+}

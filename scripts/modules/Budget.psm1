@@ -1,4 +1,4 @@
-# Copilot Skills — description budget gate (~1500 chars)
+# Copilot Skills — description budget gate (~1500 chars) + text thrift
 
 function Get-SkillDescriptionBudget {
     param([string]$Root = (Get-CopilotSkillsRoot))
@@ -57,4 +57,15 @@ function Test-DescriptionBudget {
     }
 }
 
-Export-ModuleMember -Function Get-SkillDescriptionBudget, Get-SkillsDescriptionTotal, Test-DescriptionBudget
+function Get-TextBudget {
+    param(
+        [string]$Text = '',
+        [int]$MaxChars = 500
+    )
+    if ($null -eq $Text) { return '' }
+    if ($Text.Length -le $MaxChars) { return $Text }
+    $keep = [Math]::Max(0, $MaxChars - 14)
+    return ($Text.Substring(0, $keep) + '...[truncated]')
+}
+
+Export-ModuleMember -Function Get-SkillDescriptionBudget, Get-SkillsDescriptionTotal, Test-DescriptionBudget, Get-TextBudget

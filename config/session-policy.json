@@ -2,5 +2,20 @@
   "descriptionBudgetMax": 1500,
   "descriptionBudgetScope": "mvp",
   "tokenSoftWarn": 80000,
-  "tokenHardStop": 120000
+  "tokenHardStop": 120000,
+  "contextCompact": {
+    "enabled": true,
+    "askBeforeCompact": true,
+    "maxPackChars": 3500,
+    "maxGoalChars": 500,
+    "maxStepChars": 200,
+    "maxStepsListed": 12,
+    "maxLedgerTail": 15,
+    "maxOpenQuestions": 5,
+    "keepLadderPacks": 3,
+    "keepMatrixRuns": 50,
+    "softWarnBytes": 200000,
+    "onSoftWarn": "compact",
+    "onHardStop": "handoff"
+  }
 }

@@ -1,6 +1,6 @@
 ﻿{
     "type":  "LadderSynthPack",
-    "runId":  "4ca626a1dba9",
+    "runId":  "c5728582661c",
     "taskKind":  "implement",
     "query":  "fix flaky test",
     "attemptSummary":  "failed verify",
@@ -17,5 +17,5 @@
                "family":  "copilot-auto",
                "effort":  "high"
            },
-    "packedAt":  "2026-07-13T06:12:51.0181564Z"
+    "packedAt":  "2026-07-13T06:59:17.2429406Z"
 }

@@ -17,6 +17,9 @@
     { "id": "error-map-doc", "path": "docs/error-map.md", "mustContain": ["error-map"] },
     { "id": "loop-skill", "path": "skills/loop/SKILL.md", "mustContain": ["loop"] },
     { "id": "2080-skill", "path": "skills/2080/SKILL.md", "mustContain": ["2080"] },
-    { "id": "sync-skill", "path": "skills/sync/SKILL.md", "mustContain": ["sync"] }
+    { "id": "sync-skill", "path": "skills/sync/SKILL.md", "mustContain": ["sync"] },
+    { "id": "compare-skill", "path": "skills/compare/SKILL.md", "mustContain": ["compare"] },
+    { "id": "upgrade-skill", "path": "skills/upgrade/SKILL.md", "mustContain": ["upgrade"] },
+    { "id": "learn-matrix-cell", "path": "skills/learn/SKILL.md", "mustContain": ["matrix-cell"] }
   ]
 }

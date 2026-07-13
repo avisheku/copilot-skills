@@ -203,10 +203,88 @@ function Get-RecommendedMatrixCell {
     }
 }
 
+function Get-QualityRubric {
+    param([string]$Root = (Get-CopilotSkillsRoot))
+    $path = Join-Path $Root 'config\models\quality-rubric.json'
+    if (-not (Test-Path $path)) {
+        return [pscustomobject]@{
+            qualityMinDefault = 0.75
+            dimensions        = @{}
+            taskOverrides     = @{}
+        }
+    }
+    return Get-Content $path -Raw | ConvertFrom-Json
+}
+
+function Get-TaskQualityMin {
+    param(
+        [string]$TaskKind = 'implement',
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    $rubric = Get-QualityRubric -Root $Root
+    $ladder = Get-LadderConfig -Root $Root
+    if ($rubric.taskOverrides -and $rubric.taskOverrides.$TaskKind -and $null -ne $rubric.taskOverrides.$TaskKind.qualityMin) {
+        return [double]$rubric.taskOverrides.$TaskKind.qualityMin
+    }
+    if ($null -ne $ladder.qualityMin) { return [double]$ladder.qualityMin }
+    if ($null -ne $rubric.qualityMinDefault) { return [double]$rubric.qualityMinDefault }
+    return 0.75
+}
+
+function Get-NormalizedQualityScore {
+    param(
+        [Nullable[double]]$Score = $null,
+        [hashtable]$Dimensions = $null,
+        [string]$TaskKind = 'implement',
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    # Single score already on 0..1 (promptfoo llm-rubric / FrugalGPT judger style)
+    if ($null -ne $Score) {
+        $s = [math]::Max(0.0, [math]::Min(1.0, [double]$Score))
+        return [pscustomobject]@{
+            score      = $s
+            qualityMin = (Get-TaskQualityMin -TaskKind $TaskKind -Root $Root)
+            mode       = 'single'
+            pass       = ($s -ge (Get-TaskQualityMin -TaskKind $TaskKind -Root $Root))
+        }
+    }
+    $rubric = Get-QualityRubric -Root $Root
+    if (-not $Dimensions -or $Dimensions.Count -eq 0) {
+        return [pscustomobject]@{
+            score      = $null
+            qualityMin = (Get-TaskQualityMin -TaskKind $TaskKind -Root $Root)
+            mode       = 'missing'
+            pass       = $false
+        }
+    }
+    $wSum = 0.0
+    $acc = 0.0
+    foreach ($name in $Dimensions.Keys) {
+        $w = 1.0
+        if ($rubric.dimensions -and $rubric.dimensions.$name -and $null -ne $rubric.dimensions.$name.weight) {
+            $w = [double]$rubric.dimensions.$name.weight
+        }
+        $v = [math]::Max(0.0, [math]::Min(1.0, [double]$Dimensions[$name]))
+        $acc += $v * $w
+        $wSum += $w
+    }
+    $norm = if ($wSum -gt 0) { [math]::Round($acc / $wSum, 4) } else { 0 }
+    $qMin = Get-TaskQualityMin -TaskKind $TaskKind -Root $Root
+    return [pscustomobject]@{
+        score      = $norm
+        qualityMin = $qMin
+        mode       = 'weighted-dimensions'
+        pass       = ($norm -ge $qMin)
+        dimensions = $Dimensions
+    }
+}
+
 function Test-LadderShouldEscalate {
     param(
         [ValidateSet('ok', 'warn', 'deny', 'error')][string]$Outcome = 'ok',
         [Nullable[double]]$QualityScore = $null,
+        [hashtable]$QualityDimensions = $null,
+        [string]$TaskKind = 'implement',
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $ladder = Get-LadderConfig -Root $Root
@@ -218,18 +296,23 @@ function Test-LadderShouldEscalate {
     if ($Outcome -eq 'deny' -and ($on -contains 'deny')) { [void]$reasons.Add('deny') }
     if ($Outcome -eq 'warn' -and ($on -contains 'warn')) { [void]$reasons.Add('warn') }
 
-    $qMin = 0.75
-    if ($null -ne $ladder.qualityMin) { $qMin = [double]$ladder.qualityMin }
-    if (($on -contains 'qualityBelow') -and ($null -ne $QualityScore) -and ([double]$QualityScore -lt $qMin)) {
+    $norm = Get-NormalizedQualityScore -Score $QualityScore -Dimensions $QualityDimensions -TaskKind $TaskKind -Root $Root
+    $qMin = [double]$norm.qualityMin
+    if (($on -contains 'qualityBelow') -and ($null -ne $norm.score) -and ([double]$norm.score -lt $qMin)) {
         [void]$reasons.Add('qualityBelow')
     }
 
+    $done = ($Outcome -eq 'ok') -and ($null -eq $norm.score -or [double]$norm.score -ge $qMin) -and ($reasons.Count -eq 0)
+
     return [pscustomobject]@{
         ShouldEscalate = ($reasons.Count -gt 0)
+        Done           = $done
         Reasons        = @($reasons)
         QualityMin     = $qMin
-        QualityScore   = $QualityScore
+        QualityScore   = $norm.score
+        QualityMode    = $norm.mode
         Outcome        = $Outcome
+        TaskKind       = $TaskKind
     }
 }
 
@@ -239,17 +322,55 @@ function Get-NextLadderCell {
         [Parameter(Mandatory)][string]$CurrentFamily,
         [Parameter(Mandatory)][string]$CurrentEffort,
         [int]$StepIndex = 0,
+        [string]$EscalateReason = '',
         [string]$Root = (Get-CopilotSkillsRoot)
     )
     $cell = Get-MatrixTaskCell -TaskKind $TaskKind -Root $Root
     $path = @($cell.escalate)
     if ($path.Count -eq 0) { return $null }
+
+    $policy = 'effortThenFamily'
+    if ($cell.escalatePolicy) { $policy = [string]$cell.escalatePolicy }
+    $ladder = Get-LadderConfig -Root $Root
+    if ($policy -eq 'effortThenFamily' -or ($ladder.preferEffortBeforeFamily -and $policy -ne 'familyThenEffort')) {
+        # Prefer next same-family higher effort if present after current step
+        for ($i = $StepIndex; $i -lt $path.Count; $i++) {
+            $cand = $path[$i]
+            if ($cand.family -eq $CurrentFamily -and $cand.effort -ne $CurrentEffort) {
+                return [pscustomobject]@{
+                    family = $cand.family
+                    effort = $cand.effort
+                    step   = $i
+                    policy = $policy
+                    why    = if ($cand.why) { $cand.why } else { 'same-family effort up' }
+                }
+            }
+        }
+    }
+    if ($policy -eq 'familyThenEffort' -and ($EscalateReason -match 'error|deny')) {
+        # Skip remaining same-family effort bumps; jump to first different family
+        for ($i = $StepIndex; $i -lt $path.Count; $i++) {
+            $cand = $path[$i]
+            if ($cand.family -ne $CurrentFamily) {
+                return [pscustomobject]@{
+                    family = $cand.family
+                    effort = $cand.effort
+                    step   = $i
+                    policy = $policy
+                    why    = if ($cand.why) { $cand.why } else { 'family jump on hard fail' }
+                }
+            }
+        }
+    }
+
     if ($StepIndex -ge $path.Count) { return $null }
     $next = $path[$StepIndex]
     return [pscustomobject]@{
         family = $next.family
         effort = $next.effort
         step   = $StepIndex
+        policy = $policy
+        why    = if ($next.why) { $next.why } else { 'path order' }
     }
 }
 
@@ -270,6 +391,14 @@ function New-LadderSynthPack {
         [string]$RunId = '',
         [string]$Root = (Get-CopilotSkillsRoot)
     )
+    # Context thrift — cap synth fields so escalate packs stay small
+    $Query = Get-TextBudget -Text $Query -MaxChars 600
+    $AttemptSummary = Get-TextBudget -Text $AttemptSummary -MaxChars 800
+    $WhatWorked = Get-TextBudget -Text $WhatWorked -MaxChars 600
+    $Blockers = Get-TextBudget -Text $Blockers -MaxChars 600
+    $Artifacts = Get-TextBudget -Text $Artifacts -MaxChars 400
+    $NextAsk = Get-TextBudget -Text $NextAsk -MaxChars 400
+
     if (-not $RunId) { $RunId = [guid]::NewGuid().ToString('n').Substring(0, 12) }
     $dir = Join-Path $Root 'evidence\ladder'
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
@@ -344,19 +473,21 @@ function Invoke-LadderEscalate {
     if (-not $ladder.enabled) { throw 'Ladder disabled in matrix.json' }
     if ($StepIndex -ge [int]$ladder.maxSteps) { throw "Ladder maxSteps ($($ladder.maxSteps)) exceeded" }
 
-    $gate = Test-LadderShouldEscalate -Outcome $Outcome -QualityScore $QualityScore -Root $Root
+    $gate = Test-LadderShouldEscalate -Outcome $Outcome -QualityScore $QualityScore -TaskKind $TaskKind -Root $Root
     if (-not $Force -and -not $gate.ShouldEscalate) {
         return [pscustomobject]@{
             Escalated = $false
+            Done      = $gate.Done
             Gate      = $gate
             Message   = 'No escalate: outcome/quality within gate (stay on current cell; keep Auto discount if applicable)'
         }
     }
 
-    $next = Get-NextLadderCell -TaskKind $TaskKind -CurrentFamily $CurrentFamily -CurrentEffort $CurrentEffort -StepIndex $StepIndex -Root $Root
+    $reason = if ($gate.Reasons.Count -gt 0) { ($gate.Reasons -join ',') } else { 'force' }
+    $next = Get-NextLadderCell -TaskKind $TaskKind -CurrentFamily $CurrentFamily -CurrentEffort $CurrentEffort `
+        -StepIndex $StepIndex -EscalateReason $reason -Root $Root
     if (-not $next) { throw 'No further escalate steps for taskKind' }
 
-    $reason = if ($gate.Reasons.Count -gt 0) { ($gate.Reasons -join ',') } else { 'force' }
     $pack = New-LadderSynthPack -Query $Query -AttemptSummary $AttemptSummary -WhatWorked $WhatWorked `
         -Blockers $Blockers -Artifacts $Artifacts -NextAsk $NextAsk -EscalateReason $reason `
         -FromFamily $CurrentFamily -FromEffort $CurrentEffort `
@@ -375,12 +506,15 @@ function Invoke-LadderEscalate {
     } else {
         "Leave Auto if needed; switch family to '$($next.family)'; effort '$($next.effort)'."
     }
+    # Thrift: store tip paths + short excerpt, not full tip dumps (re-read on need)
     @{
         family       = $next.family
         effort       = $next.effort
         task         = $TaskKind
-        tips         = $familyTips
-        effortTips   = $effortTips
+        tipCard      = "config/models/tips/$($next.family).md"
+        effortCard   = "config/models/efforts/$($next.effort).md"
+        tipExcerpt   = (Get-TextBudget -Text $familyTips -MaxChars 400)
+        effortExcerpt= (Get-TextBudget -Text $effortTips -MaxChars 400)
         synthPack    = $pack.MdPath
         escalated    = $true
         reason       = $reason
@@ -416,20 +550,79 @@ function Invoke-MatrixDoPrep {
     $dir = Split-Path $statePath -Parent
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
     @{
-        family     = $rec.family
-        effort     = $rec.effort
-        task       = $TaskKind
-        source     = $rec.source
-        note       = $rec.note
-        tips       = $familyTips
-        effortTips = $effortTips
-        injectedAt = (Get-Date).ToUniversalTime().ToString('o')
+        family        = $rec.family
+        effort        = $rec.effort
+        task          = $TaskKind
+        source        = $rec.source
+        note          = $rec.note
+        tipCard       = "config/models/tips/$($rec.family).md"
+        effortCard    = "config/models/efforts/$($rec.effort).md"
+        tipExcerpt    = (Get-TextBudget -Text $familyTips -MaxChars 400)
+        effortExcerpt = (Get-TextBudget -Text $effortTips -MaxChars 400)
+        injectedAt    = (Get-Date).ToUniversalTime().ToString('o')
     } | ConvertTo-Json -Depth 4 | Set-Content $statePath -Encoding utf8
 
     return $rec
 }
 
+function Invoke-LadderCascadePlan {
+    <#
+      FrugalGPT-style sequential plan: start cell then escalate path until Done or maxSteps.
+      Does not call models; returns the rung sequence + stop rules for /do to execute.
+    #>
+    param(
+        [string]$TaskKind = 'implement',
+        [string]$Root = (Get-CopilotSkillsRoot)
+    )
+    $start = Get-RecommendedMatrixCell -TaskKind $TaskKind -Root $Root
+    $cell = Get-MatrixTaskCell -TaskKind $TaskKind -Root $Root
+    $qMin = Get-TaskQualityMin -TaskKind $TaskKind -Root $Root
+    $ladder = Get-LadderConfig -Root $Root
+    $policyName = 'effortThenFamily'
+    if ($null -ne $cell.escalatePolicy -and "$($cell.escalatePolicy)".Length -gt 0) {
+        $policyName = "$($cell.escalatePolicy)"
+    }
+    $maxSteps = 4
+    if ($null -ne $ladder.maxSteps) { $maxSteps = [int]"$($ladder.maxSteps)" }
+
+    $rungList = @()
+    $rungList += @{
+        index  = 0
+        family = "$($start.family)"
+        effort = "$($start.effort)"
+        source = "$($start.source)"
+        role   = 'start'
+    }
+    $i = 1
+    foreach ($e in @($cell.escalate)) {
+        if ($i -gt $maxSteps) { break }
+        $why = ''
+        if ($null -ne $e.why) { $why = "$($e.why)" }
+        $rungList += @{
+            index  = $i
+            family = "$($e.family)"
+            effort = "$($e.effort)"
+            why    = $why
+            role   = 'escalate'
+            policy = $policyName
+        }
+        $i++
+    }
+
+    $result = New-Object psobject
+    $result | Add-Member NoteProperty TaskKind "$TaskKind"
+    $result | Add-Member NoteProperty QualityMin ([double]$qMin)
+    $result | Add-Member NoteProperty PreferAuto ([bool]("$($start.family)" -eq 'copilot-auto'))
+    $result | Add-Member NoteProperty Policy $policyName
+    $result | Add-Member NoteProperty StopWhen 'outcome=ok AND qualityScore >= qualityMin'
+    $result | Add-Member NoteProperty InspiredBy 'FrugalGPT cascade + promptfoo 0..1 rubric threshold'
+    $result | Add-Member NoteProperty Rungs $rungList
+    $result | Add-Member NoteProperty MaxSteps $maxSteps
+    return $result
+}
+
 Export-ModuleMember -Function Get-MatrixRunsDir, Get-LadderConfig, Get-EffortTipCard,
     Save-MatrixEvidenceRun, Get-MatrixEvidenceRuns, Get-MatrixCellStats,
-    Get-MatrixTaskCell, Get-RecommendedMatrixCell, Test-LadderShouldEscalate, Get-NextLadderCell,
-    New-LadderSynthPack, Invoke-LadderEscalate, Invoke-MatrixDoPrep
+    Get-MatrixTaskCell, Get-RecommendedMatrixCell, Get-QualityRubric, Get-TaskQualityMin,
+    Get-NormalizedQualityScore, Test-LadderShouldEscalate, Get-NextLadderCell,
+    New-LadderSynthPack, Invoke-LadderEscalate, Invoke-MatrixDoPrep, Invoke-LadderCascadePlan

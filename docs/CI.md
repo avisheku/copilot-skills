@@ -1,7 +1,7 @@
 # SkillsForge — CI and merge control
 
 ```text
-InstallSmoke → Phase2 → GoldenPath → Phase4 → … → Phase11
+InstallSmoke → Phase2 → GoldenPath → Phase4 → … → Phase11 → SecretsAudit
 → Export-LocalDashboard
 ```
 

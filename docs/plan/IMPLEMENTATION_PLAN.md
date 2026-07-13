@@ -42,7 +42,7 @@ todos:
     content: "Brand: SkillsForge logo/banner/README"
     status: completed
   - id: constitution-remediation
-    content: "Apply constitution gaps on Phases 6–11 (matrix promote L2/ICS, MoA gates, ICS coverage, secrets-audit)"
+    content: "Remaining: C1 MoA clarify/confirm, C2 MoA↔compare Elo (C3–C8 done)"
     status: pending
   - id: human-evidence-loops
     content: "Human: real /do, compare runs, frontier research, matrix cell outcomes"
@@ -158,13 +158,13 @@ Full text: [PILLARS](../PILLARS.md) · [PRINCIPLES](../PRINCIPLES.md) · [ADR](A
 | `/compare` | Harness vs solo evidence |
 | `/upgrade` | Component + frontier inventory |
 
-**/do flow (current):** Prep (matrix → Auto tip + effort) → clarify → research → ShortPlan confirm → implement (Auto first) → escalate if error/deny/**qualityBelow** (effort on Auto, then leave Auto, synth pack) → `/2080` → finish/restore  
+**/do flow (current):** Prep (cascade plan → Auto tip excerpt + effort) → clarify → research → ShortPlan confirm → implement rungs until **Done** → on escalate use task policy + capped synth pack → **context compact** on soft warn (restore blank inject) → `/2080` → finish · hard stop → handoff+new chat · promote via `/learn matrix-cell` (L2+ICS+quality)  
 
 ---
 
 ## Control plane (shipped)
 
-- [x] PowerShell modules: Install, Sync, ContextPack, Obs/ledger, Models, Ladder, Learn, MoA, Compare, Upgrade, Quality, Governance, Stats, Loop, …
+- [x] PowerShell modules: Install, Sync, ContextPack, **ContextCompact**, Obs/ledger, Models, Ladder, Learn, MoA, Compare, Upgrade, Quality, Governance, Stats, Loop, …
 - [x] Native hooks + COMPAT
 - [x] MCP profiles (minimal default)
 - [x] JSONL ledger (`logs/ledger/` — runtime, not for secrets)
@@ -260,13 +260,14 @@ Full text: [PILLARS](../PILLARS.md) · [PRINCIPLES](../PRINCIPLES.md) · [ADR](A
 - [x] Evidence runs `evidence/matrix/runs` (+ optional qualityScore)
 - [x] Effort tips · synth packs · `/do` escalate
 - [x] Prefer **Copilot Auto** (10% discount); raise Auto effort before leaving Auto
-- [x] Escalate on **error/deny** OR **qualityBelow** (`qualityMin`)
-- [x] `/learn` kind `matrix-cell` promote gate
-- [x] PHASE11 + ADR-017 + `Test-Phase11.ps1`
+- [x] Escalate on **error/deny** OR **qualityBelow** until Done; task `escalatePolicy`
+- [x] Quality normalize 0..1 (`quality-rubric.json` + `Get-NormalizedQualityScore`)
+- [x] `Invoke-LadderCascadePlan` (FrugalGPT-style rung list)
+- [x] `/learn` kind `matrix-cell` promote gate (**L2 + ICS** + avgQuality ≥ qualityMin)
+- [x] `skills/learn/SKILL.md` documents `matrix-cell`
+- [x] **Context compact** — `ContextCompact.psm1` + session-policy caps; tip excerpts not dumps; prune ladder/matrix; soft-warn→compact / hard→handoff
+- [x] PHASE11 + ADR-017 + `Test-Phase11.ps1` (+ industry base notes)
 - [ ] Human: record real cell outcomes so evidence can promote starts
-- [ ] Constitution: route `Invoke-MatrixCellPromote` through L2 + ICS (+ dual-sync policy)
-- [ ] Constitution: matrix promote considers avgQuality vs qualityMin (not only okRate)
-- [ ] Docs: document `matrix-cell` in `skills/learn/SKILL.md` kinds list
 - [ ] DEFER until needed: `/research`/`/loop` ladder hooks; auto IDE model switch
 
 ### Brand / packaging (post-phase)
@@ -280,18 +281,18 @@ Full text: [PILLARS](../PILLARS.md) · [PRINCIPLES](../PRINCIPLES.md) · [ADR](A
 
 Later features mostly follow pillars (code over vibes, thrift, evidence before auto-wire, upgrade-only learn). Gaps to close so **everything** abides the same bar:
 
-| ID | Gap | Apply to | Target |
-|----|-----|----------|--------|
-| C1 | MoA skips clarify→confirm | Phase 6 | `/moa` SKILL or ADR exception |
-| C2 | MoA baseline ≠ compare Elo | Phase 6/9 | Wire or document single evidence path |
-| C3 | Matrix-cell promote skips L2/ICS | Phase 11 | `Invoke-MatrixCellPromote` |
-| C4 | ICS/L3 miss later skills | Phase 7/8 | fixtures + quality-gate globs |
-| C5 | Matrix promote ignores quality | Phase 11 | `Test-MatrixCellPromoteGate` |
-| C6 | Learn skill docs miss `matrix-cell` | Phase 11 | `skills/learn/SKILL.md` |
-| C7 | No secrets-audit script | Pillar 7 | `scripts/` + handbook |
-| C8 | Evidence output leak risk | Phase 9 | gitignore / redaction policy |
+| ID | Gap | Status | Notes |
+|----|-----|--------|-------|
+| C1 | MoA skips clarify→confirm | [ ] open | `/moa` SKILL or ADR exception |
+| C2 | MoA baseline ≠ compare Elo | [ ] open | Wire or document single evidence path |
+| C3 | Matrix-cell promote skips L2/ICS | [x] done | `Invoke-MatrixCellPromote` |
+| C4 | ICS/L3 miss later skills | [x] done | L3 markers + tip/effort globs |
+| C5 | Matrix promote ignores quality | [x] done | avgQuality vs task qualityMin |
+| C6 | Learn skill docs miss `matrix-cell` | [x] done | `skills/learn/SKILL.md` |
+| C7 | No secrets-audit script | [x] done | `Test-SecretsAudit.ps1` in CI |
+| C8 | Evidence output leak risk | [x] done | gitignore `evidence/compare/outputs/` |
 
-Track as todo `constitution-remediation` (pending). Prefer **20% changes**: C3+C6+C5 first (matrix promote path), then C4, then C1/C2/C7/C8.
+Remaining todo `constitution-remediation`: **C1 + C2 only**.
 
 ---
 
@@ -338,7 +339,7 @@ Local: `.\scripts\Test-CI.ps1` · Docs: [CI.md](../CI.md)
 ### Extended (Phases 4–11) — achieved at lean bar
 
 - [x] Learn / MoA / governance / ICS / compare / upgrade / living matrix+Auto  
-- [ ] Constitution remediation C1–C8 closed  
+- [x] Constitution remediation C3–C8 closed · [ ] C1–C2 still open  
 - [ ] Human evidence loops filled  
 
 ---
