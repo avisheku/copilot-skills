@@ -1,10 +1,12 @@
 ﻿{
-    "id":  "2aad12da5539",
+    "id":  "c7fe5784d640",
     "taskKind":  "implement",
     "family":  "anthropic",
     "effort":  "medium",
     "outcome":  "ok",
     "tokensEst":  45,
+    "qualityScore":  0.96,
     "escalatedFrom":  "",
-    "ts":  "2026-07-13T03:53:41.7831521Z"
+    "escalateReason":  "",
+    "ts":  "2026-07-13T06:12:51.4397939Z"
 }

@@ -1,6 +1,6 @@
 # Upgrade / frontier scan
 
-Generated: 2026-07-13T03:53:38.4535496Z
+Generated: 2026-07-13T06:12:50.5491971Z
 Summary: action=0 review=3 ok=9 / 12
 
 ## Components

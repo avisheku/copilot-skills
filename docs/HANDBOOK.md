@@ -263,7 +263,7 @@ VERIFY:
 
 ## Phase 11 — Living matrix
 
-Start `/do` from best evidenced `(family, effort)` cell; escalate effort then family with a synth pack; `/learn` promotes winners into `matrix.json`.  
+Start `/do` on **Copilot Auto** (10% discount) + effort from the living matrix; escalate on **fail or low quality**; raise Auto effort before leaving Auto; `/learn` promotes winners into `matrix.json`.  
 Detail: [plan/PHASE11_LIVING_MATRIX.md](plan/PHASE11_LIVING_MATRIX.md)
 
 ```powershell

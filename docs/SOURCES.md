@@ -20,5 +20,6 @@ Machine list: `config/research/sources.json` (used by upgrade scan).
 | GitHub Changelog | https://github.blog/changelog/ |
 | Anthropic news | https://www.anthropic.com/news |
 | OpenAI news | https://openai.com/index/ |
+| Copilot Auto (10% discount) | https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users/ |
 
-Phase plans: [PHASE6](plan/PHASE6_MOA.md) … [PHASE10](plan/PHASE10_UPGRADE.md)
+Phase plans: [PHASE6](plan/PHASE6_MOA.md) … [PHASE11](plan/PHASE11_LIVING_MATRIX.md)

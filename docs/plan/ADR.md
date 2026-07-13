@@ -624,8 +624,8 @@ Originally deferred: TOON · `/loop` · `/magic` · VSIX · OTel · Promptfoo L3
 
 | | |
 |--|--|
-| **Decision** | Log every `(taskKind, family, effort)` attempt; start `/do` from best evidenced cell (else seed); escalate **effort before family** with a synth pack; `/learn` kind `matrix-cell` promotes start when evidence clears the gate. No auto IDE model switch. |
-| **Consequences** | Stops always-max model/effort; prior work survives escalate; matrix improves via promote not vibes. |
+| **Decision** | Prefer **Copilot Auto** (10% discount) as default start; log `(taskKind, family, effort, qualityScore)`; escalate on **failure or quality below `qualityMin`**; raise Auto effort before leaving Auto; synth pack; `/learn` matrix-cell promote. No auto IDE model switch. |
+| **Consequences** | Maximizes Auto discount; ladder is quality-aware not only fail-aware; matrix improves via evidence. |
 
 ---
 

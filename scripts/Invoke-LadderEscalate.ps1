@@ -1,9 +1,12 @@
 param(
     [Parameter(Mandatory)][string]$Query,
     [string]$TaskKind = 'implement',
-    [string]$CurrentFamily = 'universal',
+    [string]$CurrentFamily = 'copilot-auto',
     [string]$CurrentEffort = 'medium',
     [int]$StepIndex = 0,
+    [ValidateSet('ok', 'warn', 'deny', 'error')][string]$Outcome = 'error',
+    [double]$QualityScore = -1,
+    [switch]$Force,
     [string]$AttemptSummary = '',
     [string]$WhatWorked = '',
     [string]$Blockers = '',
@@ -15,12 +18,12 @@ param(
 $ErrorActionPreference = 'Stop'
 Import-Module (Join-Path $PSScriptRoot 'modules\CopilotSkills.psm1') -Force
 
-# Log failed attempt at current cell
-Save-MatrixEvidenceRun -TaskKind $TaskKind -Family $CurrentFamily -Effort $CurrentEffort `
-    -Outcome 'error' -EscalatedFrom '' -Root $Root | Out-Null
+$q = $null
+if ($QualityScore -ge 0) { $q = $QualityScore }
 
 $result = Invoke-LadderEscalate -TaskKind $TaskKind -Query $Query `
     -CurrentFamily $CurrentFamily -CurrentEffort $CurrentEffort -StepIndex $StepIndex `
+    -Outcome $Outcome -QualityScore $q -Force:$Force `
     -AttemptSummary $AttemptSummary -WhatWorked $WhatWorked -Blockers $Blockers `
     -Artifacts $Artifacts -NextAsk $NextAsk -Root $Root
 

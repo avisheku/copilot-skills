@@ -1,0 +1,21 @@
+﻿{
+    "type":  "LadderSynthPack",
+    "runId":  "4ca626a1dba9",
+    "taskKind":  "implement",
+    "query":  "fix flaky test",
+    "attemptSummary":  "failed verify",
+    "whatWorked":  "repro found",
+    "blockers":  "flake",
+    "artifacts":  "",
+    "nextAsk":  "stabilize with seed",
+    "escalateReason":  "error",
+    "from":  {
+                 "family":  "copilot-auto",
+                 "effort":  "medium"
+             },
+    "to":  {
+               "family":  "copilot-auto",
+               "effort":  "high"
+           },
+    "packedAt":  "2026-07-13T06:12:51.0181564Z"
+}

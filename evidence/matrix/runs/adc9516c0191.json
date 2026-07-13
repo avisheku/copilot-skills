@@ -1,0 +1,12 @@
+﻿{
+    "id":  "adc9516c0191",
+    "taskKind":  "implement",
+    "family":  "copilot-auto",
+    "effort":  "high",
+    "outcome":  "error",
+    "tokensEst":  0,
+    "qualityScore":  null,
+    "escalatedFrom":  "",
+    "escalateReason":  "error",
+    "ts":  "2026-07-13T06:12:51.1494192Z"
+}

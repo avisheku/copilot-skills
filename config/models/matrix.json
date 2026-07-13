@@ -1,80 +1,68 @@
 ﻿{
-    "defaultTier":  "universal",
-    "taskTiers":  {
-                      "orchestrate":  "universal",
-                      "implement":  "universal",
-                      "research":  "universal"
-                  },
-    "efforts":  [
-                    "low",
-                    "medium",
-                    "high",
-                    "extra"
-                ],
-    "families":  {
-                     "anthropic":  {
-                                       "tipCard":  "tips/anthropic.md",
-                                       "catalogUrl":  "https://docs.anthropic.com"
-                                   },
-                     "openai":  {
-                                    "tipCard":  "tips/openai.md",
-                                    "catalogUrl":  "https://platform.openai.com/docs"
-                                },
-                     "google":  {
-                                    "tipCard":  "tips/google.md",
-                                    "catalogUrl":  "https://ai.google.dev/docs"
-                                },
-                     "universal":  {
-                                       "tipCard":  "tips/universal.md",
-                                       "catalogUrl":  ""
-                                   }
-                 },
-    "cells":  {
-                  "implement":  {
-                                    "start":  {
-                                                  "family":  "universal",
-                                                  "effort":  "medium"
-                                              },
-                                    "escalate":  [
-                                                     {
-                                                         "family":  "universal",
-                                                         "effort":  "high"
-                                                     },
-                                                     {
-                                                         "family":  "anthropic",
-                                                         "effort":  "medium"
-                                                     }
-                                                 ],
-                                    "evidenceMin":  3,
-                                    "source":  "seed",
-                                    "updatedAt":  null
-                                },
-                  "orchestrate":  {
-                                      "start":  {
-                                                    "family":  "universal",
-                                                    "effort":  "medium"
-                                                },
-                                      "escalate":  [
-                                                       {
-                                                           "family":  "universal",
-                                                           "effort":  "high"
-                                                       },
-                                                       {
-                                                           "family":  "anthropic",
-                                                           "effort":  "medium"
-                                                       }
-                                                   ],
-                                      "evidenceMin":  3,
-                                      "source":  "seed",
-                                      "updatedAt":  null
-                                  }
-              },
-    "ladder":  {
-                   "enabled":  true,
-                   "preferEffortBeforeFamily":  true,
-                   "maxSteps":  3,
-                   "evidenceMin":  3
-               },
-    "injectAt":  "worker_boundary",
-    "restoreAfterDo":  true
+  "defaultTier": "universal",
+  "taskTiers": {
+    "orchestrate": "copilot-auto",
+    "implement": "copilot-auto",
+    "research": "copilot-auto"
+  },
+  "efforts": ["low", "medium", "high", "extra"],
+  "families": {
+    "copilot-auto": {
+      "tipCard": "tips/copilot-auto.md",
+      "catalogUrl": "https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task",
+      "discountPct": 10,
+      "prefer": true
+    },
+    "anthropic": { "tipCard": "tips/anthropic.md", "catalogUrl": "https://docs.anthropic.com" },
+    "openai": { "tipCard": "tips/openai.md", "catalogUrl": "https://platform.openai.com/docs" },
+    "google": { "tipCard": "tips/google.md", "catalogUrl": "https://ai.google.dev/docs" },
+    "universal": { "tipCard": "tips/universal.md", "catalogUrl": "" }
+  },
+  "cells": {
+    "implement": {
+      "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalate": [
+        { "family": "copilot-auto", "effort": "high" },
+        { "family": "universal", "effort": "high" },
+        { "family": "anthropic", "effort": "medium" }
+      ],
+      "evidenceMin": 3,
+      "source": "seed",
+      "updatedAt": null
+    },
+    "orchestrate": {
+      "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalate": [
+        { "family": "copilot-auto", "effort": "high" },
+        { "family": "universal", "effort": "high" },
+        { "family": "anthropic", "effort": "medium" }
+      ],
+      "evidenceMin": 3,
+      "source": "seed",
+      "updatedAt": null
+    },
+    "research": {
+      "start": { "family": "copilot-auto", "effort": "medium" },
+      "escalate": [
+        { "family": "copilot-auto", "effort": "high" },
+        { "family": "anthropic", "effort": "medium" }
+      ],
+      "evidenceMin": 3,
+      "source": "seed",
+      "updatedAt": null
+    }
+  },
+  "ladder": {
+    "enabled": true,
+    "preferEffortBeforeFamily": true,
+    "preferDiscountFamily": "copilot-auto",
+    "maxSteps": 3,
+    "evidenceMin": 3,
+    "qualityMin": 0.75,
+    "escalateOn": ["error", "deny", "qualityBelow"]
+  },
+  "injectAt": "worker_boundary",
+  "restoreAfterDo": true
 }
+
+

@@ -14,10 +14,11 @@ Orchestrate end-to-end. Follow `shared/instructions/gate-flow.md`.
 3. **Gate 2 — Research** — delegate `/research` (`shared/fixtures/delegatesTo-research.json`); depth one; native fork if parallel.
 4. **Re-clarify** if scope changed.
 5. **Gate 3 — ShortPlan** — user confirm yes. `New-ShortPlan` / `Confirm-Plan`.
-6. **Gate 4 — Implement** — FullPlan for `agents/do.agent.md` workers only. Use injected family + effort tips. On stuck (verify fail / refuse / user stuck):
-   - `scripts/Invoke-LadderEscalate.ps1` — raise **effort then family** with a **synth pack** (prior work only).
-   - Ask user to switch model if family changed; continue from pack — do not rediscover.
-   - Log outcomes: `scripts/Save-MatrixEvidence.ps1`.
+6. **Gate 4 — Implement** — FullPlan for `agents/do.agent.md` workers only. Prefer **Copilot Auto** (10% discount) + effort tips from the living matrix. Escalate when:
+   - attempt **fails** (error/deny/verify), **or**
+   - **quality below** `ladder.qualityMin` (even if the run "worked").
+   Use `scripts/Invoke-LadderEscalate.ps1` — raise **Auto effort first**, then leave Auto; always attach a **synth pack**.
+   Log: `scripts/Save-MatrixEvidence.ps1` (include `-QualityScore` when scored).
 7. **Gate 5 — `/2080`** — ≤ five recommendations.
 8. **Finish** — `scripts/Invoke-DoFinish.ps1` (restore context, model, MCP; handoff if `Test-SessionTokenThreshold` warns). On success after escalate, stage `/learn` matrix-cell proposal when evidence supports a better start.
 
